@@ -56,30 +56,13 @@
                 <li><a href="#" class="more">See all notifications</a></li>
               </ul>
             </li>
-            <!--<li class="dropdown">
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Basic Use</a></li>
                 <li><a href="#">Working With Data</a></li>
                 <li><a href="#">Security</a></li>
                 <li><a href="#">Troubleshooting</a></li>
-              </ul>
-            </li>-->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">                
-                  @if (Auth::user()->img != null)
-                    <img src="{{ asset('/img/avatar/'.Auth::user()->img) }}" class="img-circle" alt="User Image" width="25px" height="23px">
-                  @else
-                    <img src="{{ asset('/img/avatar/user_padrao.png') }}" class="img-circle" alt="User Image" width="25px" height="23px">
-                  @endif
-                <span>{{ Auth::user()->nome }}</span> 
-                <i class="icon-submenu lnr lnr-chevron-down"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-                <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-                <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-                <li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Sair</span></a></li>
               </ul>
             </li>
 
@@ -96,20 +79,13 @@
         <nav>
           <ul class="nav">
             <li><a href="{{ route('home') }}" class="@if(strstr(Route::getFacadeRoot()->current()->uri(), 'home')) active @endif"><i class="fa fa-home"></i> <span>Inicio </span> </a></li>
-            <li><a href="{{ route('ocorrencia.novo.form') }}" class="@if(strstr(Route::getFacadeRoot()->current()->uri(), 'ocorrencia/novo')) active @endif"><i class="fa fa-edit"></i> <span>Criar </span></a></li>
-            <li><a href="{{ route('pendente.listar') }}" class="@if(strstr(Route::getFacadeRoot()->current()->uri(), 'ocorrencia/pendente')) active @endif"><i class="fa fa-bell"></i> <span>Pendentes</span></a></li>
-            <li><a href="{{ route('atendimento.listar') }}" class="@if(strstr(Route::getFacadeRoot()->current()->uri(), 'ocorrencia/atendimento')) active @endif"><i class="lnr lnr-chart-bars"></i> <span>Atendimento</span></a></li>
             <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Encerrados</span></a></li>
             <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
             <li>
               <a href="#subPages" data-toggle="collapse" class="collapsed @if(strstr(Route::getFacadeRoot()->current()->uri(), 'administrativo')) active @endif "><i class="lnr lnr-cog"></i> <span>Administrativo</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
               <div id="subPages" class="collapse ">
                 <ul class="nav">
-                  <li><a href="{{ route('usuario.index') }}" class="">Usuários</a></li>
-                  <li><a href="{{ route('grupo.index') }}" class="">Grupos</a></li>
-                  <li><a href="{{ route('categoria.index', 0) }}" class="">Categoria</a></li>
-                  <li><a href="{{ route('sla.index') }}" class="">SLA</a></li>
-                  
+                  <li><a href="{{ route('home') }}" class="">Usuários</a></li>                  
                 </ul>
               </div>
             </li>
