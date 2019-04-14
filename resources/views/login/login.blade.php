@@ -28,7 +28,7 @@
                                 <!--<p class="lead">Entre com suas credenciais</p>  class="img-responsive" -->
                             </div>
 
-                            <form action="{{ route('authentication') }}" method="post">
+                            <form action="{{ route('login') }}" method="post">
                             @csrf
 
                                 <div class="form-group @if ($errors->has('user')) has-error @endif">
