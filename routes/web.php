@@ -14,3 +14,4 @@ Route::get('/', function () {
 });
 
 Route::view('/home', 'layout.index')->name('home');
+Route::view('/login', 'login.login')->name('login');

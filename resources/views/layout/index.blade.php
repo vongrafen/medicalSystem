@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{{ asset('/assets/vendor/datepicker/datepicker3.css') }} ">
   <link rel="stylesheet" href="{{ asset('/assets/css/main.css') }}">
   <link rel="stylesheet" href="{{ asset('/assets/css/demo.css') }}">
-  <link href="{{ asset('/css/fonts_google.css') }}" rel="stylesheet">
+  <link href="{{ asset('/css/fonts_google.css') }}" rel="stylesheet"> 
 
 </head>
 
@@ -33,12 +33,12 @@
         <div class="navbar-btn">
           <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle" data-toggle="tooltip" data-placement="left" title="Menu"></i></button>
         </div>
-        <form class="navbar-form navbar-left">
+        <!-- <form class="navbar-form navbar-left">
           <div class="input-group">
             <input type="text" value="" class="form-control" placeholder="Procurar...">
             <span class="input-group-btn"><button type="button" class="btn btn-default">Ir</button></span>
           </div>
-        </form>
+        </form> -->
         
         <div id="navbar-menu">
           <ul class="nav navbar-nav navbar-right">
