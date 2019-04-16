@@ -1,4 +1,5 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -9,9 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
-	return view('welcome');
+    return Redirect::to('login');
 });
 
-Route::view('/home', 'layout.index')->name('home');
-Route::view('/login', 'login.login')->name('login');
+Route::view('/login', 'auth.login')->name('login');
+Route::post('/login', 'Auth\LoginController@authentication')->name('login');
+
+Route::view('/register', 'auth.register')->name('register');
+Route::view('/verify', 'auth.verify')->name('verify');
+
+Route::view('/home', 'home')->name('home');
+//Route::view('/logout', 'layouts\app')->name('logout');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::view('/dashboard', 'layouts.app')->name('Dashboard');
