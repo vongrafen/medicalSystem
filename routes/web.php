@@ -25,3 +25,5 @@ Route::view('/home', 'home')->name('home');
 //Route::view('/logout', 'layouts\app')->name('logout');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::view('/dashboard', 'layouts.app')->name('Dashboard');
+// Rotas para instalação equipamentos.
+Route::view('/equipamentos', 'servicos.equipamentos')->name('Equipamentos');
