@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<link rel="stylesheet" href="<?php echo asset('css/style.css')?>" type="text/css">
+
+<div class="container1">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

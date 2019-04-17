@@ -43,7 +43,7 @@ class LoginController extends Controller
         //$loginData = ['login' => $user, 'password' => $password];
 
         if (auth::attempt(['login' => $user, 'password' => $password])){
-            return redirect ('Dashboard');
+            return redirect ('dashboard');
         }
         else {
             return redirect ('login');

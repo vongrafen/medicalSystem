@@ -19,6 +19,8 @@ Route::view('/login', 'auth.login')->name('login');
 Route::post('/login', 'Auth\LoginController@authentication')->name('login');
 
 Route::view('/register', 'auth.register')->name('register');
+Route::post('/register', 'Auth\RegisterController@createUser')->name('register');
+
 Route::view('/verify', 'auth.verify')->name('verify');
 
 Route::view('/home', 'home')->name('home');

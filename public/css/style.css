@@ -1,0 +1,14 @@
+body {
+    margin: 0px
+}
+
+
+.card-body {
+    box-align: center;
+    justify-content: center;
+    align-items: center
+}
+
+.col-md-8 offset-md-4    {
+    box-align: center;
+}
