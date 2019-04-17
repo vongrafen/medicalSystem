@@ -13,7 +13,7 @@ class Exames extends Migration
      */
     public function up()
     {
-        Schema::create('exames', function(Blueprint $table) {
+        Schema::create('agenda_exames', function(Blueprint $table) {
             $table->increments('id')->unique();
             $table->dateTime('Data_agendada');
             $table->dateTime('Data_realizada');
