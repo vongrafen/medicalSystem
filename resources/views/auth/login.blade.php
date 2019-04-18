@@ -1,71 +1,88 @@
-<link rel="stylesheet" href="<?php echo asset('css/style.css')?>" type="text/css">
+<!doctype html>
+<html lang="en" class="fullscreen-bg">
 
-<div class="container1">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <title>Login - {{ config('app.name') }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    
+    <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/linearicons/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/main.css') }}">
+    <link href="{{ asset('/css/fonts_google.css') }}" rel="stylesheet">
+    
+</head>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="login" class="col-md-4 col-form-label text-md-right">{{ __('Login') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="login" type="login" class="form-control{{ $errors->has('login') ? ' is-invalid' : '' }}" name="login" value="{{ old('login') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('login') }}</strong>
-                                    </span>
-                                @endif
+<body>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <div class="vertical-align-wrap">
+            <div class="vertical-align-middle">
+                <div class="auth-box ">
+                    <div class="left">
+                        <div class="content">
+                            <div class="header">
+                                <div class="logo text-center"><img src="{{ asset('/img/logo/unimed_p.png') }}"  alt="Logomarca"></div>
+                                <!--<p class="lead">Entre com suas credenciais</p>  class="img-responsive" -->
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>
+                            <form action="{{ route('authentication') }}" method="post">
+                            @csrf
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                <div class="form-group @if ($errors->has('user')) has-error @endif">
+                                    <!--<label class="control-label sr-only">Usuário</label>-->
+                                    <input type="text" class="form-control is-invalid" name="user" value="{{old('user')}}" placeholder="Usuário">
+                                    @if ($errors->has('user'))
+                                      <span class="help-block">{{ $errors->first('user') }}</span>
+                                    @endif 
                                 </div>
-                            </div>
-                        </div>
+                               
+                                <div class="form-group @if ($errors->has('password')) has-error @endif">
+                                    <!--<label class="control-label sr-only">Senha</label>-->
+                                    <input type="password" class="form-control" name="password" placeholder="Senha">
+                                    @if ($errors->has('password'))
+                                      <span class="help-block">{{ $errors->first('password') }}</span>
+                                    @endif
+                                </div>
+                       
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                                <!--<div class="form-group clearfix">
+                                    <label class="fancy-checkbox element-left">
+                                        <input type="checkbox">
+                                        <span>Lembrar-me?</span>
+                                    </label>
+                                </div>-->
+                                <button type="submit" class="btn btn-success btn-lg btn-block">Entrar</button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Esqueceu sua senha?') }}
-                                    </a>
+                                <br>
+                                @if ($message = Session::get('falha'))
+                                <div class="alert alert-danger alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
                                 @endif
+                                <!--<div class="bottom">
+                                    <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
+                                </div>-->
+                            </form>
+
                             </div>
+                    </div>
+                    <div class="right">
+                        <!--<div class="overlay"></div>-->
+                        <div class="content text">
+                            <h1 class="heading">Gerenciamento de chamados</h1>
+                            <p>Tecnlogia da Informação</p>
                         </div>
-                    </form>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- END WRAPPER -->
+</body>
+
+</html>

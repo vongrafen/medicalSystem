@@ -33,16 +33,16 @@ class LoginController extends Controller
     public function authentication(Request $request){
 
         $this -> validate($request, [
-            'login'=>'required',
+            'user'=>'required',
             'password'=>'required',
         ]);
 
-        $user = $request->input('login');
+        $user = $request->input('user');
         $password = $request->input('password');
 
-        //$loginData = ['login' => $user, 'password' => $password];
+        $loginData = ['user' => $user, 'password' => $password];
 
-        if (auth::attempt(['login' => $user, 'password' => $password])){
+        if (auth::attempt($loginData)){
             return redirect ('dashboard');
         }
         else {

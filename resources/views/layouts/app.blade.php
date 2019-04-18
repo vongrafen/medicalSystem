@@ -27,7 +27,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="brand">
-        <a href="{{ route('home') }}"><img src="{{ asset('/img/logo/logo_header.png') }}"></a>
+        <a href="{{ route('dashboard') }}"><img src="{{ asset('/img/logo/logo_header.png') }}"></a>
       </div>
       <div class="container-fluid">
         <div class="navbar-btn">
@@ -72,14 +72,14 @@
                   @else
                     <img src="{{ asset('/img/avatar/user_padrao.png') }}" class="img-circle" alt="User Image" width="25px" height="23px">
                   @endif
-                <span>{{ Auth::user()->nome }}</span> 
+                <span>{{ Auth::user()->name }}</span> 
                 <i class="icon-submenu lnr lnr-chevron-down"></i>
               </a>
               <ul class="dropdown-menu">
                 <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
                 <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
                 <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-                <li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Sair</span></a></li>
+                <li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i>  <span>Sair</span></a></li>
               </ul>
             </li>
 
