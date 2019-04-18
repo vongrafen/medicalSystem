@@ -25,7 +25,7 @@ Route::view('/verify', 'auth.verify')->name('verify');
 
 Route::view('/home', 'home')->name('home');
 
-Route::view('/logout', 'auth.login')->name('logout');
-//Route::view('/logout', 'Auth\LoginController@logout')->name('logout');
+//Route::view('/logout', 'auth.login')->name('logout');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::view('/dashboard', 'layouts.app')->name('dashboard');
