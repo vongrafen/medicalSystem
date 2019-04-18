@@ -1,8 +1,10 @@
 <html>
  <head>
   <title>Teste PHP</title>
+  
  </head>
  <body>
  <?php echo "<p>Olá Mundo</p>"; ?>
- </body>
+ <?php echo "<p>Olá Mundo2</p>"; ?>
+ </body> 
 </html>
