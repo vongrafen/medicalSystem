@@ -28,5 +28,3 @@ Route::view('/home', 'home')->name('home');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::view('/dashboard', 'layouts.app')->name('dashboard');
-Route::view('/equipamentos', 'servicos.equipamentos')->name('equipamentos');
-

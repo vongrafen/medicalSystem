@@ -1,7 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-
 <link rel="stylesheet" href="<?php echo asset('css/style.css')?>" type="text/css">
 
 <div class="container1">
@@ -73,4 +69,3 @@
         </div>
     </div>
 </div>
-@endsection
