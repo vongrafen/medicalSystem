@@ -73,8 +73,8 @@
                     <div class="right">
                         <!--<div class="overlay"></div>-->
                         <div class="content text">
-                            <h1 class="heading">Gerenciamento de chamados</h1>
-                            <p>Tecnlogia da Informação</p>
+                            <h1 class="heading">ClinisomRad</h1>
+                            <p class="heading2">Tela de Login</p>
                         </div>
                     </div>
                     <div class="clearfix"></div>

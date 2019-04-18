@@ -200,7 +200,7 @@ html.fullscreen-bg #wrapper {
   padding: 0;
   margin: 0;
   border: none;
-  background-color: #00a65a;
+  background-color: rgb(141, 141, 141);
   color: #fff;
 }
 
@@ -650,11 +650,11 @@ ul.list-justify > li {
   background-color: #f7f7f7; }
 
 .btn-success {
-  background-color: #41B314;
-  border-color: #3ca512; }
+  background-color: rgb(49, 59, 144);
+  border-color: rgb(49, 59, 144); }
   .btn-success:hover, .btn-success:focus {
-    background-color: #3ca512;
-    border-color: #3ca512; }
+    background-color:  rgb(49, 59, 144);
+    border-color:  rgb(49, 59, 144); }
 
 .btn.disabled,
 .btn[disabled],
@@ -1806,6 +1806,14 @@ ul.activity-timeline > li {
   .project-table > tbody > tr > td .avatar {
     width: 22px;
     border: 1px solid #CCC; }
+
+.heading {
+  color: #000000;
+}
+
+.heading2 {
+  color: #000000;
+}
 
 /*# sourceMappingURL=main.css.map */
 
