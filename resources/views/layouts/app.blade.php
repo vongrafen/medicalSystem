@@ -103,14 +103,17 @@
               <div id="subPages" class="collapse ">
                 <ul class="nav">
                   <li><a href="{{ route('dashboard') }}" class="">Usuários</a></li>
-                  
+                  <li><a href="{{ route('listaequipamentos') }}" class="">Listar Equipamentos</a></li>
+                  <li><a href="{{ route('equipamentos') }}" class="">Cadastrar Equipamentos</a></li>
                 </ul>
+                
               </div>
             </li>
             <li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
             <li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
             <li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
           </ul>
+          
         </nav>
       </div>
     </div>
@@ -121,7 +124,7 @@
     <div class="clearfix"></div>
     <footer>
       <div class="container-fluid">
-        <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
+        <p class="copyright">&copy; 2019 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
       </div>
     </footer>
   </div>
