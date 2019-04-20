@@ -1,5 +1,4 @@
 
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -51,39 +50,39 @@
                                 @endif
                             </div>
                         </div>
-                             <!-- colocar aqui o código do combobox https://pt.stackoverflow.com/questions/128914/laravel-como-popular-uma-combobox-no-evento-on-load-de-uma-view-blade -->   
-                        <div class="form-group row">
-                            <label for="status" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
 
-                            <div name="status" value="{{ old('status') }}" required autofocus">
-                            <Select>
-                                <option>Ativo</option>
-                                <option>Inativo</option>
+
+                        <div class="form-group row">
+                            <label for="status" class="col-md-1 control-label">{{ __('Status') }}</label>
+                            <div name="status" class="col-md-3" value="{{ old('status') }}" required autofocus>
+                            <select  class="form-control"  id="status" data-placeholder="Selecione">
+                                <option value="1">Ativo</option>
+                                <option value="0">Inativo</option>
                             </select>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required autofocus>
+                        <label for="description">Descrição</label>
+                        <br>
+                            <textarea for="description" type="text" id="description" class="form-control rounded-0 {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required autofocus>{{ __('Descreva o equipamento') }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('description') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            
                         </div>
 
-                        <div class="form-group row">
-                            <label for="servicestype" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de Serviço') }}</label>
 
-                            <div name="servicestype" value="{{ old('servicestype') }}" required autofocus">
-                            <Select>
-                                <option>pegar da tabela tipo de servicos</option>
-                                
+
+                        <div class="form-group row">
+                            <label for="servicestype" class="col-md-1 control-label">{{ __('Tipo de Serviço') }}</label>
+                            <div name="servicestype" class="col-md-3" value="{{ old('servicestype') }}" required autofocus>
+                            <select  class="form-control"  id="servicestype" data-placeholder="Selecione">
+                                <option value="0">Selecione</option>
+                                <option value="1">Pegar da tabela tipo de servicos</option>
                             </select>
                             </div>
                         </div>
@@ -92,7 +91,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Cadastrar') }}
+                                {{ __('Cadastrar') }}
                                 </button>
                             </div>
                         </div>
