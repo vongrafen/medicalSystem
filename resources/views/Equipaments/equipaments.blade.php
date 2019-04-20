@@ -63,22 +63,6 @@
                             </div>
                         </div>
 
-
-                        <div class="form-group row">
-                            <label for="serialNumber" class="col-md-4 col-form-label text-md-right">{{ __('Número de Serial') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="serialNumber" type="text" class="form-control{{ $errors->has('serialNumber') ? ' is-invalid' : '' }}" name="serialNumber" value="{{ old('serialNumber') }}" required autofocus>
-
-                                @if ($errors->has('serialNumber'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('serialNumber') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-
                         <div class="form-group row">
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
 

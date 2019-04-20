@@ -24,4 +24,9 @@ class EquipamentController extends Controller
     {
         return view('home');
     }
+    /**
+    * Criar um insert no banco de dados. 
+    */
+
+
 }
