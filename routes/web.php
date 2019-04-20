@@ -30,5 +30,6 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::view('/dashboard', 'layouts.app')->name('dashboard');
 
-Route::view('/equipamentos', 'Equipamentos.equipamentos')->name('equipamentos');
-Route::view('/listaequipamentos', 'Equipamentos.listaequipamentos')->name('listaequipamentos');
+Route::view('/equipaments', 'Equipaments.equipaments')->name('equipaments');
+Route::view('/equipamentslist', 'Equipaments.equipamentslist')->name('equipamentslist');
+

@@ -7,7 +7,7 @@
                 <div class="card-header">{{ __('Cadastro de Equipamentos') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('equipamentos') }}">
+                    <form method="POST" action="{{ route('equipaments') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="serialNumber" class="col-md-4 col-form-label text-md-right">{{ __('Número de Serial') }}</label>
+                            <label for="serialNumber" class="col-md-4 col-form-label text-md-right">{{ __('Número de Serie') }}</label>
 
                             <div class="col-md-6">
                                 <input id="serialNumber" type="text" class="form-control{{ $errors->has('serialNumber') ? ' is-invalid' : '' }}" name="serialNumber" value="{{ old('serialNumber') }}" required autofocus>
@@ -77,6 +77,33 @@
                                 @endif
                             </div>
                         </div>
+
+
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required autofocus>
+
+                                @if ($errors->has('description'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="servicestype" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de Serviço') }}</label>
+
+                            <div name="servicestype" value="{{ old('servicestype') }}" required autofocus">
+                            <Select>
+                                <option>pegar da tabela tipo de servicos</option>
+                                
+                            </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
