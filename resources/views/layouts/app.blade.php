@@ -103,7 +103,6 @@
               <div id="subPages" class="collapse ">
                 <ul class="nav">
                   <li><a href="{{ route('dashboard') }}" class="">Usuários</a></li>
-                  <li><a href="{{ route('equipamentslist') }}" class="">Listar Equipamentos</a></li>
                   <li><a href="{{ route('equipaments') }}" class="">Cadastrar Equipamentos</a></li>
                 </ul>
                 

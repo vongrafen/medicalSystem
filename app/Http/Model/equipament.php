@@ -2,19 +2,11 @@
 
 namespace App\Http\Model;
 
-use Illuminate\Database\Model;
+use Illuminate\Database\Eloquent\Model;
 
-class equipament extends Model
+class Equipament extends Model
 {
-       /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'Name', 'Model', 'Serialnumber', 'Status', 'Description', 'Servicestype',
+        'name', 'model', 'serialnumber', 'status', 'description', 'servicestype',
     ];
-
-    
-
 }

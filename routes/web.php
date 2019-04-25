@@ -30,8 +30,9 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::view('/dashboard', 'layouts.app')->name('dashboard');
 
-Route::view('/equipaments', 'Equipaments.equipaments')->name('equipaments');
-Route::get('/equipamentController', 'equipamentController@register')->name('equipamentController');
+Route::view('/equipaments', 'equipaments.equipaments')->name('equipaments');
+Route::view('/equipaments', 'equipaments.equipaments@error')->name('equipaments');
+Route::POST('/equipamentController', 'equipamentController@register')->name('equipamentController');
 
 Route::view('/equipamentslist', 'Equipaments.equipamentslist')->name('equipamentslist');
 
