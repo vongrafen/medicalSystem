@@ -9,7 +9,7 @@ use App\Http\Model\Equipament;
 class EquipamentController extends Controller
 {  
     /**
-    * Criar um insert no banco de dados. 
+    * Criar um insert no banco de dados . 
     */
     public function register(EquipamentRequest $request, Equipament $equipament)
     {
