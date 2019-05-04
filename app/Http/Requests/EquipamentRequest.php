@@ -25,7 +25,8 @@ class EquipamentRequest extends FormRequest
     public function rules()
     {
         return [
-            ''
+            'sdfsdfsdf'
+
         ];
     }
 }

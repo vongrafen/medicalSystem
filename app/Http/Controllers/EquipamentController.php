@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Requests\EquipamentRequest;
+use Illuminate\Http\Request;
 use App\Http\Model\Equipament;
 
 class EquipamentController extends Controller
@@ -11,7 +12,7 @@ class EquipamentController extends Controller
     /**
     * Criar um insert no banco de dados. 
     */
-    public function register(EquipamentRequest $request, Equipament $equipament)
+    public function register(request $request, Equipament $equipament)
     {
 
         $create = $equipament->create($request->all());

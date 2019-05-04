@@ -30,8 +30,13 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::view('/dashboard', 'layouts.app')->name('dashboard');
 
+
+// Tarefas do Alison
 Route::view('/equipaments', 'equipaments.equipaments')->name('equipaments');
-Route::view('/equipaments', 'equipaments.equipaments@error')->name('equipaments');
+Route::view('/typeequipaments', 'equipaments.equipaments')->name('equipaments');
+Route::view('/exams', 'equipaments.equipaments')->name('equipaments');
+Route::view('/typeexams', 'equipaments.equipaments')->name('equipaments');
+//Route::view('/equipaments', 'equipaments.equipaments@error')->name('equipaments');
 Route::POST('/equipamentController', 'equipamentController@register')->name('equipamentController');
 
 Route::view('/equipamentslist', 'Equipaments.equipamentslist')->name('equipamentslist');
