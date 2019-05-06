@@ -32,7 +32,16 @@ Route::view('/dashboard', 'layouts.app')->name('dashboard');
 
 Route::view('/equipaments', 'equipaments.equipaments')->name('equipaments');
 Route::view('/equipaments', 'equipaments.equipaments@error')->name('equipaments');
-Route::POST('/equipamentController', 'equipamentController@register')->name('equipamentController');
+Route::get('/equipamentController', 'equipamentController@register')->name('equipamentController');
 
 Route::view('/equipamentslist', 'Equipaments.equipamentslist')->name('equipamentslist');
 
+ //Medicos
+ Route::group(['prefix' => 'medicos'], function () {
+    Route::get('/', 'DoctorController@all')->name('doctors.all');
+    Route::get('cadastrar', 'DoctorController@create')->name('doctors.create');
+    Route::post('cadastrar', 'DoctorController@store')->name('doctors.store');
+    Route::get('edit/{id}', 'DoctorController@edit')->name('doctors.edit');
+    Route::put('edit/{id}', 'DoctorController@update')->name('doctors.update');
+    Route::get('excluir/{id}', 'DoctorController@destroy')->name('doctors.destroy');
+});
