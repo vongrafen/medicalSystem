@@ -14,10 +14,11 @@ class ExamsController extends Controller
         
         if($create)  
             //return 'Inserido com sucesso';
-            return redirect()->route('examsList');
+           return redirect()->route('examsList');
         else
-            //return 'não inseriu';
-            return redirect()->route('equipaments@error');
+            
+        return 'não inseriu';
+            //return redirect()->route('equipaments@error');
             
     }
 }
