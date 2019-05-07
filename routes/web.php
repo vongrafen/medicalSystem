@@ -33,11 +33,19 @@ Route::view('/dashboard', 'layouts.app')->name('dashboard');
 
 // Tarefas do Alison
 Route::view('/equipaments', 'equipaments.equipaments')->name('equipaments');
-Route::view('/typeequipaments', 'equipaments.equipaments')->name('equipaments');
-Route::view('/exams', 'equipaments.equipaments')->name('equipaments');
-Route::view('/typeexams', 'equipaments.equipaments')->name('equipaments');
 //Route::view('/equipaments', 'equipaments.equipaments@error')->name('equipaments');
 Route::POST('/equipamentController', 'equipamentController@register')->name('equipamentController');
 
+Route::view('/typeequipaments', 'typeequipaments.typeequipaments')->name('typeequipaments');
+Route::POST('/typeequipamentsController', 'typeequipamentsController@register')->name('typeequipamentsController');
+
+
+Route::view('/exams', 'exams.exams')->name('exams');
+Route::POST('/examsController', 'examsController@register')->name('examsController');
+
+Route::view('/typeexams', 'typeexams.typeexams')->name('typeexams');
+Route::POST('/typeexamsController', 'typeexamsController@register')->name('typeexamsController');
+
 Route::view('/equipamentslist', 'Equipaments.equipamentslist')->name('equipamentslist');
+//Route::view('/typeexamslist', 'typeexams.typeexamsist')->name('typeexamslist');
 
