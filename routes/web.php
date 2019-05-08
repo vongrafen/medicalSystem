@@ -39,7 +39,6 @@ Route::POST('/equipamentController', 'equipamentController@register')->name('equ
 Route::view('/typeequipaments', 'typeequipaments.typeequipaments')->name('typeequipaments');
 Route::POST('/typeequipamentsController', 'typeequipamentsController@register')->name('typeequipamentsController');
 
-
 Route::view('/exams', 'exams.exams')->name('exams');
 Route::POST('/examsController', 'examsController@register')->name('examsController');
 
