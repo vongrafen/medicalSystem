@@ -38,12 +38,12 @@
                                 </tr>
                         </thead>
                         <tbody>
-                        @foreach($people as $people)
+                        @foreach($peoples as $people)
                         <tr>
                                 <th scope="row">{{ $people->id }}</th>
                                 <td>{{ $people->name }}</td>
                                 <td>{{ $people->email }}</td>
-                                <td>{{ $people->adress }}</td>
+                                <td>{{ $people->address }}</td>
                                 <td>
                                     <a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>
                                     <a class="btn btn-default" href="{{route('people.edit',$people->id)}}">Editar</a>
