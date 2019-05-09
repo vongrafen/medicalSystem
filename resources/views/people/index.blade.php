@@ -1,4 +1,9 @@
-﻿<div class="container">
+﻿@extends('adminlte::page')
+
+@section('title', 'Cadastro de Equipamentos')
+
+@section('content')
+<div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
@@ -29,12 +34,12 @@
                                 </tr>
                         </thead>
                         <tbody>
-                        @foreach($peoples as $people)
+                        @foreach($peoples as $x)
                         <tr>
                                 <th scope="row">{{ $people->id }}</th>
-                                <td>{{ $people->name }}</td>
-                                <td>{{ $people->email }}</td>
-                                <td>{{ $people->address }}</td>
+                                <td>{{ $x->name }}</td>
+                                <td>{{ $x->email }}</td>
+                                <td>{{ $x->address }}</td>
                                 <td>
                                     <a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>
                                     <a class="btn btn-default" href="{{route('people.edit',$people->id)}}">Editar</a>
@@ -49,7 +54,7 @@
 
                     
                     <div align="center">
-                        {!! $people->links() !!}
+                        {!! $peoples->links() !!}
                     </div>
                     
 
@@ -58,4 +63,5 @@
         </div>
     </div>
 </div>
+@stop
 

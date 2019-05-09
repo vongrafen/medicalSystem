@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\People;
 use Illuminate\Http\Request;
 
 class PeopleController extends Controller
@@ -13,13 +14,13 @@ class PeopleController extends Controller
 
     public function index()
     {
-        $peoples = \App\Http\Model\People::paginate(5);
-        return view('people.index');
+        $peoples = People::paginate(5);
+        return view('people.index', ['peoples' => $peoples]);
     }
 
     public function detail($id)
     {
-        $people = \App\Http\Model\People::find($id);
+        $people = People::find($id);
         return view('people.detail', compact('people'));
     }
 
@@ -30,8 +31,8 @@ class PeopleController extends Controller
 
     public function save(\App\Http\Requests\PeopleRequest $request)
     {
-        \App\Http\Model\People::create($request->all());
-        \Session::flash('flash_message', [
+        People::create($request->all());
+        Session::flash('flash_message', [
             'msg'=>"Pessoa adicionada com sucesso",
             'class'=>"alert-success"
         ]);
@@ -40,7 +41,7 @@ class PeopleController extends Controller
 
     public function edit ($id)
     {
-        $people = \App\Http\Model\People::find($id);
+        $people = People::find($id);
         if(!$people){
             \Session::flash('flash_message', [
                 'msg'=>"Não existe esse pessoa cadastrada, deseja cadastrar nova pessoa?",
@@ -53,9 +54,9 @@ class PeopleController extends Controller
 
     public function update(Request $request, $id)
     {
-        \App\Http\Model\People::find($id)->update($request->all());
+        People::find($id)->update($request->all());
         
-        \Session::flash('flash_message',[
+        Session::flash('flash_message',[
             'msg'=>"Pessoa atualizada com sucesso!",
             'class'=>"alert-success"
         ]);
@@ -66,7 +67,7 @@ class PeopleController extends Controller
 
     public function delete($id)
     {
-        $people = \App\Http\Model\People::find($id);
+        $people = People::find($id);
        
 
         if(!$people->deleteTelephone()){
@@ -85,7 +86,4 @@ class PeopleController extends Controller
         return redirect()->route('people.index');        
         
     }
-
-
-
 }

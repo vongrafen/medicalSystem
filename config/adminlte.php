@@ -125,6 +125,11 @@ return [
             'url'  => '/index',
         ],
         [
+            'text' => 'Pessoas',
+            'icon' => 'contact',
+            'url'  => '/people',
+        ],
+        [
             'text'    => 'Cadastro',
             'icon'    => 'folder-open',
             'submenu' => [
