@@ -35,7 +35,7 @@ class CreateEquipamentsTable extends Migration
             $table->string('disk_type')->nullable();
             $table->string('user')->nullable();
             $table->string('departament')->nullable();
-                $table->foreign('departament')->references('id')->on('departament');
+                //$table->foreign('departament')->references('id')->on('departament');
             $table->boolean('active')->default(true);
             $table->timestamps();
             
