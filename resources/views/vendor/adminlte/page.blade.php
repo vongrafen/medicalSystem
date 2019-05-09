@@ -41,9 +41,9 @@
             <!-- Logo -->
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><img src="{{ asset('img/logo/logo_header_p.png') }}" alt=""></span>
+                <span class="logo-mini"><b>C</b>RAD</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><img src="{{ asset('img/logo/logo_header.png') }}" alt=""></span>
+                <span class="logo-lg"><b>Clinisom</b>RAD</span>
             </a>
 
             <!-- Header Navbar -->

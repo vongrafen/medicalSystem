@@ -9,11 +9,11 @@
 @section('body_class', 'login-page')
 
 @section('body')
-    
+
     <div class="login-box">
-        <h5>Controle de Patrimonio | Tecnologia da Informação</h4>
         <div class="login-logo">
-            <img src="{{ asset('img/logo/unimed_p.png') }}" alt="">
+            <img src="{{ asset('img/logo/logo_p.png') }}" alt="">
+            <h2>LOGIN ClinisomRad</h2>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -45,7 +45,7 @@
                     <!-- /.col -->
                     <div class="col-xs-4">
                         <button type="submit"
-                                class="btn btn-success btn-block btn-flat">Login</button>
+                                class="btn btn-primary btn-block btn-flat">Login</button>
                     </div>
                     <!-- /.col -->
                 </div>

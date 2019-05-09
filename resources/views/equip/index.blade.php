@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="box box-success">
+<div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Data Table With Full Features</h3>
             </div>

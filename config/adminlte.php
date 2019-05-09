@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Controle Patrimonial',
+    'title' => 'ClinisomRad',
 
     'title_prefix' => ' ',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Clinisom</b>RAD',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>C</b>RAD',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'green',
+    'skin' => 'blue',
 
     /*
     |--------------------------------------------------------------------------

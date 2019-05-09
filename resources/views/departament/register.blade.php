@@ -5,7 +5,7 @@
 @section('content')
 <link rel="stylesheet" href="css/main.css">
 
-<div class="box box-success">
+<div class="box box-primary">
   <div class="box-header with-border">
     <h3 class="box-title">Cadastro de Departamentos</h3>
   </div>
@@ -35,14 +35,14 @@
         </div>
       </div>
       <div class="box-body">            
-        <button type="submit" class="btn btn-success mb-2">Cadastrar</button>    
+        <button type="submit" class="btn btn-primary mb-2">Cadastrar</button>    
       </div>
 
   </form>
 </div>
 
 
-<div class="box box-success">
+<div class="box box-primary">
     <div class="box-header">
       <h3 class="box-title">Departamentos Cadastrados</h3>
     </div>
