@@ -52,11 +52,9 @@
 
                     </table>
 
-                    
                     <div align="center">
                         {!! $peoples->links() !!}
-                    </div>
-                    
+                    </div> 
 
                 </div>
             </div>
