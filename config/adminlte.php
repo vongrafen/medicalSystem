@@ -120,6 +120,7 @@ return [
             'url'  => '/home',
         ],
         [
+<<<<<<< HEAD
             'text'    => 'Consulta',
             'icon'    => 'folder-open',
             'submenu' => [
@@ -127,6 +128,30 @@ return [
                     'text' => 'Pacientes',
                     'icon' => 'cube',
                     'url'  => '/pacientes',
+=======
+            'text' => 'Equipamentos',
+            'icon' => 'cube',
+            'url'  => '/index',
+        ],
+        [
+            'text' => 'Médicos',
+            'icon' => 'cube',
+            'url'  => '/medicos',
+        ],
+        [
+            'text' => 'Pacientes',
+            'icon' => 'cube',
+            'url'  => '/pacientes',
+        ],
+        [
+            'text'    => 'Cadastro',
+            'icon'    => 'folder-open',
+            'submenu' => [
+                [
+                    'text' => 'Computadores',
+                    'icon' => 'desktop',
+                    'url'  => '/equipamentos',
+>>>>>>> parent of 3bf5f2b... Equipamentos
                 ],
                 [
                     'text' => 'Médicos',
