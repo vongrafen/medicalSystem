@@ -161,7 +161,7 @@ return [
                 [
                     'text' => 'Pessoas',
                     'icon' => 'contact',
-                    'url'  => '/people',
+                    'url'  => '/people/add',
                 ],
             ],        
         ],
