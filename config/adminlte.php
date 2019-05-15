@@ -120,11 +120,6 @@ return [
             'url'  => '/home',
         ],
         [
-            'text' => 'Equipamentos',
-            'icon' => 'cube',
-            'url'  => '/index',
-        ],
-        [
             'text' => 'Médicos',
             'icon' => 'cube',
             'url'  => '/medicos',
@@ -139,9 +134,9 @@ return [
             'icon'    => 'folder-open',
             'submenu' => [
                 [
-                    'text' => 'Computadores',
-                    'icon' => 'desktop',
-                    'url'  => '/equipamentos',
+                    'text' => 'Equipamentos',
+                    //'icon' => 'desktop',
+                    'url'  => '/equipamentos/index',
                 ],
                 [
                     'text' => 'Setores',
