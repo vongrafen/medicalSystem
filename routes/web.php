@@ -32,6 +32,25 @@ Route::group( [ 'middleware' => 'auth'], function()
         Route::get('/departamentos', 'DepartamentController@index')->name('showDepartament');
 });
 
+//Medicos
+Route::group(['prefix' => 'medicos'], function () {
+    Route::get('/', 'DoctorController@all')->name('doctors.all');
+    Route::get('cadastrar', 'DoctorController@create')->name('doctors.create');
+    Route::post('cadastrar', 'DoctorController@store')->name('doctors.store');
+    Route::get('edit/{id}', 'DoctorController@edit')->name('doctors.edit');
+    Route::put('edit/{id}', 'DoctorController@update')->name('doctors.update');
+    Route::get('excluir/{id}', 'DoctorController@destroy')->name('doctors.destroy');
+});
+//Pacientes
+Route::group(['prefix' => 'pacientes'], function () {
+    Route::get('/', 'PatientController@all')->name('patients.all');
+    Route::get('cadastrar', 'PatientController@create')->name('patients.create');
+    Route::post('cadastrar', 'PatientController@store')->name('patients.store');
+    Route::get('edit/{id}', 'PatientController@edit')->name('patients.edit');
+    Route::put('edit/{id}', 'PatientController@update')->name('patients.update');
+    Route::get('excluir/{id}', 'PatientController@destroy')->name('patients.destroy');
+});
+
 //Routes people
 Route::get('/people', ['uses'=>'PeopleController@index', 'as' => 'people.index']);
 Route::get('/people/add', ['uses'=>'PeopleController@add', 'as' => 'people.add']);

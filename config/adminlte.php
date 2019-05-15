@@ -125,9 +125,14 @@ return [
             'url'  => '/index',
         ],
         [
-            'text' => 'Pessoas',
-            'icon' => 'contact',
-            'url'  => '/people',
+            'text' => 'Médicos',
+            'icon' => 'cube',
+            'url'  => '/medicos',
+        ],
+        [
+            'text' => 'Pacientes',
+            'icon' => 'cube',
+            'url'  => '/pacientes',
         ],
         [
             'text'    => 'Cadastro',
@@ -143,7 +148,22 @@ return [
                     'icon' => 'briefcase',
                     'url'  => '/departamentos',
                 ],
-            ],
+                [
+                    'text' => 'Médicos',
+                    'icon' => 'doctor',
+                    'url'  => '/medicos/cadastrar',
+                ],
+                [
+                    'text' => 'Pacientes',
+                    'icon' => 'teste',
+                    'url'  => '/pacientes/cadastrar',
+                ],
+                [
+                    'text' => 'Pessoas',
+                    'icon' => 'contact',
+                    'url'  => '/people',
+                ],
+            ],        
         ],
     ],
 
