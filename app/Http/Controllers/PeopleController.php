@@ -32,7 +32,7 @@ class PeopleController extends Controller
     public function save(\App\Http\Requests\PeopleRequest $request)
     {
         People::create($request->all());
-        Session::flash('flash_message', [
+        \Session::flash('flash_message', [
             'msg'=>"Pessoa adicionada com sucesso",
             'class'=>"alert-success"
         ]);
@@ -56,7 +56,7 @@ class PeopleController extends Controller
     {
         People::find($id)->update($request->all());
         
-        Session::flash('flash_message',[
+        \Session::flash('flash_message',[
             'msg'=>"Pessoa atualizada com sucesso!",
             'class'=>"alert-success"
         ]);

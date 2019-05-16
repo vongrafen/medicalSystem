@@ -22,14 +22,13 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group( [ 'middleware' => 'auth'], function()
 {
-        Route::view('/home', 'home')->name('home');   
-        Route::view('/equipamentos', 'equip.register')->name('equipament');
-        Route::post('/equipamentos', 'EquipamentController@create')->name('cadastrar');
-        Route::get('/index', 'EquipamentController@index')->name('index');
+    //Equipamentos
+    Route::view('/home', 'home')->name('home');   
+    Route::view('/equipamentos', 'equipaments.register')->name('equipaments.register');
+    Route::post('/equipamentos/cadastro', 'EquipamentController@create')->name('equipaments.cadastrar');
+    Route::get('/equipamentos/index', 'EquipamentController@index')->name('equipaments.index');
 
-        Route::view('/departamentos', 'departament.register')->name('departament');
-        Route::post('/departamentos', 'DepartamentController@create')->name('registerDepartament');
-        Route::get('/departamentos', 'DepartamentController@index')->name('showDepartament');
+
 });
 
 //Medicos
