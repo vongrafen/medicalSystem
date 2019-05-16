@@ -1,6 +1,6 @@
 ﻿@extends('adminlte::page')
 
-@section('title', 'Cadastro de Pessoas')
+@section('title', 'Cadastro de Equipamentos')
 
 @section('content')
 <div class="container">
@@ -34,14 +34,14 @@
                                 </tr>
                         </thead>
                         <tbody>
-                        @foreach($peoples as $people)
+                        @foreach($peoples as $x)
                         <tr>
                                 <th scope="row">{{ $people->id }}</th>
-                                <td>{{ $people->name }}</td>
-                                <td>{{ $people->email }}</td>
-                                <td>{{ $people->address }}</td>
+                                <td>{{ $x->name }}</td>
+                                <td>{{ $x->email }}</td>
+                                <td>{{ $x->address }}</td>
                                 <td>
-                                    <!--<a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>-->
+                                    <a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>
                                     <a class="btn btn-default" href="{{route('people.edit',$people->id)}}">Editar</a>
                                     <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('people.delete',$people->id)}}' : false)">Deletar</a>
                                 </td>

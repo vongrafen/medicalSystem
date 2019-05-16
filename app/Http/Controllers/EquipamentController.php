@@ -16,7 +16,7 @@ class EquipamentController extends Controller
     {
         $equipament = Equipament::all();
 
-        return view('equipaments.index', ['resultado' => $equipament]);
+        return view('equip.index', ['resultado' => $equipament]);
     }
 
     /**

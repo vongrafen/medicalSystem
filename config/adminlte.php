@@ -120,15 +120,6 @@ return [
             'url'  => '/home',
         ],
         [
-<<<<<<< HEAD
-            'text'    => 'Consulta',
-            'icon'    => 'folder-open',
-            'submenu' => [
-                [
-                    'text' => 'Pacientes',
-                    'icon' => 'cube',
-                    'url'  => '/pacientes',
-=======
             'text' => 'Equipamentos',
             'icon' => 'cube',
             'url'  => '/index',
@@ -151,19 +142,12 @@ return [
                     'text' => 'Computadores',
                     'icon' => 'desktop',
                     'url'  => '/equipamentos',
->>>>>>> parent of 3bf5f2b... Equipamentos
                 ],
                 [
-                    'text' => 'Médicos',
-                    'icon' => 'cube',
-                    'url'  => '/medicos',
+                    'text' => 'Setores',
+                    'icon' => 'briefcase',
+                    'url'  => '/departamentos',
                 ],
-            ],        
-        ],
-        [
-            'text'    => 'Cadastro',
-            'icon'    => 'folder-open',
-            'submenu' => [
                 [
                     'text' => 'Médicos',
                     'icon' => 'doctor',
@@ -175,9 +159,9 @@ return [
                     'url'  => '/pacientes/cadastrar',
                 ],
                 [
-                    'text' => 'Equipamentos',
+                    'text' => 'Pessoas',
                     'icon' => 'contact',
-                    'url'  => '/equipamentos/index',
+                    'url'  => '/people/add',
                 ],
             ],        
         ],
