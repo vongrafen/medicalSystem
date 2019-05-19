@@ -120,34 +120,25 @@ return [
             'url'  => '/home',
         ],
         [
-            'text' => 'Equipamentos',
-            'icon' => 'cube',
-            'url'  => '/index',
-        ],
-        [
-            'text' => 'Médicos',
-            'icon' => 'cube',
-            'url'  => '/medicos',
-        ],
-        [
-            'text' => 'Pacientes',
-            'icon' => 'cube',
-            'url'  => '/pacientes',
+            'text'    => 'Consulta',
+            'icon'    => 'folder-open',
+            'submenu' => [
+                [
+                    'text' => 'Pacientes',
+                    'icon' => 'cube',
+                    'url'  => '/pacientes',
+                ],
+                [
+                    'text' => 'Médicos',
+                    'icon' => 'cube',
+                    'url'  => '/medicos',
+                ],
+            ],        
         ],
         [
             'text'    => 'Cadastro',
             'icon'    => 'folder-open',
             'submenu' => [
-                [
-                    'text' => 'Computadores',
-                    'icon' => 'desktop',
-                    'url'  => '/equipamentos',
-                ],
-                [
-                    'text' => 'Setores',
-                    'icon' => 'briefcase',
-                    'url'  => '/departamentos',
-                ],
                 [
                     'text' => 'Médicos',
                     'icon' => 'doctor',
@@ -159,9 +150,9 @@ return [
                     'url'  => '/pacientes/cadastrar',
                 ],
                 [
-                    'text' => 'Pessoas',
+                    'text' => 'Equipamentos',
                     'icon' => 'contact',
-                    'url'  => '/people/add',
+                    'url'  => '/equipamentos/index',
                 ],
                 [
                     'text' => 'Pessoas',

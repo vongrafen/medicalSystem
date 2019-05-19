@@ -1,15 +1,23 @@
 ﻿@extends('adminlte::page')
 
-@section('title', 'Cadastro de Equipamentos')
+@section('title', 'Cadastro de Pessoas')
 
 @section('content')
-<link rel="stylesheet" href="css/main.css">
 
 <div class="box box-primary">
  <div class="box-header with-border">
     <h3 class="box-title">Cadastro de Pessoas</h3>
-    <hr>
-                     <form action="{{ route('people.save') }}" method="post">
+ </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+
+            <ol class="breadcrumb panel-heading" >
+            <li><a style="font-size:110%" href="{{ route('people.index') }}"><b>Pessoas</b></a></li>
+            <li class="active" style="font-size:110%">Adicionar</li>
+            </ol>
+
+                    <form action="{{ route('people.save') }}" method="post">
                     {{ csrf_field() }}
                         <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="name">Nome</label>
@@ -21,12 +29,12 @@
                         @endif
                         </div>
 
-                        <div class="form-group {{$errors->has('teste1') ? 'has-error' : '' }}">
-                            <label for="teste1">Data de nascimento</label>
-                            <input type="text" id="teste1 "name="teste1" class="form-control" size="14" maxlength="10" placeholder="Data de nascimento">
-                        @if($errors->has('teste1'))
+                        <div class="form-group {{$errors->has('birthdate') ? 'has-error' : '' }}">
+                            <label for="birthdate">Data de nascimento</label>
+                            <input type="text" name="birthdate" class="form-control" placeholder="Data de nascimento">
+                        @if($errors->has('birthdate'))
                         <span class="help-block">
-                            <strong>{{$errors->first('teste1')}}</strong>
+                            <strong>{{$errors->first('birthdate')}}</strong>
                         </span>
                         @endif
                         </div>
@@ -43,7 +51,7 @@
 
                         <div class="form-group {{$errors->has('cpf') ? 'has-error' : '' }}">
                             <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" name="cpf" class="form-control" placeholder="000.000.000-00">
+                            <input type="text" name="cpf" class="form-control" placeholder="000.000.000-00">
                         @if($errors->has('cpf'))
                         <span class="help-block">
                             <strong>{{$errors->first('cpf')}}</strong>
@@ -121,7 +129,7 @@
                         @endif
                         </div>
 
-                        <button class="btn btn-primary">Adicionar</button>
+                        <button class="btn btn-info">Adicionar</button>
                         
                     </form>
 
@@ -131,6 +139,9 @@
                         </div>
                     @endif
 
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

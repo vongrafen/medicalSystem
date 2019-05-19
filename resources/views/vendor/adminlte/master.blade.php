@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
     <!-- DataTable  -->
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}">
-    
 
     @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->
@@ -50,7 +49,6 @@
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
 <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/jquery.inputmask.bundle.js') }}"></script>
 
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
@@ -71,12 +69,8 @@
 
 <script>
 $(document).ready( function () {
-
     $('#tableDepartament').DataTable();
-    $("#birthdate").inputmask("99/99/9999");
-    $("#cpf").inputmask({"mask": "999.999.999-99"});
-
-});
+} );
 </script>
 
 </body>
