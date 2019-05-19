@@ -10,7 +10,7 @@ class People extends Model
         'name', 'email', 'address', 'birthdate', 'genre', 'cpf', 'rg', 'number', 'district', 'complement', 'telephone', 'obs',
     ];
 
-    public function telephone(){
+    /*public function telephone(){
         return $this->hasMany('App\Telefone');
     }
 
@@ -24,5 +24,5 @@ class People extends Model
             $tel->delete();
         }
         return true;
-    }
+    }*/
 }

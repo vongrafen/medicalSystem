@@ -154,6 +154,11 @@ return [
                     'icon' => 'contact',
                     'url'  => '/equipamentos/index',
                 ],
+                [
+                    'text' => 'Pessoas',
+                    'icon' => 'contact',
+                    'url'  => '/people',
+                ],
             ],        
         ],
     ],

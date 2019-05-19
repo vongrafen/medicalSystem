@@ -70,13 +70,13 @@ class PeopleController extends Controller
         $people = People::find($id);
        
 
-        if(!$people->deleteTelephone()){
+        /*if(!$people->deleteTelephone()){
             \Session::flash('flash_message', [
                 'msg'=>"Registro não pode ser deletado",
                 'class'=>"alert-danger"
             ]);
             return redirect()->route('people.index');
-        }
+        }*/
         $people->delete();
          \Session::flash('flash_message',[
             'msg'=>"Pessoa atualizada com sucesso!",

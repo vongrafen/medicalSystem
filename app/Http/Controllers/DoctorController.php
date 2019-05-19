@@ -20,10 +20,9 @@ class DoctorController extends Controller
      */
     public function all()
     {
-        // dd('Página em Manutenção');
+        
         $title = 'Médicos';
         $doctors = $this->doctorModel->get();
-        // dd('Página em Manutenção');
         $btnGroups = [
             '<a href="'.route('doctors.create').'" class="btn btn-sm btn-primary">Cadastrar Médico</a>'
         ];

@@ -7,5 +7,9 @@
 @stop
 
 @section('content')
-    <p>You are logged in!</p>
+    <p>Você está logado! Seja bem vindo.</p>
+    <hr>
+    <br>
+    <br>
+    <h1 align="center">EM CONSTRUÇÃO</h1>
 @stop
