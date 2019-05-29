@@ -26,6 +26,11 @@ class PeopleController extends Controller
 >>>>>>> master
     }
 
+    public function menu()
+    {
+        return view('people.menu');
+    }
+
     public function detail($id)
     {
 <<<<<<< HEAD
