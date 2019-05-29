@@ -52,6 +52,7 @@ Route::group(['prefix' => 'pacientes'], function () {
 
 //Routes people
 Route::get('/people', ['uses'=>'PeopleController@index', 'as' => 'people.index']);
+Route::get('/people/menu', ['uses'=>'PeopleController@menu', 'as' => 'people.menu']);
 Route::get('/people/add', ['uses'=>'PeopleController@add', 'as' => 'people.add']);
 Route::post('/people/save', ['uses'=>'PeopleController@save', 'as' => 'people.save']);
 Route::get('/people/edit/{id}', ['uses'=>'PeopleController@edit', 'as' => 'people.edit']);

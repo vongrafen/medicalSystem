@@ -18,6 +18,11 @@ class PeopleController extends Controller
         return view('people.index', ['peoples' => $peoples]);
     }
 
+    public function menu()
+    {
+        return view('people.menu');
+    }
+
     public function detail($id)
     {
         $people = People::find($id);

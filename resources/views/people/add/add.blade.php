@@ -1,19 +1,19 @@
 ﻿@extends('adminlte::page')
 
-@section('title', 'Cadastro de Pessoas')
+@section('title', 'Cadastro de Pacientes')
 
 @section('content')
 
 <div class="box box-primary">
  <div class="box-header with-border">
-    <h3 class="box-title">Cadastro de Pessoas</h3>
+    <h3 class="box-title">Cadastro de Pacientes</h3>
  </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
 
             <ol class="breadcrumb panel-heading" >
-            <li><a style="font-size:110%" href="{{ route('people.index') }}"><b>Pessoas</b></a></li>
+            <li><a style="font-size:110%" href="{{ route('people.index') }}"><b>Pacientes</b></a></li>
             <li class="active" style="font-size:110%">Adicionar</li>
             </ol>
 
