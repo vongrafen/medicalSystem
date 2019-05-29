@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Database\Eloquent\Model;
 
 class RegisterController extends Controller
 {
@@ -31,12 +29,6 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
-    public function createUser(Request $request, User $user){
-
-        $user->create($request->all());
-        return redirect ('login');
-    }
 
     /**
      * Create a new controller instance.

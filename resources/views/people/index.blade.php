@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -7,6 +8,13 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+=======
+﻿@extends('adminlte::page')
+
+@section('title', 'Cadastro de Pessoas')
+
+@section('content')
+>>>>>>> master
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -30,11 +38,19 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+<<<<<<< HEAD
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Email</th>
                                 <th>Endereco</th>
                                 <th>Acao</th>
+=======
+                                <th></th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Endereço</th>
+                                <th>Ação</th>
+>>>>>>> master
                                 </tr>
                         </thead>
                         <tbody>
@@ -45,7 +61,11 @@
                                 <td>{{ $people->email }}</td>
                                 <td>{{ $people->address }}</td>
                                 <td>
+<<<<<<< HEAD
                                     <a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>
+=======
+                                    <!--<a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>-->
+>>>>>>> master
                                     <a class="btn btn-default" href="{{route('people.edit',$people->id)}}">Editar</a>
                                     <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('people.delete',$people->id)}}' : false)">Deletar</a>
                                 </td>
@@ -56,15 +76,25 @@
 
                     </table>
 
+<<<<<<< HEAD
                     <!--
                     <div align="center">
                         {!! $people->links() !!}
                     </div>
                     -->
+=======
+                    <div align="center">
+                        {!! $peoples->links() !!}
+                    </div> 
+>>>>>>> master
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+@stop
+>>>>>>> master
 

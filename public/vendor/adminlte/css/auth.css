@@ -1,0 +1,28 @@
+.auth-links {
+    margin-top: 10px;
+}
+
+.login-logo{
+    background-color: #ffff;
+    margin-bottom: -5%;
+    margin-top: 1%;
+}
+
+.col-xs-4{
+    position: relative;
+    width: 100%;
+}
+
+h5{
+    text-align: center;
+    background-color: #ffff;
+    margin-bottom: -1%;
+    box-sizing: content-box;
+    width: 100%;
+    height: 30px;
+    
+}
+
+body{
+    max-height: 50%;
+}
