@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoctorsTable extends Migration
+class AddForeignKeyPeopleIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,10 @@ class CreateDoctorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctors', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('cpf');
-            $table->string('crm');
-            $table->string('endereco');
-            $table->timestamps();
-
-
+        Schema::table('users', function (Blueprint $table) {
             /* Chave estrangeira de usuario*/
-            $table->integer('people_id')->unsigned();
+            $table->integer('people_id')->unsigned()->nullable();
             $table->foreign('people_id')->references('id')->on('peoples');
-
         });
     }
 
@@ -36,6 +27,10 @@ class CreateDoctorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctors');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropPrimary('people_id');
+            $table->drop('people_id');
+            //
+        });
     }
 }

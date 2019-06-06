@@ -19,6 +19,10 @@ class CreatePatientsTable extends Migration
             $table->string('cpf');
             $table->string('endereco');
             $table->timestamps();
+
+             /* Chave estrangeira de usuario*/
+             $table->integer('people_id')->unsigned();
+             $table->foreign('people_id')->references('id')->on('peoples');           
         });
     }
 

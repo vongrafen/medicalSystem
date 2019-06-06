@@ -6,8 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class People extends Model
 {
+
+    protected $table = 'peoples';
     protected $fillable = [
-        'name', 'email', 'address', 'birthdate', 'genre', 'cpf', 'rg', 'number', 'district', 'complement', 'telephone', 'obs',
+        'name',
+        'email',
+        'address',
+        'birthdate',
+        'genre',
+        'cpf',
+        'rg',
+        'number',
+        'district',
+        'complement',
+        'telephone',
+        'obs',
     ];
 
     /*public function telephone(){

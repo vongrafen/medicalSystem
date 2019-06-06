@@ -34,7 +34,9 @@
                                 </tr>
                         </thead>
                         <tbody>
+                        
                         @foreach($peoples as $people)
+                        
                         <tr>
                                 <th scope="row">{{ $people->id }}</th>
                                 <td>{{ $people->name }}</td>

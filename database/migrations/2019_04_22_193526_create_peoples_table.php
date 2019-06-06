@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePeopleTable extends Migration
+class CreatePeoplesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePeopleTable extends Migration
      */
     public function up()
     {
-        Schema::create('people', function (Blueprint $table) {
+        Schema::create('peoples', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->String('name', 45);
             $table->String('birthdate')->nullable();
@@ -31,11 +31,12 @@ class CreatePeopleTable extends Migration
             $table->softDeletes();
 
             /* Chave estrangeira de cidades*/
-            //$table->integer('id_city')->unsigned();
-            //$table->foreign('id_city')->references('id')->on('cities');
+            //$table->integer('city_id')->unsigned();
+            //$table->foreign('city_id')->references('id')->on('cities');
             /* Chave estrangeira de usuario*/
-            //$table->integer('id_user')->unsigned();
-            //$table->foreign('id_user')->references('id')->on('users');
+            $table->integer('user_id')->nullable()->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            
         });
     }
 
@@ -46,6 +47,6 @@ class CreatePeopleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('people');
+        Schema::dropIfExists('peoples');
     }
 }

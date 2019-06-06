@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 
 class PeopleController extends Controller
 {
-    public function __construct()
-    {
+
+    protected $peopleModel;
+    
+    public function __construct(People $peopleModel)
+    {   
+        $this->peopleModel = $peopleModel;
         $this->middleware('auth');
     }
 
+
     public function index()
     {
-        $peoples = People::paginate(5);
+        $peoples = $this->peopleModel->paginate(5); // whereNotNull('rg')->
         return view('people.index', ['peoples' => $peoples]);
     }
 

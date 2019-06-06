@@ -21,6 +21,12 @@
     </div>
     <div class="col-md-2">
         <label for="cpf">CPF</label>
+        
+        if(tamanho < 11){
+        $("#cpfcnpj").mask("999.999.999-99");
+    } else {
+        $("#cpfcnpj").mask("99.999.999/9999-99");
+    }
         <input type="text" class="form-control" name="cpf" placeholder="Ex.: 00000">
     </div>
     <div class="col-md-2">
