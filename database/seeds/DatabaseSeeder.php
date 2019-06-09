@@ -17,6 +17,33 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin'),
         ]);
+        DB::table('profiles')->insert([
+            ['id' => 1, 'name' => 'Administrador', 'description' => 'Administrador do sistema'],
+            ['id' => 2, 'name' => 'Funcionário', 'description' => 'Todos os funcionários que utilizarão o sistema.'],
+            ['id' => 3, 'name' => 'Médico', 'description' => 'Médico.'],
+            ['id' => 4, 'name' => 'Cliente', 'description' => 'O cliente da empresa.']
+        ]);
+
+        
+        DB::table('specialties')->insert([
+            ['id' => 1, 'name' => 'Acupuntura', 'description' => ''],
+            ['id' => 2, 'name' => 'Anestesiologia', 'description' => ''],
+            ['id' => 3, 'name' => 'Angiologia', 'description' => '']
+        ]);
+        DB::table('examtypes')->insert([
+            ['id' => 1, 'name' => 'Mamografia', 'description' => '','class' => ''],
+            ['id' => 2, 'name' => 'Desintometria óssea', 'description' => 'Esse serviço permite realizar exames de corpo inteiro, diagnosticando e monitorando as alterações ósseas no que diz respeito ao volume e à densidade.','class' => ''],
+            ['id' => 3, 'name' => 'Raio X / Radiologia convencional', 'description' => '','class' => ''],
+            ['id' => 4, 'name' => 'Tomografia Computadorizada', 'description' => '','class' => ''],
+            ['id' => 5, 'name' => 'Ultra-sonografia', 'description' => '','class' => '']             
+        ]);
+        DB::table('equipaments')->insert([
+            ['id' => 1, 'name' => 'Mamografo', 'model' => 'GRAFPH MAMO MP/AF-A - VMI','serialnumber' => '1','active' => '1','description' => 'Boa','examtype_id' => '1'],
+            ['id' => 2, 'name' => 'Densitometria Óssea', 'model' => 'Modelo DPX-MD','serialnumber' => '2','active' => '1','description' => 'General Eletric Ultrasound & BMD - Brasil','examtype_id' => '2'],
+            ['id' => 3, 'name' => 'Raio-X convencional', 'model' => 'Raio-X','serialnumber' => '3','active' => '1','description' => '','examtype_id' => '3'],
+            ['id' => 4, 'name' => 'Tomografo', 'model' => 'HISPEED CT/E - GE','serialnumber' => '4','active' => '1','description' => '','examtype_id' => '4'],
+            ['id' => 5, 'name' => 'Ultra-Som', 'model' => 'RT 3200 ADVANTAGE II - GE','serialnumber' => '5','active' => '1','description' => '','examtype_id' => '5']
+            ]);
         DB::table('states')->insert([
             ['id' => 1, 'name' => 'Acre', 'abbreviation' => 'AC'],
             ['id' => 2, 'name' => 'Alagoas', 'abbreviation' => 'AL'],

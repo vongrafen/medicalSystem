@@ -1,6 +1,34 @@
-﻿@extends('adminlte::page')
+﻿<script type="text/javascript">
+    function habilitaBtn () {
+        var op = document.getElementById("profile").value;
 
-@section('title', 'Cadastro de Equipamentos')
+        if(op == "4") // Paciente
+        {
+            document.getElementById('medico').style.display = 'none'; 
+            document.getElementById('funcionario').style.display = 'none';          
+        }
+
+        if(op == "3") // Medico
+        {
+            document.getElementById('medico').style.display = 'block'; 
+            document.getElementById('funcionario').style.display = 'none';          
+        }
+
+        if(op == "2") // Funcionário
+        {
+            document.getElementById('funcionario').style.display = 'block';
+            document.getElementById('medico').style.display = 'none';
+
+            //if(document.getElementById('avancar').disabled) document.getElementById('avancar').disabled=false;
+        }
+
+       
+    }
+</script>
+
+@extends('adminlte::page')
+
+@section('title', 'Cadastro de Pessoas')
 
 @section('content')
 
@@ -19,7 +47,50 @@
 
                     <form action="{{ route('people.save') }}" method="post">
                     {{ csrf_field() }}
-                        <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
+
+      
+                    <div class="form-group row">
+                        <label for="profile" class="col-md-1 control-label">Perfil</label>
+                        <div name="profile" class="col-md-3" value="{{ old('profile') }}" required autofocus>
+                        <select  class="form-control"  id="profile" data-placeholder="Selecione" onchange="habilitaBtn()" >
+                            <option value="4">Paciente</option>
+                            <option value="3"> Médico</option>
+                            <option value="2">Funcionário</option>
+                        </select>
+                        </div>
+                    </div>
+
+
+                    <div style="display:none" id='funcionario' class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
+                            <label for="crm">Cargo</label>
+                            <input type="text" crm="crm" class="form-control" placeholder="Descreva o Cargo do Funcionário">
+                            <label for="crm">Setor</label>
+                            <input type="text" crm="crm" class="form-control" placeholder="Descreva o setor que trabalha">
+                        
+                            @if($errors->has('crm'))
+                        <span class="help-block">
+                            <strong>{{$errors->first('crm')}}</strong>
+                        </span>
+                        @endif
+                        </div>
+
+                    <!-- se cicar em Funcionario-->
+                    <div style="display:none" id='medico' class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
+                        <label for="crm">CRM</label>
+                        <input type="text" crm="crm" class="form-control" placeholder="CRM do Médico">
+                        <label for="crm">Especialidade</label>
+                        <input type="text" crm="crm" class="form-control" placeholder="Especialidade do Médico">
+                    
+                        @if($errors->has('crm'))
+                    <span class="help-block">
+                        <strong>{{$errors->first('crm')}}</strong>
+                    </span>
+                    @endif
+                    </div>
+                    
+                        
+                    
+                    <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="name">Nome</label>
                             <input type="text" name="name" class="form-control" placeholder="Nome do cliente">
                         @if($errors->has('name'))
