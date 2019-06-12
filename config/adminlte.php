@@ -161,6 +161,22 @@ return [
                 ],
             ],        
         ],
+        [
+            'text'    => 'Agenda',
+            'icon'    => 'folder-open',
+            'submenu' => [
+                [
+                    'text' => 'Agendamento',
+                    'icon' => 'cube',
+                    'url'  => '/agendamento',
+                ],
+                [
+                    'text' => 'Consulta',
+                    'icon' => 'cube',
+                    'url'  => '/agenda',
+                ],
+            ],        
+        ],
     ],
 
     /*
