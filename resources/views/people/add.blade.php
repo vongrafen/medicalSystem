@@ -4,14 +4,14 @@
 
         if(op == "4") // Paciente
         {
-            document.getElementById('medico').style.display = 'none'; 
-            document.getElementById('funcionario').style.display = 'none';          
+            document.getElementById('medico').style.display = 'none';
+            document.getElementById('funcionario').style.display = 'none';
         }
 
         if(op == "3") // Medico
         {
-            document.getElementById('medico').style.display = 'block'; 
-            document.getElementById('funcionario').style.display = 'none';          
+            document.getElementById('medico').style.display = 'block';
+            document.getElementById('funcionario').style.display = 'none';
         }
 
         if(op == "2") // Funcionário
@@ -22,9 +22,54 @@
             //if(document.getElementById('avancar').disabled) document.getElementById('avancar').disabled=false;
         }
 
-       
+
     }
 </script>
+
+     <script src="public/js/jquery.maskedinput.js"></script>
+
+        <script type="text/javascript">
+            $(function() {
+                $.mask.definitions['~'] = "[+-]";
+                $("#telephone").mask("(99) 9. 999-9999");
+                $("#phoneExt").mask("(999) 999-9999? x99999");
+                $("#iphone").mask("+33 999 999 999");
+                $("#tin").mask("99-9999999");
+                $("#ssn").mask("999-99-9999");
+                $("#product").mask("a*-999-a999", { placeholder: " " });
+                $("#eyescript").mask("~9.99 ~9.99 999");
+                $("#po").mask("PO: aaa-999-***");
+                $("#pct").mask("99%");
+                $("#phoneAutoclearFalse").mask("(999) 999-9999", { autoclear: false, completed:function(){alert("completed autoclear!");} });
+                $("#phoneExtAutoclearFalse").mask("(999) 999-9999? x99999", { autoclear: false });
+
+                $("input").blur(function() {
+                    $("#info").html("Unmasked value: " + $(this).mask());
+                }).dblclick(function() {
+                    $(this).unmask();
+                });
+            });
+
+        </script>
+
+        <script src="/public/js/cidadeEstado.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                new dgCidadesEstados({
+                    cidade: document.getElementById('cidade'),
+                    estado: document.getElementById('estado')
+                })
+            });
+        </script>
+
+   <!--   TUTORIAIS PARA MASCARAS
+    http://www.kadunew.com/blog/jquery/criando-mascara-de-entrada-em-formularios-com-masked-input
+    https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html
+    https://cercal.io/jquery-mask-mascaras-para-campos-de-formularios/
+   -->
+
+
 
 @extends('adminlte::page')
 
@@ -48,7 +93,7 @@
                     <form action="{{ route('people.save') }}" method="post">
                     {{ csrf_field() }}
 
-      
+
                     <div class="form-group row">
                         <label for="profile" class="col-md-1 control-label">Perfil</label>
                         <div name="profile" class="col-md-3" value="{{ old('profile') }}" required autofocus>
@@ -60,13 +105,13 @@
                         </div>
                     </div>
 
-
+					<!-- se clicar em Funcionario -->
                     <div style="display:none" id='funcionario' class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="crm">Cargo</label>
                             <input type="text" crm="crm" class="form-control" placeholder="Descreva o Cargo do Funcionário">
                             <label for="crm">Setor</label>
                             <input type="text" crm="crm" class="form-control" placeholder="Descreva o setor que trabalha">
-                        
+
                             @if($errors->has('crm'))
                         <span class="help-block">
                             <strong>{{$errors->first('crm')}}</strong>
@@ -74,22 +119,22 @@
                         @endif
                         </div>
 
-                    <!-- se cicar em Funcionario-->
+                    <!-- se clicar em Medico -->
                     <div style="display:none" id='medico' class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                         <label for="crm">CRM</label>
                         <input type="text" crm="crm" class="form-control" placeholder="CRM do Médico">
                         <label for="crm">Especialidade</label>
                         <input type="text" crm="crm" class="form-control" placeholder="Especialidade do Médico">
-                    
+
                         @if($errors->has('crm'))
                     <span class="help-block">
                         <strong>{{$errors->first('crm')}}</strong>
                     </span>
                     @endif
                     </div>
-                    
-                        
-                    
+
+
+
                     <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="name">Nome</label>
                             <input type="text" name="name" class="form-control" placeholder="Nome do cliente">
@@ -102,7 +147,7 @@
 
                         <div class="form-group {{$errors->has('birthdate') ? 'has-error' : '' }}">
                             <label for="birthdate">Data de nascimento</label>
-                            <input type="text" name="birthdate" class="form-control" placeholder="Data de nascimento">
+                            <input type="date" name="birthdate" class="form-control" placeholder="Data de nascimento">
                         @if($errors->has('birthdate'))
                         <span class="help-block">
                             <strong>{{$errors->first('birthdate')}}</strong>
@@ -201,7 +246,7 @@
                         </div>
 
                         <button class="btn btn-info">Adicionar</button>
-                        
+
                     </form>
 
                     @if (session('status'))
