@@ -4,23 +4,31 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class People extends Model
 {
 
     protected $table = 'peoples';
-    protected $fillable = [
+     protected $fillable = [
         'name',
-        'email',
-        'address',
         'birthdate',
         'genre',
         'cpf',
         'rg',
+        'address',
         'number',
         'district',
         'complement',
+        'cep',
         'telephone',
+        'email',
         'obs',
+        'profile',
+        'crm',
+        'office',
+        'sector',
+        'city',
+        'specialty_id'
     ];
 
     /*public function telephone(){

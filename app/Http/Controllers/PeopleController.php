@@ -36,12 +36,17 @@ class PeopleController extends Controller
 
     public function add()
     {
+
         return view('people.add');
     }
 
     public function save(\App\Http\Requests\PeopleRequest $request)
     {
-        People::create($request->all());
+        
+        $methods =  People::create($request->all());
+        
+        //dd($methods);
+        
         \Session::flash('flash_message', [
             'msg'=>"Pessoa adicionada com sucesso",
             'class'=>"alert-success"

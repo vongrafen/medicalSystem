@@ -22,11 +22,11 @@
 
 
                     <div class="form-group">
-                        <label for="profile" class="col-md-auto">Perfil</label>
-                        <div required name="profile" class="" value="{{ old('profile') }}" required autofocus>
-                        <select class="form-control"  id="profile" onchange="habilitaBtn()" >
+                        <label for="profile" >Perfil</label>
+                        <div required name="profile" class="auto-control" value="{{ old('profile') }}" required autofocus>
+                        <select class="form-control"  id = "profile" name="profile" onchange="habilitaBtn()" >
                             <option value="4">Paciente</option>
-                            <option value="3"> Médico</option>
+                            <option value="3">Médico</option>
                             <option value="2">Funcionário</option>
                         </select>
                         @if($errors->has('profile'))
@@ -38,7 +38,7 @@
                     </div>
 
 					<!-- se clicar em Funcionario -->
-                    <div style="display:none" id='funcionario' value="{{ old('profile') }}" required autofocus class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
+                    <div style="display:none" id='funcionario' value="{{ old('funcionario') }}" required autofocus class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="office">Cargo</label>
                         <!--required-->    <input  id = "cargo" type="text" name="office" class="form-control" placeholder="Descreva o Cargo do Funcionário">
                             <label for="sector">Setor</label>
@@ -49,17 +49,14 @@
                     <div style="display:none" id='medico' value="{{ old('medico') }}" class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                         <label for="crm">CRM</label>
                         <!--required-->  <input type="text" id = "crm" name="crm" class="form-control" placeholder="CRM do Médico">
-                            <label for="profile" class="col-md-auto">Perfil</label>
-                            <select class="form-control"  id="profile">
-                                <option value="4" > Paciente</option>
-                                <option value="3" > Médico</option>
-                                <option value="2" >Funcionário</option>
+                            
+                        <label for="specialty_id" class="col-md-auto">Especialidade</label>
+                            <select class="form-control"  name="specialty_id" id="specialty_id">
+                                <option value="1" > Especialidade 1</option>
+                                <option value="3" > Especialidade 1</option>
+                                <option value="2" > Especialidade 1</option>
                             </select>
-                        
                     </div>
-
-
-                    
                     
                     <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}" value="{{ old('name') }}">
                             <label for="name">Nome</label>
@@ -76,17 +73,15 @@
                             <input type="date" name="birthdate" class="form-control" placeholder="Data de nascimento">
                         </div>
 
-                        <div class="form-group ">
-                            <label for="gender" class="control-label">Genêro</label>
-                            <div name="gender" class="control-label" >
-                            <select  class="form-control"  id="gender">
-                                <option value="S">Selecione</option>
+
+                        <div class=" form-group" value="{{ old('genre') }}">
+                            <label for="genre">Genero</label>
+                            <select class="form-control" name = "genre">
+                                <option >Selecione</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
                             </select>
-                            </div>
                         </div>
-
 
                         <div class="form-group {{$errors->has('cpf') ? 'has-error' : '' }}" value="{{ old('cpf') }}">
                             <label for="cpf">CPF</label>
@@ -102,8 +97,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="RG">RG</label>
-                            <input type="text" name="RG" id ="RG" class="form-control" placeholder="9999.999.99-9">
+                            <label for="rg">RG</label>
+                            <input type="text" name="rg" id ="rg" class="form-control" placeholder="9999.999.99-9">
                         </div>
 
                         <div  class="form-group ">
@@ -144,6 +139,11 @@
                             <input type="text" name="district" class="form-control" placeholder="Bairro">
                         </div>
 
+                        <div class="form-group ">
+                            <label for="complement">Complemento</label>
+                            <input type="text" name="complement" class="form-control" placeholder="Complemento">
+                        </div>
+
                         <div class="form-group {{$errors->has('telephone') ? 'has-error' : '' }}">
                             <label for="telephone">Telefone</label>
                             <input type="text" name="telephone" id = "telephone" class="form-control" placeholder="Telefone do cliente">
@@ -173,7 +173,6 @@
                         </span>
                         @endif
                         </div>
-                        
                         <button class=" form-group btn btn-info">Adicionar</button>
                     </form>
 
