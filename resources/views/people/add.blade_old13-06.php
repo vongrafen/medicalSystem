@@ -1,4 +1,5 @@
-﻿@extends('adminlte::page')
+﻿
+@extends('adminlte::page')
 
 @section('title', 'Cadastro de Pessoas')
 
@@ -21,47 +22,62 @@
                     {{ csrf_field() }}
 
 
-                    <div class="form-group">
-                        <label for="profile" class="col-md-auto">Perfil</label>
-                        <div required name="profile" class="" value="{{ old('profile') }}" required autofocus>
-                        <select class="form-control"  id="profile" onchange="habilitaBtn()" >
+                    <div class="form-group row">
+                        <label for="profile" class="col-md-1 control-label">Perfil</label>
+                        <div name="profile" class="col-md-3" value="{{ old('profile') }}" required autofocus>
+                        <select  class="form-control"  id="profile" data-placeholder="Selecione" onchange="habilitaBtn()" >
                             <option value="4">Paciente</option>
                             <option value="3"> Médico</option>
                             <option value="2">Funcionário</option>
                         </select>
-                        @if($errors->has('profile'))
-                        <span class="help-block">
-                            <strong>{{$errors->first('profile')}}</strong>
-                        </span>
-                        @endif
                         </div>
                     </div>
 
 					<!-- se clicar em Funcionario -->
-                    <div style="display:none" id='funcionario' value="{{ old('profile') }}" required autofocus class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
-                            <label for="office">Cargo</label>
-                        <!--required-->    <input  id = "cargo" type="text" name="office" class="form-control" placeholder="Descreva o Cargo do Funcionário">
-                            <label for="sector">Setor</label>
-                            <input type="text" name="sector" class="form-control" placeholder="Descreva o setor que trabalha">
-                    </div>
+                    <div style="display:none" id='funcionario' class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
+                            <label for="crm">Cargo</label>
+                            <input type="text" crm="crm" class="form-control" placeholder="Descreva o Cargo do Funcionário">
+                            <label for="crm">Setor</label>
+                            <input type="text" crm="crm" class="form-control" placeholder="Descreva o setor que trabalha">
+
+                            @if($errors->has('crm'))
+                        <span class="help-block">
+                            <strong>{{$errors->first('crm')}}</strong>
+                        </span>
+                        @endif
+                        </div>
 
                     <!-- se clicar em Medico -->
-                    <div style="display:none" id='medico' value="{{ old('medico') }}" class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
+                    <div style="display:none" id='medico' class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                         <label for="crm">CRM</label>
-                        <!--required-->  <input type="text" id = "crm" name="crm" class="form-control" placeholder="CRM do Médico">
-                            <label for="profile" class="col-md-auto">Perfil</label>
-                            <select class="form-control"  id="profile">
-                                <option value="4" > Paciente</option>
-                                <option value="3" > Médico</option>
-                                <option value="2" >Funcionário</option>
-                            </select>
+                        <input type="text" crm="crm" class="form-control" placeholder="CRM do Médico">
+
                         
+                            <label for="specialties" >Especialidade</label>
+                            <div name="specialties" value="{{ old('specialties') }}" required autofocus>
+                            <select  class="form-control"  id="specialties"  >
+                                
+                               <option value="1">Especialidade 1</option>
+                                <option value="2"> Especialidade 2</option>
+                                <option value="3">Especialidade 3</option>
+
+                            </select>
+                            </div>
+                        
+
+
+
+
+                        @if($errors->has('crm'))
+                    <span class="help-block">
+                        <strong>{{$errors->first('crm')}}</strong>
+                    </span>
+                    @endif
                     </div>
 
 
-                    
-                    
-                    <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}" value="{{ old('name') }}">
+
+                    <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="name">Nome</label>
                             <input type="text" name="name" class="form-control" placeholder="Nome do cliente">
                         @if($errors->has('name'))
@@ -71,57 +87,44 @@
                         @endif
                         </div>
 
-                        <div class=" form-group" value="{{ old('birthdate') }}">
+                        <div class="form-group {{$errors->has('birthdate') ? 'has-error' : '' }}">
                             <label for="birthdate">Data de nascimento</label>
                             <input type="date" name="birthdate" class="form-control" placeholder="Data de nascimento">
+                        @if($errors->has('birthdate'))
+                        <span class="help-block">
+                            <strong>{{$errors->first('birthdate')}}</strong>
+                        </span>
+                        @endif
                         </div>
 
-                        <div class="form-group ">
-                            <label for="gender" class="control-label">Genêro</label>
-                            <div name="gender" class="control-label" >
-                            <select  class="form-control"  id="gender">
-                                <option value="S">Selecione</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Feminino</option>
-                            </select>
-                            </div>
+                        <div class="form-group {{$errors->has('genre') ? 'has-error' : '' }}">
+                            <label for="genre">Genêro</label>
+                            <input type="text" name="genre" class="form-control" placeholder="Genêro">
+                        @if($errors->has('genre'))
+                        <span class="help-block">
+                            <strong>{{$errors->first('genre')}}</strong>
+                        </span>
+                        @endif
                         </div>
 
-
-                        <div class="form-group {{$errors->has('cpf') ? 'has-error' : '' }}" value="{{ old('cpf') }}">
+                        <div class="form-group {{$errors->has('cpf') ? 'has-error' : '' }}">
                             <label for="cpf">CPF</label>
-                            <input type="text" name="cpf" id= "cpf"  class="form-control" placeholder="999.999.999-99" >
+                            <input type="text" name="cpf" class="form-control" placeholder="000.000.000-00">
                         @if($errors->has('cpf'))
                         <span class="help-block">
                             <strong>{{$errors->first('cpf')}}</strong>
                         </span>
                         @endif
-                        <!-- tutorial para retornar com os valores sem as mascaras-->
-                        <!-- https://respostas.guj.com.br/35641-recuperar-valor-do-inputmask-sem-a-mascara-primefaces -->
-                        <!-- https://www.botecodigital.info/jquery/criando-mascaras-de-input-com-jquery-mask-plugin/ --> 
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group {{$errors->has('RG') ? 'has-error' : '' }}">
                             <label for="RG">RG</label>
-                            <input type="text" name="RG" id ="RG" class="form-control" placeholder="9999.999.99-9">
-                        </div>
-
-                        <div  class="form-group ">
-                            <label for="estado">Estado</label>
-                            <select  name ='estado' class="form-control" value='' id="estado" ></select>
-                            <small class="text-danger"></small>
-                        </div>
-
-                        <div  class="form-group ">
-                            <label for="cidade">Cidade</label>
-                            <select  name ='cidade' class="form-control" value='' id="cidade"></select>
-                            <small class="text-danger"></small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cep">CEP</label>
-                            <input class="form-control" name="cep" type="text" id="cep"  placeholder="99.999-999">
-                            <small class="text-danger"></small>
+                            <input type="text" name="RG" class="form-control" placeholder="0000000000">
+                        @if($errors->has('RG'))
+                        <span class="help-block">
+                            <strong>{{$errors->first('RG')}}</strong>
+                        </span>
+                        @endif
                         </div>
 
                         <div class="form-group {{$errors->has('address') ? 'has-error' : '' }}">
@@ -134,19 +137,29 @@
                         @endif
                         </div>
 
-                        <div class="form-group ">
+                        <div class="form-group {{$errors->has('number') ? 'has-error' : '' }}">
                             <label for="number">Número</label>
                             <input type="text" name="number" class="form-control" placeholder="Número residência">
+                        @if($errors->has('number'))
+                        <span class="help-block">
+                            <strong>{{$errors->first('number')}}</strong>
+                        </span>
+                        @endif
                         </div>
 
-                        <div class="form-group ">
+                        <div class="form-group {{$errors->has('district') ? 'has-error' : '' }}">
                             <label for="district">Bairro</label>
                             <input type="text" name="district" class="form-control" placeholder="Bairro">
+                        @if($errors->has('district'))
+                        <span class="help-block">
+                            <strong>{{$errors->first('district')}}</strong>
+                        </span>
+                        @endif
                         </div>
 
                         <div class="form-group {{$errors->has('telephone') ? 'has-error' : '' }}">
                             <label for="telephone">Telefone</label>
-                            <input type="text" name="telephone" id = "telephone" class="form-control" placeholder="Telefone do cliente">
+                            <input type="text" name="telephone" class="form-control" placeholder="Telefone do cliente">
                         @if($errors->has('telephone'))
                         <span class="help-block">
                             <strong>{{$errors->first('telephone')}}</strong>
@@ -166,15 +179,16 @@
 
                         <div class="form-group {{$errors->has('obs') ? 'has-error' : '' }}">
                             <label for="obs">Observação</label>
-                            <input type="textarea" name="obs" class="form-control" placeholder="Observação">
+                            <input type="obs" name="obs" class="form-control" placeholder="Observação">
                             @if($errors->has('obs'))
                         <span class="help-block">
                             <strong>{{$errors->first('obs')}}</strong>
                         </span>
                         @endif
                         </div>
-                        
-                        <button class=" form-group btn btn-info">Adicionar</button>
+
+                        <button class="btn btn-info">Adicionar</button>
+
                     </form>
 
                     @if (session('status'))
@@ -188,8 +202,6 @@
         </div>
     </div>
 </div>
-
-<!-- validação dos medicos -->
 <script type="text/javascript">
     function habilitaBtn () {
         var op = document.getElementById("profile").value;
@@ -204,28 +216,19 @@
         {
             document.getElementById('medico').style.display = 'block';
             document.getElementById('funcionario').style.display = 'none';
-            document.getElementById('cargo').required = false;
         }
 
         if(op == "2") // Funcionário
         {
             document.getElementById('funcionario').style.display = 'block';
             document.getElementById('medico').style.display = 'none';
-            document.getElementById('crm').required = false;
+
+            //if(document.getElementById('avancar').disabled) document.getElementById('avancar').disabled=false;
         }
+
+
     }
 </script>
-<!-- validação dos medicos -->
-
-
-
-
-   <!--   TUTORIAIS PARA MASCARAS
-    http://www.kadunew.com/blog/jquery/criando-mascara-de-entrada-em-formularios-com-masked-input
-    https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html
-    https://cercal.io/jquery-mask-mascaras-para-campos-de-formularios/
-   -->
-
-
 
 @stop
+

@@ -55,6 +55,9 @@
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
 <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
+<script src="{{ asset('js/cidadeEstado.js') }}"></script>
+
 
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
@@ -76,8 +79,44 @@
 <script>
 $(document).ready( function () {
     $('#tableDepartament').DataTable();
-} );
+
+
+            new dgCidadesEstados({
+            cidade: document.getElementById('cidade'),
+            estado: document.getElementById('estado')
+        })
+    } );
+
 </script>
+
+
+
+<script type="text/javascript">
+    $(function() {
+        $.mask.definitions['~'] = "[+-]";
+       $("#telephone").mask("99999999999"); //.mask("(99) 9 . 9999-9999");
+        $("#cpf").mask("999.999.999-99");
+        $("#RG").mask("9999999999"); //.mask("9999.999.99-9");
+        $("#cep").mask("99999999"); //.mask("99.999-999");
+       //    EXEMPLOS
+       //$("#date").mask("99/99/9999",{placeholder:"mm/dd/yyyy",completed:function(){alert("completed!");}});
+        //$("#product").mask("a*-999-a999", { placeholder: " " });
+        //$("#eyescript").mask("~9.99 ~9.99 999");
+        //$("#po").mask("PO: aaa-999-***");
+        //$("#pct").mask("99%");
+        //$("#phoneAutoclearFalse").mask("(999) 999-9999", { autoclear: false, completed:function(){alert("completed autoclear!");} });
+        //$("#phoneExtAutoclearFalse").mask("(999) 999-9999? x99999", { autoclear: false });
+        
+
+        $("input").blur(function() {
+            $("#info").html("Unmasked value: " + $(this).mask());
+            //$("#cpf").unmask($(this).mask());
+        }).dblclick(function() {
+            $(this).unmask();
+        });
+    });
+
+</script> 
 
 </body>
 </html>
