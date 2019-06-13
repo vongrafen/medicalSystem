@@ -24,13 +24,13 @@ class CreateEventsTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
 
-            $table->integer('doctor_id');
-            $table->foreign('doctor_id')->references('id')->on('people');
-            $table->integer('patients_id');
-            $table->foreign('patients_id')->references('id')->on('people');
+            $table->integer('doctor_id')->unsigned()->nullable();
+            $table->foreign('doctor_id')->references('id')->on('peoples');
+            $table->integer('patients_id')->unsigned()->nullable();
+            $table->foreign('patients_id')->references('id')->on('peoples');
 
-            $table->integer('equipment_id');
-            $table->foreign('equipment_id')-> references('id')->on('equipments');
+            $table->integer('equipament_id')->unsigned()->nullable();
+            $table->foreign('equipament_id')-> references('id')->on('equipaments');
             $table->integer('convenant_id');
             //$table->timestamp('event_date');
             //$table->time('event_time');
