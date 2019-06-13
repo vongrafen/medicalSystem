@@ -94,10 +94,10 @@ $(document).ready( function () {
 <script type="text/javascript">
     $(function() {
         $.mask.definitions['~'] = "[+-]";
-       $("#telephone").mask("99999999999"); //.mask("(99) 9 . 9999-9999");
-        $("#cpf").mask("999.999.999-99");
-        $("#RG").mask("9999999999"); //.mask("9999.999.99-9");
-        $("#cep").mask("99999999"); //.mask("99.999-999");
+       $("#telephone").mask("(99) 9 . 9999-9999");
+        $("#cpf").mask("999.999.999-99"); //.mask("99999999999");
+        $("#RG").mask("9999.999.99-9");
+        $("#cep").mask("99.999-999");
        //    EXEMPLOS
        //$("#date").mask("99/99/9999",{placeholder:"mm/dd/yyyy",completed:function(){alert("completed!");}});
         //$("#product").mask("a*-999-a999", { placeholder: " " });
