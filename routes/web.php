@@ -66,3 +66,9 @@ Route::post('/telefone/save/{id}', ['uses'=>'TelefoneController@save', 'as' => '
 Route::get('/telefone/edit/{id}', ['uses'=>'TelefoneController@edit', 'as' => 'telefone.edit']);
 Route::put('/telefone/update/{id}', ['uses'=>'TelefoneController@update', 'as' => 'telefone.update']);
 Route::get('/telefone/delete/{id}', ['uses'=>'TelefoneController@delete', 'as' => 'telefone.delete']);
+
+
+Route::get('/agenda', 'EventController@index')->name('events.index');
+Route::get('/agendamento', 'EventController@index')->name('events.agenda');
+
+Route::post('/agenda', 'EventController@addEvent')->name('events.agenda');

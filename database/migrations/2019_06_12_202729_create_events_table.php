@@ -19,6 +19,11 @@ class CreateEventsTable extends Migration
             //$table->integer('doctor_id');
             //$table->foreign('doctor_id')->references('id')->on('doctors');
             
+            //fullcalendar
+            $table->string('event_name');
+            $table->date('start_date');
+            $table->date('end_date');
+
             $table->integer('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('people');
             $table->integer('patients_id');
@@ -27,7 +32,7 @@ class CreateEventsTable extends Migration
             $table->integer('equipment_id');
             $table->foreign('equipment_id')-> references('id')->on('equipments');
             $table->integer('convenant_id');
-            $table->timestamp('event_date');
+            //$table->timestamp('event_date');
             //$table->time('event_time');
         });
     }

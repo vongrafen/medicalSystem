@@ -8,7 +8,10 @@ use App\Http\Controllers\Controller;
 class EventController extends Controller
 {
     public function index(){
-        return view('agenda/event');
+        return view('event/agenda');
+    }
+    public function agenda(){
+        return view('event/agendamento');
     }
     public function addEvent(Request $request){
         $validator = Validator::make($request->all(),[
