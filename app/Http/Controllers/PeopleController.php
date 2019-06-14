@@ -47,7 +47,7 @@ class PeopleController extends Controller
     public function add()
     {
         $results = specialty::all();
-        return view('people.add', ['peoples' => $results]);
+        return view('people.add', ['results' => $results]);
         //return view('people.add');
     }
 

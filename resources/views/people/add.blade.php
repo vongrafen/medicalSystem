@@ -20,7 +20,7 @@
                     <form action="{{ route('people.save') }}" method="post">
                     {{ csrf_field() }}
 
-
+                        
                     <div class="form-group">
                         <label for="profile" >Perfil</label>
                         <div required name="profile" class="auto-control" value="{{ old('profile') }}" required autofocus>
@@ -54,9 +54,12 @@
                              
 
                         <select class="form-control"  name="specialty_id" id="specialty_id">
-                            <option value="">Selecione uma Especialidade</option>
-                                       
-                                </select>
+                            <option value="">Selecione uma Especialidade</option>       
+                             @foreach($results as $specialty)
+                                <option value="{{ $specialty->id }}">{{ $specialty->name }}</option>
+                             @endforeach
+                        </select>
+
                             <input type="button" class="form-control" value="Adicionar Especialidade" data-toggle="modal" data-target="#myModalcad">
                     </div>
 
