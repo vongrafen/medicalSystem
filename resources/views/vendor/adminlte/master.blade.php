@@ -85,8 +85,8 @@ $(document).ready( function () {
 
 
             new dgCidadesEstados({
-            cidade: document.getElementById('cidade'),
-            estado: document.getElementById('estado')
+            cidade: document.getElementById('city'),
+            estado: document.getElementById('state')
         })
     } );
 

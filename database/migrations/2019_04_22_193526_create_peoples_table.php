@@ -35,7 +35,8 @@ class CreatePeoplesTable extends Migration
             $table->string('office', 200)->nullable();
             $table->string('sector', 200)->nullable();
             $table->string('city', 200)->nullable();
-
+            $table->String('state',2)->nullable();
+            
             //$table->string('specialty')->nullable();
             /* Chave estrangeira de Especialidade*/
             $table->integer('specialty_id')->unsigned()->nullable();

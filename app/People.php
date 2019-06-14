@@ -27,6 +27,7 @@ class People extends Model
         'crm',
         'office',
         'sector',
+        'state',
         'city',
         'specialty_id'
     ];

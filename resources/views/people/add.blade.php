@@ -107,14 +107,14 @@
                         </div>
 
                         <div  class="form-group ">
-                            <label for="estado">Estado</label>
-                            <select  name ='estado' class="form-control" value='' id="estado" ></select>
+                            <label for="state">Estado</label>
+                            <select  name ='state' class="form-control" value='' id="state" ></select>
                             <small class="text-danger"></small>
                         </div>
 
                         <div  class="form-group ">
-                            <label for="cidade">Cidade</label>
-                            <select  name ='cidade' class="form-control" value='' id="cidade"></select>
+                            <label for="city">Cidade</label>
+                            <select  name ='city' class="form-control" value='' id="city"></select>
                             <small class="text-danger"></small>
                         </div>
 
