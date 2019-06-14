@@ -54,47 +54,12 @@
                              
 
                         <select class="form-control"  name="specialty_id" id="specialty_id">
-                            <option value="">--</option>
-                                    <optgroup label="Selecione uma categoria">
-                                    @foreach($results as $categoria)
-                                        <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
-                                        @endforeach
-                                    </optgroup>
+                            <option value="">Selecione uma Especialidade</option>
+                                       
                                 </select>
                             <input type="button" class="form-control" value="Adicionar Especialidade" data-toggle="modal" data-target="#myModalcad">
                     </div>
 
-
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Endereço</th>
-                                <th>Ação</th>
-                                </tr>
-                        </thead>
-                        <tbody>
-                        
-                        @foreach($results as $people)
-                        
-                        <tr>
-                                <th scope="row">{{ $people->id }}</th>
-                                <td>{{ $people->name }}</td>
-                                <td>{{ $people->email }}</td>
-                                <td>{{ $people->address }}</td>
-                                <td>
-                                    <!--<a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>-->
-                                    <a class="btn btn-default" href="{{route('people.edit',$people->id)}}">Editar</a>
-                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('people.delete',$people->id)}}' : false)">Deletar</a>
-                                </td>
-                            <tr>
-                        @endforeach
-                            
-                        </tbody>
-
-                    </table>
                     <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}" value="{{ old('name') }}">
                             <label for="name">Nome</label>
                             <input type="text" name="name" class="form-control" placeholder="Nome do cliente">
