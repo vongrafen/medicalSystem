@@ -40,7 +40,7 @@
 					<!-- se clicar em Funcionario -->
                     <div style="display:none" id='funcionario' value="{{ old('funcionario') }}" required autofocus class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="office">Cargo</label>
-                        <!--required-->    <input  id = "cargo" type="text" name="office" class="form-control" placeholder="Descreva o Cargo do Funcionário">
+                            <input id = "cargo" type="text" name="office" class="form-control" placeholder="Descreva o Cargo do Funcionário">
                             <label for="sector">Setor</label>
                             <input type="text" name="sector" class="form-control" placeholder="Descreva o setor que trabalha">
                     </div>
@@ -48,7 +48,7 @@
                     <!-- se clicar em Medico -->
                     <div style="display:none" id='medico' value="{{ old('medico') }}" class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                         <label for="crm">CRM</label>
-                        <!--required-->  <input type="text" id = "crm" name="crm" class="form-control" placeholder="CRM do Médico">
+                        <input type="text" id = "crm" name="crm" class="form-control" placeholder="CRM do Médico">
                             
                         <label for="specialty_id" class="col-md-auto">Especialidade</label>
                             <select class="form-control"  name="specialty_id" id="specialty_id">
@@ -203,14 +203,14 @@
         {
             document.getElementById('medico').style.display = 'block';
             document.getElementById('funcionario').style.display = 'none';
-            document.getElementById('cargo').required = false;
+            document.getElementById('crm').required = true;
         }
 
         if(op == "2") // Funcionário
         {
             document.getElementById('funcionario').style.display = 'block';
             document.getElementById('medico').style.display = 'none';
-            document.getElementById('crm').required = false;
+            document.getElementById('cargo').required = true;
         }
     }
 </script>
