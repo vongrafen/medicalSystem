@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\People;
+use App\specialty;
 use Illuminate\Http\Request;
+
 
 class PeopleController extends Controller
 {
@@ -16,10 +18,18 @@ class PeopleController extends Controller
         $this->middleware('auth');
     }
 
+    protected $specialty;
+    
+    public function __constructS(specialty $specialty)
+    {   
+        $this->specialty = $specialty;
+        $this->middleware('auth');
+    }
+
 
     public function index()
     {
-        $peoples = $this->peopleModel->paginate(5); // whereNotNull('rg')->
+        $peoples = $this->peopleModel->paginate(20); // whereNotNull('rg')->
         return view('people.index', ['peoples' => $peoples]);
     }
 
@@ -36,23 +46,30 @@ class PeopleController extends Controller
 
     public function add()
     {
-
-        return view('people.add');
+        $results = specialty::all();
+        return view('people.add', ['peoples' => $results]);
+        //return view('people.add');
     }
 
     public function save(\App\Http\Requests\PeopleRequest $request)
     {
-        
-        $methods =  People::create($request->all());
-        
-        //dd($methods);
-        
-        \Session::flash('flash_message', [
-            'msg'=>"Pessoa adicionada com sucesso",
-            'class'=>"alert-success"
-        ]);
-        return redirect()->route('people.add');
-    }
+       
+        // Insere uma nova pessoa, de acordo com os dados informados pelo usuário
+        $insert = People::create($request->all());
+
+        // Verifica se inseriu com sucesso
+        // Redireciona para a listagem das categorias
+        // Passa uma session flash success (sessão temporária)
+        if ($insert)
+        return redirect()
+                    ->route('people.index')
+                    ->with('success', 'Pessoa cadastrada com sucesso!');
+
+        // Redireciona de volta com uma mensagem de erro
+        return redirect()
+                    ->back()
+                    ->with('error', 'Falha ao inserir');
+        }
 
     public function edit ($id)
     {

@@ -59,6 +59,8 @@ Route::get('/people/edit/{id}', ['uses'=>'PeopleController@edit', 'as' => 'peopl
 Route::put('/people/update/{id}', ['uses'=>'PeopleController@update', 'as' => 'people.update']);
 Route::get('/people/delete/{id}', ['uses'=>'PeopleController@delete', 'as' => 'people.delete']);
 
+Route::Post('/people/add', ['uses'=>'specialtyController@save', 'as' => 'specialty.save']);
+    
 Route::get('/people/detail/{id}', ['uses'=>'PeopleController@detail', 'as' => 'people.detail']);
 Route::get('/telefone/add/{id}', ['uses'=>'TelefoneController@add', 'as' => 'telefone.add']);
 Route::post('/telefone/save/{id}', ['uses'=>'TelefoneController@save', 'as' => 'telefone.save']);

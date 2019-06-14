@@ -31,7 +31,7 @@
         <!-- DataTables with bootstrap 3 style -->
         <link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
     @endif
-
+    <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
     @yield('adminlte_css')
 
     <!--[if lt IE 9]>
@@ -57,6 +57,7 @@
 <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
 <script src="{{ asset('js/cidadeEstado.js') }}"></script>
+<script src="sweetalert2/dist/sweetalert2.min.js"></script>
 
 
 @if(config('adminlte.plugins.select2'))
@@ -71,6 +72,8 @@
 
 @if(config('adminlte.plugins.chartjs'))
     <!-- ChartJS -->
+
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 @endif
 
@@ -88,9 +91,15 @@ $(document).ready( function () {
     } );
 
 </script>
+<script>
+document.getElementById('mensagem-sucesso').onclick = function(){
+    swal('Boa!', 'Cadastrado com Sucesso', 'success')
+};
 
-
-
+document.getElementById('mensagem-erro').onclick = function(){
+    swal('Oh no...', 'Algo deu errado!', 'error')
+};
+</script>
 <script type="text/javascript">
     $(function() {
         $.mask.definitions['~'] = "[+-]";

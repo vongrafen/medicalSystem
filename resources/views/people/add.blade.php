@@ -49,15 +49,52 @@
                     <div style="display:none" id='medico' value="{{ old('medico') }}" class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                         <label for="crm">CRM</label>
                         <input type="text" id = "crm" name="crm" class="form-control" placeholder="CRM do Médico">
-                            
+                        
                         <label for="specialty_id" class="col-md-auto">Especialidade</label>
-                            <select class="form-control"  name="specialty_id" id="specialty_id">
-                                <option value="1" > Especialidade 1</option>
-                                <option value="3" > Especialidade 1</option>
-                                <option value="2" > Especialidade 1</option>
-                            </select>
+                             
+
+                        <select class="form-control"  name="specialty_id" id="specialty_id">
+                            <option value="">--</option>
+                                    <optgroup label="Selecione uma categoria">
+                                    @foreach($results as $categoria)
+                                        <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                                        @endforeach
+                                    </optgroup>
+                                </select>
+                            <input type="button" class="form-control" value="Adicionar Especialidade" data-toggle="modal" data-target="#myModalcad">
                     </div>
-                    
+
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Endereço</th>
+                                <th>Ação</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                        
+                        @foreach($results as $people)
+                        
+                        <tr>
+                                <th scope="row">{{ $people->id }}</th>
+                                <td>{{ $people->name }}</td>
+                                <td>{{ $people->email }}</td>
+                                <td>{{ $people->address }}</td>
+                                <td>
+                                    <!--<a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>-->
+                                    <a class="btn btn-default" href="{{route('people.edit',$people->id)}}">Editar</a>
+                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('people.delete',$people->id)}}' : false)">Deletar</a>
+                                </td>
+                            <tr>
+                        @endforeach
+                            
+                        </tbody>
+
+                    </table>
                     <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}" value="{{ old('name') }}">
                             <label for="name">Nome</label>
                             <input type="text" name="name" class="form-control" placeholder="Nome do cliente">
@@ -173,21 +210,58 @@
                         </span>
                         @endif
                         </div>
-                        <button class=" form-group btn btn-info">Adicionar</button>
+                        <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
                     </form>
 
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    @if(session('success'))
+                    <div id="mensagem-sucesso" class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                 
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+                    <!-- Inicio Modal -->
+                    <div class="modal fade" id="myModalcad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title text-center" id="myModalLabel">Cadastrar Especialidade</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ route('specialty.save') }}" method="post">
+                                        {{ csrf_field() }}
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">Nome:</label>
+                                            <input name="name" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">Detalhes:</label>
+                                            <textarea name="description" class="form-control"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim Modal -->
+@stop
 
+
+ 
 <!-- validação dos medicos -->
 <script type="text/javascript">
     function habilitaBtn () {
@@ -213,18 +287,14 @@
             document.getElementById('cargo').required = true;
         }
     }
+
+    //<!-- validação dos medicos -->
+    function addCert() {
+    var lista = document.getElementsByName('certificados[]');
+    var ultimoLista = lista[lista.length - 1];
+    var novoCert = ultimoLista.cloneNode(true);
+    var formPai = ultimoLista.parentNode; //ou document.getElementById('id_do_form');
+    formPai.insertBefore(novoCert, ultimoLista.nextSibling);
+}
 </script>
 <!-- validação dos medicos -->
-
-
-
-
-   <!--   TUTORIAIS PARA MASCARAS
-    http://www.kadunew.com/blog/jquery/criando-mascara-de-entrada-em-formularios-com-masked-input
-    https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html
-    https://cercal.io/jquery-mask-mascaras-para-campos-de-formularios/
-   -->
-
-
-
-@stop
