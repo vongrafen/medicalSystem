@@ -32,6 +32,9 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::put('/equipament/update/{id}', ['uses'=>'EquipamentController@update', 'as' => 'equipament.update']);
     Route::get('/equipament/delete/{id}', ['uses'=>'EquipamentController@delete', 'as' => 'equipament.delete']);
 
+    //Tipo de Exame 
+    Route::post('/equipament/add/examtype', ['uses'=>'examtypeController@save', 'as' => 'examtype.save']);
+        
 
 });
 
