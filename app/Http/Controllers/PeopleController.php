@@ -6,7 +6,7 @@ use App\People;
 use App\specialty;
 use App\User;
 use Illuminate\Http\Request;
-
+use Session;
 
 class PeopleController extends Controller
 {
@@ -90,9 +90,6 @@ class PeopleController extends Controller
         return redirect()
                     ->back()
                     ->with('error', 'Falha ao inserir');
-        
-
-
         return redirect()
         ->route('people.add')
         ->with('success', 'Usuário cadastrado com sucesso!');
@@ -113,13 +110,9 @@ class PeopleController extends Controller
 
     public function update(Request $request, $id)
     {
+        Session::flash('message', 'Olá');
         People::find($id)->update($request->all());
         
-        \Session::flash('flash_message',[
-            'msg'=>"Pessoa atualizada com sucesso!",
-            'class'=>"alert-success"
-        ]);
-
         return redirect()->route('people.index');        
         
     }
@@ -128,7 +121,6 @@ class PeopleController extends Controller
     {
         $people = People::find($id);
        
-
         /*if(!$people->deleteTelephone()){
             \Session::flash('flash_message', [
                 'msg'=>"Registro não pode ser deletado",

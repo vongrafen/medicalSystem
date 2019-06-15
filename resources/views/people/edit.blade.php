@@ -184,21 +184,11 @@
                         </span>
                         @endif
                         </div>
-                        <button id="mensagem-sucesso">Salvar</button>
+                        <button id="mensagem-sucesso" class=" form-group btn btn-info" >Salvar</button>
                     </form>
-
-                    @if(session('success'))
-                    <div id="mensagem-sucesso" class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                 
-                @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                @endif
-
+                    @if (Session::has('message'))
+                    <div class="alert alert-info">{{ Session::get('message') }}</div>
+                    @endif
                 </div>
             </div>
         </div>

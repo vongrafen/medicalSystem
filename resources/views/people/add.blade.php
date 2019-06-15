@@ -193,7 +193,7 @@
                     </form>
 
                     @if(session('success'))
-                    <div id="mensagem-sucesso" class="alert alert-success">
+                    <div id="mensagem-sucesso">
                         {{ session('success') }}
                     </div>
                 @endif

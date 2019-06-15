@@ -107,6 +107,29 @@ document.getElementById('mensagem-sucesso').onclick = function(){
 document.getElementById('mensagem-erro').onclick = function(){
     swal('Oh no...', 'Algo deu errado!', 'error')
 };
+
+document.getElementById('mensagem').onclick = function msg(){
+    swal({
+  title: 'Deletar esse registro?',
+  text: "Esta pergunta vale um milhão de reais!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Sim, tenho certeza!',
+  cancelButtonText: 'Melhor eu parar...'
+  }).then((result) => {
+    if (result.value) {
+      swal(
+        'Parabéns!',
+        'Você acertou e ganhou um milhão de reais!',
+        'success'
+      )
+    }
+  })
+};
+
+
 </script>
 <script type="text/javascript">
     $(function() {
