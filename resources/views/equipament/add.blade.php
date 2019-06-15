@@ -109,7 +109,7 @@
                                                 <h4 class="modal-title text-center" id="myModalLabel">Cadastrar Tipos de Exame</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('examtype.save') }}" method="post">
+                                                <form action=" {{ route('examtype.save') }}" method="post">
                                                     {{ csrf_field() }}
                                                     
                                                     <div class="form-group">

@@ -6,6 +6,7 @@ use App\Equipament;
 use App\examtype;
 use Illuminate\Http\Request;
 use App\Requests\EquipamentRequest;
+use App\Requests\examtypeRequest;
 
 class EquipamentController extends Controller
 {
@@ -26,7 +27,7 @@ class EquipamentController extends Controller
     public function index()
     {
         
-        $equipaments = $this->equipamentModel->paginate(5); // whereNotNull('rg')->
+        $equipaments = $this->equipamentModel->paginate(20); // whereNotNull('rg')->
         return view('equipament.index', ['equipaments' => $equipaments]);
     }
 

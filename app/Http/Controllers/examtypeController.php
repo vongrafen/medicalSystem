@@ -16,6 +16,7 @@ class examtypeController extends Controller
     {   
         $this->examtype = $examtype;
         $this->middleware('auth');
+        dd($examtype);
     }
 
     public function save(\App\Http\Requests\examtypeRequests $request)
@@ -25,8 +26,8 @@ class examtypeController extends Controller
         // Verifica se inseriu com sucesso
         if ($insert)
         return redirect()
-                    ->back()
-                    ->with('success', 'Especialidade cadastrada com sucesso!');
+                    ->route('equipament.add')
+                    ->with('success', 'cadastrada com sucesso!');
 
         // Redireciona de volta com uma mensagem de erro
         return redirect()

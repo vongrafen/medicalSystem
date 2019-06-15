@@ -18,16 +18,6 @@ class specialtyController extends Controller
         $this->middleware('auth');
     }
 
-    public function popula()
-    {
-        
-        $ReturnSpecialialty = specialty::find($name); // whereNotNull('rg')->
-        return view('people.add');
-        //return view('people.add', ['peoples' => $ReturnSpecialialty]);
-    }
-
-
-
     public function save(\App\Http\Requests\specialtyRequests $request)
     {
         $insert = specialty::create($request->all());
