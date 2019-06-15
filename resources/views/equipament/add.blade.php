@@ -61,15 +61,14 @@
                             @endif
                             </div>
 
-                        <div class="form-group {{$errors->has('servicestype') ? 'has-error' : '' }}">
-                            <label for="servicestype   ">Tipo de Serviço</label>
-                            <input type="text" name= "servicestype" class="form-control" placeholder="Tipo de serviço ">
-                        @if($errors->has('servicestype     '))
-                        <span class="help-block">
-                            <strong>{{$errors->first('servicestype     ')}}</strong>
-                        </span>
-                        @endif
-                        </div>
+                            <select class="form-control"  name="examtype_id" id="examtype_id">
+                                <option value="">Selecione um tipo</option>       
+                                @foreach($results as $examtype)
+                                    <option value="{{ $examtype->id }}">{{ $examtype->name }}</option>
+                                @endforeach
+                            </select>
+                            <br>
+                            <input type="button" class="form-control" value="Adicionar Tipo de exame" data-toggle="modal" data-target="#myModalcad">
 
                         <div class="form-group {{$errors->has('description') ? 'has-error' : '' }}">
                         <label for="description">Descrição</label>
@@ -85,7 +84,7 @@
 
                         
 
-                        <button class="btn btn-info">Adicionar</button> 
+                        <button id= 'mensagem-sucesso'class="btn btn-info">Adicionar</button> 
                     </form>
 
                     @if (session('status'))
@@ -99,6 +98,38 @@
         </div>
     </div>
 </div>
+
+
+                                         <!-- Inicio Modal -->
+                                    <div class="modal fade" id="myModalcad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title text-center" id="myModalLabel">Cadastrar Tipos de Exame</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('examtype.save') }}" method="post">
+                                                    {{ csrf_field() }}
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="control-label">Nome:</label>
+                                                        <input name="name" type="text" class="form-control">
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">Detalhes:</label>
+                                                        <textarea name="description" class="form-control"></textarea>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-success">Cadastrar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Fim Modal -->
 
 @stop
 

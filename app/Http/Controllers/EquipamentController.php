@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Equipament;
+use App\examtype;
 use Illuminate\Http\Request;
 use App\Requests\EquipamentRequest;
 
@@ -13,6 +14,11 @@ class EquipamentController extends Controller
     public function __construct(Equipament $equipamentModel)
     {   
         $this->equipamentModel = $equipamentModel;
+        $this->middleware('auth');
+    }
+    public function __constructE(examtype $examtype)
+    {   
+        $this->examtype = $examtype;
         $this->middleware('auth');
     }
 
@@ -37,7 +43,9 @@ class EquipamentController extends Controller
 
     public function add()
     {
-        return view('equipament.add');
+        $results = examtype::all();
+        //dd($results);
+        return view('equipament.add', ['results' => $results]);
     }
 
     public function save(\App\Requests\EquipamentRequest $request)
