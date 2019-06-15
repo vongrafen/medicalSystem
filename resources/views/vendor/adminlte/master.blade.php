@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
     <!-- DataTable  -->
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}">
+    <!-- sweetalert  -->
+    <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
@@ -31,7 +33,9 @@
         <!-- DataTables with bootstrap 3 style -->
         <link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
     @endif
-    <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
+    
+   
+
     @yield('adminlte_css')
 
     <!--[if lt IE 9]>
@@ -55,9 +59,12 @@
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
 <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
+<!-- Máscaras  -->
 <script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
+<!-- cidadeEstado  -->
 <script src="{{ asset('js/cidadeEstado.js') }}"></script>
-<script src="sweetalert2/dist/sweetalert2.min.js"></script>
+<!-- sweetalert  -->
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
 
 
 @if(config('adminlte.plugins.select2'))
@@ -91,6 +98,7 @@ $(document).ready( function () {
     } );
 
 </script>
+
 <script>
 document.getElementById('mensagem-sucesso').onclick = function(){
     swal('Boa!', 'Cadastrado com Sucesso', 'success')

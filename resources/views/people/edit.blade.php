@@ -184,7 +184,7 @@
                         </span>
                         @endif
                         </div>
-                        <button id="mensagem-sucesso" class=" form-group btn btn-info">Salvar</button>
+                        <button id="mensagem-sucesso">Salvar</button>
                     </form>
 
                     @if(session('success'))
