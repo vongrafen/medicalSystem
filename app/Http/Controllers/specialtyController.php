@@ -28,11 +28,10 @@ class specialtyController extends Controller
 
 
 
-    public function save(\App\Http\Requests\PeopleRequest $request)
+    public function save(\App\Http\Requests\specialtyRequests $request)
     {
         $insert = specialty::create($request->all());
 
-        dd($insert);
         // Verifica se inseriu com sucesso
         if ($insert)
         return redirect()

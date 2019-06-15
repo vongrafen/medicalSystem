@@ -31,24 +31,16 @@ Route::group( [ 'middleware' => 'auth'], function()
 
 });
 
-//Medicos
-Route::group(['prefix' => 'medicos'], function () {
-    Route::get('/', 'DoctorController@all')->name('doctors.all');
-    Route::get('cadastrar', 'DoctorController@create')->name('doctors.create');
-    Route::post('cadastrar', 'DoctorController@store')->name('doctors.store');
-    Route::get('edit/{id}', 'DoctorController@edit')->name('doctors.edit');
-    Route::put('edit/{id}', 'DoctorController@update')->name('doctors.update');
-    Route::get('excluir/{id}', 'DoctorController@destroy')->name('doctors.destroy');
-});
-//Pacientes
-Route::group(['prefix' => 'pacientes'], function () {
-    Route::get('/', 'PatientController@all')->name('patients.all');
-    Route::get('cadastrar', 'PatientController@create')->name('patients.create');
-    Route::post('cadastrar', 'PatientController@store')->name('patients.store');
-    Route::get('edit/{id}', 'PatientController@edit')->name('patients.edit');
-    Route::put('edit/{id}', 'PatientController@update')->name('patients.update');
-    Route::get('excluir/{id}', 'PatientController@destroy')->name('patients.destroy');
-});
+//Medicos e Pacientes
+Route::get('/Medicos', ['uses'=>'PeopleController@indexMedicos', 'as' => 'people.indexMedicos']);
+Route::get('/Pacientes', ['uses'=>'PeopleController@indexPacientes', 'as' => 'people.indexPacientes']);
+
+
+//Especialidade
+Route::Post('/people/add/specialty', ['uses'=>'specialtyController@save', 'as' => 'specialty.save']);
+
+//Usuários
+Route::Post('/people/add/user', ['uses'=>'UserController@save', 'as' => 'user.save']);
 
 //Routes people
 Route::get('/people', ['uses'=>'PeopleController@index', 'as' => 'people.index']);
@@ -59,7 +51,7 @@ Route::get('/people/edit/{id}', ['uses'=>'PeopleController@edit', 'as' => 'peopl
 Route::put('/people/update/{id}', ['uses'=>'PeopleController@update', 'as' => 'people.update']);
 Route::get('/people/delete/{id}', ['uses'=>'PeopleController@delete', 'as' => 'people.delete']);
 
-Route::Post('/people/add', ['uses'=>'specialtyController@save', 'as' => 'specialty.save']);
+
     
 Route::get('/people/detail/{id}', ['uses'=>'PeopleController@detail', 'as' => 'people.detail']);
 Route::get('/telefone/add/{id}', ['uses'=>'TelefoneController@add', 'as' => 'telefone.add']);

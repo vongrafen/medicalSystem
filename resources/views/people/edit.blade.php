@@ -25,15 +25,18 @@
                     <div class="form-group">
                         <label for="profile" >Perfil</label>
                         <div required name="profile" class="auto-control" required autofocus>
-                        <select disabled=true  class="form-control"  id = "profile" name="profile" onchange="habilitaBtn()" >
+                        <select class="form-control"  id = "profile" name="profile" onchange="habilitaBtn()">
                             @if($people->profile == '4')
                             <option value= "{{ $people->profile }}" >Paciente</option>
+                            <option value="4">Paciente</option>
                             @endif
                             @if($people->profile == '3')
                             <option value= "{{ $people->profile }}" >Médico</option>
+                            <option value="3">Médico</option>
                             @endif
                             @if($people->profile == '2')
                             <option value= "{{ $people->profile }}" >Funcionário</option>
+                            <option value="2">Funcionário</option>
                             @endif
 
                             

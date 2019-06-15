@@ -120,34 +120,23 @@ return [
             'url'  => '/home',
         ],
         [
+            'text' => 'Meu perfil',
+            'icon' => 'home',
+            'url'  => '/perfil',
+        ],
+        [
             'text'    => 'Consulta',
             'icon'    => 'folder-open',
             'submenu' => [
                 [
-                    'text' => 'Pacientes',
-                    'icon' => 'cube',
-                    'url'  => '/pacientes',
-                ],
-                [
                     'text' => 'Médicos',
-                    'icon' => 'cube',
-                    'url'  => '/medicos',
-                ],
-            ],        
-        ],
-        [
-            'text'    => 'Cadastro',
-            'icon'    => 'folder-open',
-            'submenu' => [
-                [
-                    'text' => 'Médicos',
-                    'icon' => 'doctor',
-                    'url'  => '/medicos/cadastrar',
+                    'icon' => 'fa-user-md',
+                    'url'  => '/Medicos',
                 ],
                 [
                     'text' => 'Pacientes',
-                    'icon' => 'teste',
-                    'url'  => '/pacientes/cadastrar',
+                    'icon' => 'fa-user',
+                    'url'  => '/Pacientes',
                 ],
                 [
                     'text' => 'Equipamentos',
@@ -156,18 +145,18 @@ return [
                 ],
                 [
                     'text' => 'Pessoas',
-                    'icon' => 'contact',
+                    'icon' => 'fa-user-plus',
                     'url'  => '/people',
                 ],
             ],        
         ],
         [
             'text'    => 'Agenda',
-            'icon'    => 'folder-open',
+            'icon'    => 'fa-calendar-minus-o',
             'submenu' => [
                 [
                     'text' => 'Agendamento',
-                    'icon' => 'cube',
+                    'icon' => 'fa-calendar-plus-o',
                     'url'  => '/agendamento',
                 ],
                 [
