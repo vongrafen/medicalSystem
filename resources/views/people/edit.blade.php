@@ -20,15 +20,27 @@
                     <form action="{{ route('people.update', $people->id) }}" method="post">
                     {{ csrf_field() }}
 
-                        
-                    <div class="form-group">
+                    <input type="hidden" name="_method" value="put">
 
+                    <div class="form-group">
                         <label for="profile" >Perfil</label>
                         <div required name="profile" class="auto-control" required autofocus>
-                        <select disabled=true value="{{ $people->profile }}" class="form-control"  id = "profile" name="profile" onchange="habilitaBtn()" >
-                            <option value="4">Paciente</option>
-                            <option value="3">Médico</option>
-                            <option value="2">Funcionário</option>
+                        <select disabled=true  class="form-control"  id = "profile" name="profile" onchange="habilitaBtn()" >
+                            @if($people->profile == '4')
+                            <option value= "{{ $people->profile }}" >Paciente</option>
+                            @endif
+                            @if($people->profile == '3')
+                            <option value= "{{ $people->profile }}" >Médico</option>
+                            @endif
+                            @if($people->profile == '2')
+                            <option value= "{{ $people->profile }}" >Funcionário</option>
+                            @endif
+
+                            
+                           
+                            
+
+
                         </select>
                         @if($errors->has('profile'))
                         <span class="help-block">
@@ -37,7 +49,6 @@
                         @endif
                         </div>
                     </div>
-
 					<!-- se clicar em Funcionario -->
                     <div style="display:none" id='funcionario'class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="office">Cargo</label>
@@ -69,18 +80,23 @@
                         </div>
 
 
-                        <div class=" form-group" value="{{ old('genre') }}">
+                        <div class=" form-group" >
                             <label for="genre">Genero</label>
                             <select class="form-control" value="{{$people->genre}}" name = "genre">
-                                <option >Selecione</option>
+                                @if($people->genre == 'M')
+                                <option value= "{{ $people->genre }}" >Masculino</option>
+                                <option value="F">Femenino</option>
+                                @endif
+                                @if($people->genre == 'F')
+                                <option value= "{{ $people->genre }}" >Feminino</option>
                                 <option value="M">Masculino</option>
-                                <option value="F">Feminino</option>
+                                @endif
                             </select>
                         </div>
 
                         <div class="form-group {{$errors->has('cpf') ? 'has-error' : '' }}" value="{{ old('cpf') }}">
                             <label for="cpf">CPF</label>
-                            <input type="text" name="cpf" value="{{$people->cpf}}" id= "cpf"  class="form-control" placeholder="999.999.999-99" >
+                            <input disabled=true  type="text" name="cpf" value="{{$people->cpf}}" id= "cpf"  class="form-control" placeholder="999.999.999-99" >
                         @if($errors->has('cpf'))
                         <span class="help-block">
                             <strong>{{$errors->first('cpf')}}</strong>
@@ -107,13 +123,13 @@
 
                         <div class="form-group">
                             <label for="cep">CEP</label>
-                            <input class="form-control" name="cep" type="text" id="cep"  placeholder="99.999-999">
+                            <input class="form-control" name="cep" value="{{$people->cep}}" type="text" id="cep"  placeholder="99.999-999">
                             <small class="text-danger"></small>
                         </div>
 
                         <div class="form-group {{$errors->has('address') ? 'has-error' : '' }}">
                             <label for="address">Endereço</label>
-                            <input type="text" name="address" class="form-control" placeholder="Endereço do cliente">
+                            <input type="text" name="address" value="{{$people->address}}" class="form-control" placeholder="Endereço do cliente">
                             @if($errors->has('address'))
                         <span class="help-block">
                             <strong>{{$errors->first('address')}}</strong>
@@ -123,22 +139,22 @@
 
                         <div class="form-group ">
                             <label for="number">Número</label>
-                            <input type="text" name="number" class="form-control" placeholder="Número residência">
+                            <input type="text" name="number" value="{{$people->number}}" class="form-control" placeholder="Número residência">
                         </div>
 
                         <div class="form-group ">
                             <label for="district">Bairro</label>
-                            <input type="text" name="district" class="form-control" placeholder="Bairro">
+                            <input type="text" name="district" value="{{$people->disctict}}" class="form-control" placeholder="Bairro">
                         </div>
 
                         <div class="form-group ">
                             <label for="complement">Complemento</label>
-                            <input type="text" name="complement" class="form-control" placeholder="Complemento">
+                            <input type="text" name="complement" value="{{$people->complement}}" class="form-control" placeholder="Complemento">
                         </div>
 
                         <div class="form-group {{$errors->has('telephone') ? 'has-error' : '' }}">
                             <label for="telephone">Telefone</label>
-                            <input type="text" name="telephone" id = "telephone" class="form-control" placeholder="Telefone do cliente">
+                            <input type="text" name="telephone" value="{{$people->telephone}}" id = "telephone" class="form-control" placeholder="Telefone do cliente">
                         @if($errors->has('telephone'))
                         <span class="help-block">
                             <strong>{{$errors->first('telephone')}}</strong>
@@ -148,7 +164,7 @@
 
                         <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}">
                             <label for="email">E-mail</label>
-                            <input type="email" name="email" class="form-control" placeholder="E-mail do cliente">
+                            <input type="email" name="email" value="{{$people->email}}" class="form-control" placeholder="E-mail do cliente">
                             @if($errors->has('email'))
                         <span class="help-block">
                             <strong>{{$errors->first('email')}}</strong>
@@ -158,14 +174,14 @@
 
                         <div class="form-group {{$errors->has('obs') ? 'has-error' : '' }}">
                             <label for="obs">Observação</label>
-                            <input type="textarea" name="obs" class="form-control" placeholder="Observação">
+                            <input type="textarea" name="obs" value="{{$people->obs}}" class="form-control" placeholder="Observação">
                             @if($errors->has('obs'))
                         <span class="help-block">
                             <strong>{{$errors->first('obs')}}</strong>
                         </span>
                         @endif
                         </div>
-                        <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
+                        <button id="mensagem-sucesso" class=" form-group btn btn-info">Salvar</button>
                     </form>
 
                     @if(session('success'))
