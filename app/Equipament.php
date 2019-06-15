@@ -13,7 +13,7 @@ class Equipament extends Model
         'serialnumber',
         'active',
         'description',
-        'servicestype',   
+        'examtype_id',   
     ];
 
 }
