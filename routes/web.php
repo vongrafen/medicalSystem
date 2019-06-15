@@ -23,10 +23,14 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::group( [ 'middleware' => 'auth'], function()
 {
     //Equipamentos
-    Route::view('/home', 'home')->name('home');   
-    Route::view('/equipamentos', 'equipaments.register')->name('equipaments.register');
-    Route::post('/equipamentos/cadastro', 'EquipamentController@create')->name('equipaments.cadastrar');
-    Route::get('/equipamentos/index', 'EquipamentController@index')->name('equipaments.index');
+    Route::view('/home', 'home')->name('home'); 
+    Route::get('/equipament', ['uses'=>'EquipamentController@index', 'as' => 'equipament.index']);  
+    Route::get('/equipament/add', ['uses'=>'EquipamentController@add', 'as' => 'equipament.add']);
+    Route::get('/equipament/menu', ['uses'=>'EquipamentController@menu', 'as' => 'equipament.menu']);
+    Route::post('/equipament/save', ['uses'=>'EquipamentController@save', 'as' => 'equipament.save']);
+    Route::get('/equipament/edit/{id}', ['uses'=>'EquipamentController@edit', 'as' => 'equipament.edit']);
+    Route::put('/equipament/update/{id}', ['uses'=>'EquipamentController@update', 'as' => 'equipament.update']);
+    Route::get('/equipament/delete/{id}', ['uses'=>'EquipamentController@delete', 'as' => 'equipament.delete']);
 
 
 });

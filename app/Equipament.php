@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipament extends Model
 {
+    protected $table = 'equipaments';
     protected $fillable = [
-        'name','model','serialnumber','active','description','servicestype'   
-    ];
-
-    protected $guarded = [
-        'id', 'created_at', 'update_at'
+        'name',
+        'model',
+        'serialnumber',
+        'active',
+        'description',
+        'servicestype',   
     ];
 
 }

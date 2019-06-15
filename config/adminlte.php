@@ -141,7 +141,7 @@ return [
                 [
                     'text' => 'Equipamentos',
                     'icon' => 'contact',
-                    'url'  => '/equipamentos/index',
+                    'url'  => '/equipament',
                 ],
                 [
                     'text' => 'Pessoas',

@@ -4,92 +4,98 @@ namespace App\Http\Controllers;
 
 use App\Equipament;
 use Illuminate\Http\Request;
+use App\Requests\EquipamentRequest;
 
 class EquipamentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $equipamentModel;
+
+    public function __construct(Equipament $equipamentModel)
+    {   
+        $this->equipamentModel = $equipamentModel;
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        $equipament = Equipament::all();
-
-        return view('equipaments.index', ['resultado' => $equipament]);
+        
+        $equipaments = $this->equipamentModel->paginate(5); // whereNotNull('rg')->
+        return view('equipament.index', ['equipaments' => $equipaments]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request, Equipament $equipament)
+    public function menu()
     {
-        try{
-            $equipament->create($request->all());
-            
-            if ($validate) {
-                return back()->with('Sucesso','Equipamento cadastrado com Sucesso');
-            }    
-        } catch(\Illuminate\Database\QueryException $e) {
-            return back()->with('error','ERRO: Ops! Algo deu errado!');
-        }  
+        return view('equipament.menu');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function detail($id)
     {
-        //
+        $equipament = Equipament::find($id);
+        return view('equipament.detail', compact('equipament'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Equipament  $equipament
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Equipament $equipament)
+    public function add()
     {
-        //
+        return view('equipament.add');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Equipament  $equipament
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Equipament $equipament)
+    public function save(\App\Requests\EquipamentRequest $request)
     {
-        //
+         //dd('entro');
+        Equipament::create($request->all());
+        \Session::flash('flash_message', [
+            'msg'=>"Equipamento adicionado com sucesso",
+            'class'=>"alert-success"
+        ]);
+        return redirect()->route('equipament.add');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Equipament  $equipament
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Equipament $equipament)
+    public function edit ($id)
     {
-        //
+        $equipament = Equipament::find($id);
+        if(!$equipament){
+            \Session::flash('flash_message', [
+                'msg'=>"Não existe esse equipamento cadastrado, deseja cadastrar um novo equipamento?",
+                'class'=>"alert-danger"
+            ]);
+            return redirect()->route('equipament.add');
+        }
+        return view('equipament.edit', compact('equipament'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Equipament  $equipament
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Equipament $equipament)
+    public function update(Request $request, $id)
     {
-        //
+        Equipament::find($id)->update($request->all());
+        
+        \Session::flash('flash_message',[
+            'msg'=>"Equipamento atualizada com sucesso!",
+            'class'=>"alert-success"
+        ]);
+
+        return redirect()->route('equipament.index');        
+        
+    }
+
+    public function delete($id)
+    {
+        $equipament = Equipament::find($id);
+       
+
+        /*if(!$equipament->deleteTelephone()){
+            \Session::flash('flash_message', [
+                'msg'=>"Registro não pode ser deletado",
+                'class'=>"alert-danger"
+            ]);
+            return redirect()->route('equipament.index');
+        }*/
+        $equipament->delete();
+         \Session::flash('flash_message',[
+            'msg'=>"Equipamento atualizado com sucesso!",
+            'class'=>"alert-success"
+        ]);
+
+        return redirect()->route('equipament.index');        
+        
     }
 }
