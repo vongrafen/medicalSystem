@@ -20,8 +20,19 @@ Route::get('/login', 'Auth\LoginController@isLogged')->name('login');
 Route::post('/authentication', 'Auth\LoginController@authentication')->name('authentication');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
+
+
 Route::group( [ 'middleware' => 'auth'], function()
 {
+
+    Route::group( [ 'middleware' => 'auth'], function() 
+    {
+    //Perfil do cliente (crair middleware client) https://blog.especializati.com.br/middleware-no-laravel-filtros/
+    Route::view('/Profile', 'profile')->name('profile'); 
+    Route::view('/ExamesPaciente', 'paciente')->name('paciente'); 
+    });
+
+
     //Equipamentos
     Route::view('/home', 'home')->name('home'); 
     Route::get('/equipament', ['uses'=>'EquipamentController@index', 'as' => 'equipament.index']);  
@@ -38,8 +49,11 @@ Route::group( [ 'middleware' => 'auth'], function()
 
 });
 
-//Medicos e Pacientes
+//Medicos 
 Route::get('/Medicos', ['uses'=>'PeopleController@indexMedicos', 'as' => 'people.indexMedicos']);
+
+//Pacientes
+
 Route::get('/Pacientes', ['uses'=>'PeopleController@indexPacientes', 'as' => 'people.indexPacientes']);
 
 

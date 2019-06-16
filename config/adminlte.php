@@ -122,8 +122,21 @@ return [
         [
             'text' => 'Meu perfil',
             'icon' => 'home',
-            'url'  => '/perfil',
+            'url'  => '/Profile',
         ],
+        // Somente para o Cliente
+        [
+            'text'    => 'Consulta de Exames',
+            'icon'    => 'folder-open',
+            'submenu' => [
+                [
+                    'text' => 'Exames Realizados',
+                    'icon' => 'fa-user-md',
+                    'url'  => '/ExamesPaciente',
+                ],
+            ],
+        ],
+
         [
             'text'    => 'Consulta',
             'icon'    => 'folder-open',
