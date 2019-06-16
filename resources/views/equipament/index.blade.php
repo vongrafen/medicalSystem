@@ -56,7 +56,9 @@
                         </tbody>
 
                     </table>
-
+                    <div align="center">
+                        {!! $equipaments->links() !!}
+                    </div> 
                 </div>
             </div>
         </div>

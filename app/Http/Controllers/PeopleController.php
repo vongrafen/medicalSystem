@@ -117,7 +117,7 @@ class PeopleController extends Controller
             'class'=>"alert-success"
         ]);
 
-        return redirect()->route('people.index');        
+        return redirect()->route('people.index')->with('success', 'cadastrada com sucesso!');      
         
     }
 }

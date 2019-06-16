@@ -78,11 +78,6 @@ Route::get('/people/detail/{id}', ['uses'=>'PeopleController@detail', 'as' => 'p
 Route::get('/telefone/add/{id}', ['uses'=>'TelefoneController@add', 'as' => 'telefone.add']);
 Route::post('/telefone/save/{id}', ['uses'=>'TelefoneController@save', 'as' => 'telefone.save']);
 
-Route::get('/telefone/edit/{id}', ['uses'=>'TelefoneController@edit', 'as' => 'telefone.edit']);
-Route::put('/telefone/update/{id}', ['uses'=>'TelefoneController@update', 'as' => 'telefone.update']);
-Route::get('/telefone/delete/{id}', ['uses'=>'TelefoneController@delete', 'as' => 'telefone.delete']);
-
-
 Route::get('/agenda', 'EventController@index')->name('events.index');
 Route::get('/agendamento', 'EventController@index')->name('events.agenda');
 
