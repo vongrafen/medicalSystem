@@ -45,9 +45,9 @@ Route::group( [ 'middleware' => 'auth'], function()
 
     //Tipo de Exame 
     Route::post('/equipament/add/examtype', ['uses'=>'examtypeController@save', 'as' => 'examtype.save']);
-        
 
-});
+
+
 
 //Medicos 
 Route::get('/Medicos', ['uses'=>'PeopleController@indexMedicos', 'as' => 'people.indexMedicos']);
@@ -87,3 +87,5 @@ Route::get('/agenda', 'EventController@index')->name('events.index');
 Route::get('/agendamento', 'EventController@index')->name('events.agenda');
 
 Route::post('/agenda', 'EventController@addEvent')->name('events.agenda');
+
+});

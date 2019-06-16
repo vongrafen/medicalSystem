@@ -84,7 +84,7 @@
                         <div class=" form-group" value="{{ old('genre') }}">
                             <label for="genre">Genero</label>
                             <select class="form-control" name = "genre">
-                                <option >Selecione</option>
+                                <option value="">Selecione</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
                             </select>
@@ -189,7 +189,7 @@
                         <!-- Fim-->
                         <label>Adicionar Usuário</label>
                         <input type="button" class="form-control" value="Adicionar Usuário" data-toggle="modal" data-target="#UsermyModal">
-                        <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
+                        <button class=" form-group btn btn-info">Adicionar</button>
                     </form>
 
                     @if(session('success'))
@@ -231,7 +231,7 @@
                                             <textarea name="description" class="form-control"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                                            <button id= 'mensagem-sucesso' type="submit" class="btn btn-success">Cadastrar</button>
                                         </div>
                                     </form>
                                 </div>

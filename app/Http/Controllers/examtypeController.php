@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\examtype;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Requests\examtypeRequest;
 
 class examtypeController extends Controller
 {
@@ -16,10 +17,10 @@ class examtypeController extends Controller
     {   
         $this->examtype = $examtype;
         $this->middleware('auth');
-        dd($examtype);
+        
     }
 
-    public function save(\App\Http\Requests\examtypeRequests $request)
+    public function save(Request $request)
     {
         $insert = examtype::create($request->all());
 

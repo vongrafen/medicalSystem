@@ -64,35 +64,25 @@ class PeopleController extends Controller
     {
         $results = specialty::all();
         return view('people.add', ['results' => $results]);
-        //return view('people.add');
     }
+
 
     public function save(\App\Http\Requests\PeopleRequest $request)
     {
        
-       $insert = People::create($request->all());
-        // Verifica se inseriu com sucesso
-        // Passa uma session flash success (sessão temporária)
+       $insert = People::create($request->all()); 
         $tipopessoa = $request->get('profile');
-        if ($insert){
+        if ($insert){    // Verifica se inseriu com sucesso
             if($tipopessoa == 3){
                 return redirect()
                         ->route('people.indexMedicos');
             }
-        }
-    
-        if ($insert)
-        return redirect()
-                    ->route('people.indexMedicos')
-                    ->with('success', 'Pessoa cadastrada com sucesso!');
-
-        // Redireciona de volta com uma mensagem de erro
-        return redirect()
-                    ->back()
-                    ->with('error', 'Falha ao inserir');
-        return redirect()
-        ->route('people.add')
-        ->with('success', 'Usuário cadastrado com sucesso!');
+            if($tipopessoa == 2){
+                return redirect()
+                        ->route('people.indexPacientes');
+            }
+        }else
+            return 'Problema ao inserir';
     }
 
     public function edit ($id)
@@ -120,14 +110,7 @@ class PeopleController extends Controller
     public function delete($id)
     {
         $people = People::find($id);
-       
-        /*if(!$people->deleteTelephone()){
-            \Session::flash('flash_message', [
-                'msg'=>"Registro não pode ser deletado",
-                'class'=>"alert-danger"
-            ]);
-            return redirect()->route('people.index');
-        }*/
+        
         $people->delete();
          \Session::flash('flash_message',[
             'msg'=>"Pessoa atualizada com sucesso!",
