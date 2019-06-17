@@ -189,7 +189,8 @@
                         <!-- Fim-->
                         <label>Adicionar Usuário</label>
                         <input type="button" class="form-control" value="Adicionar Usuário" data-toggle="modal" data-target="#UsermyModal">
-                        <button class=" form-group btn btn-info">Adicionar</button>
+                        
+                        <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
                     </form>
 
                     @if(session('success'))

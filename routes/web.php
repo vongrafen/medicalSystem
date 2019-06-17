@@ -46,7 +46,13 @@ Route::group( [ 'middleware' => 'auth'], function()
     //Tipo de Exame 
     Route::post('/equipament/add/examtype', ['uses'=>'examtypeController@save', 'as' => 'examtype.save']);
 
-
+    //Routes user
+    Route::get('/User', ['uses'=>'UserController@index', 'as' => 'User.index']);
+    Route::get('/User/add', ['uses'=>'UserController@add', 'as' => 'User.add']);
+    Route::post('/User/save', ['uses'=>'UserController@save', 'as' => 'User.save']);
+    Route::get('/User/edit/{id}', ['uses'=>'UserController@edit', 'as' => 'User.edit']);
+    Route::put('/User/update/{id}', ['uses'=>'UserController@update', 'as' => 'User.update']);
+    Route::get('/User/delete/{id}', ['uses'=>'UserController@delete', 'as' => 'User.delete']);
 
 
 //Medicos 

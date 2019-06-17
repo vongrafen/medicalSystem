@@ -20,6 +20,7 @@ class UserRequests extends FormRequest
 
         return[
             'name.required'=>'Preencha um nome',
+            'password.required' => 'Preencha uma senha'
         ];
     }
 
@@ -32,6 +33,7 @@ class UserRequests extends FormRequest
     {
         return [
             'name'=>'required|max:255',
+            'password' => 'required'
         ];
     }
 }

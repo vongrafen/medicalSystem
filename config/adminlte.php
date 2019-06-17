@@ -161,6 +161,11 @@ return [
                     'icon' => 'fa-user-plus',
                     'url'  => '/people',
                 ],
+                [
+                    'text' => 'Usuários',
+                    'icon' => 'fa-user-plus',
+                    'url'  => '/User',
+                ],
             ],        
         ],
         [
