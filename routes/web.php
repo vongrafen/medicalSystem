@@ -22,14 +22,17 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 
+
 Route::group( [ 'middleware' => 'auth'], function()
 {
 
+
     Route::group( [ 'middleware' => 'auth'], function() 
     {
+
     //Perfil do cliente (crair middleware client) https://blog.especializati.com.br/middleware-no-laravel-filtros/
-    Route::view('/Profile', 'profile')->name('profile'); 
-    Route::view('/ExamesPaciente', 'paciente')->name('paciente'); 
+    Route::view('/Profile', 'profile')->name('profile')->middleware('auth'); 
+    Route::view('/ExamesPaciente', 'paciente')->name('paciente')->middleware('auth'); 
     });
 
 

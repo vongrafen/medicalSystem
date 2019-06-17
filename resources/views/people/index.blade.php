@@ -48,16 +48,12 @@
                                     <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('people.delete',$people->id)}}' : false)">Deletar</a>
                                 </td>
                             <tr>
-                        @endforeach
-                            
+                        @endforeach                        
                         </tbody>
-
                     </table>
-
                     <div align="center">
                         {!! $peoples->links() !!}
                     </div> 
-
                 </div>
             </div>
         </div>

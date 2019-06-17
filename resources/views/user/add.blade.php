@@ -33,14 +33,13 @@
                         </div>
 
                         <div class=" form-group" value= "{{ old('user')}}">
-                            <label for="user">Nome de Login</label>
+                            <label required for="user">Nome de Login</label>
                             <input type="text" name="user" class="form-control" placeholder="Nome de login">
                         </div>
 
                         <div class=" form-group" value= "{{ old('password')}}">
                             <label for="password">Senha</label>
-                            <input type="password" name="password" class="form-control" placeholder="Digite a senha">
-                        </div>
+                            <input required type="password" name="password" class="form-control" placeholder="Digite a senha">
 
                         <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}" value= "{{ old('email')}}">
                             <label for="email">E-mail</label>
@@ -59,11 +58,14 @@
                                 <option value="0">Não</option>
                             </select>
                         </div>
-
+                        
                         <div class=" form-group">
+                                @if (auth()->user()->img != null)
+                                <img src="{{ url('storage/users/'.auth()->user()->img) }}" alt="{{ auth()->user()->name }}" style="max-width: 50px;">
+                                @endif
                             <label for="img">Imagem:</label>
                             <input  name="img" type="file" class="form-control">
-                        </div> 
+                        </div>
 
                         <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
                     </form>

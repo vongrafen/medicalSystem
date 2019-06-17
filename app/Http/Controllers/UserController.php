@@ -9,7 +9,10 @@ use Session;
 
 class UserController extends Controller
 {
-
+    public function profile()
+    {
+        return view('profile');
+    }
     protected $user;
     public function __construct(User $user)
     {   
@@ -31,54 +34,48 @@ class UserController extends Controller
         return view('User.index',['results' => $results]);
     }
 
-    public function profileUpdate(Request $request)
+    public function profileUpdate(UpdateProfileFormRequest $request)
     {
-        // https://www.youtube.com/watch?v=QFEuoJZ3IOI
         $user = auth()->user();
 
         $data = $request->all();
-        if($data['password']!=null)
-            $data['password'] = bcrypt( $data['password']);
-        else    
-            unset( $data['password']);
 
+        if ($data['password'] != null)
+            $data['password'] = bcrypt($data['password']);
+        else
+            unset($data['password']);
+
+        
         $data['img'] = $user->img;
-            if(( $request->hasFile('img')) && $request->file('img')->isValid() ){
-                if($user->img)
-                    $name = $user->image;
-                else
-                    $name = $user->id.kebab_case($user->name);
-                
-                
-                $extenstion = $request->img->extenstion();
-                $namefile - "{$name}.{extenstion}";
-                $data['img'] = $namefile;
-
-                // super impostant voltar o nome da imagem diferente
-                dd($namefile);
-
-                $upload = $request->img->storeAs('users',$namefile);
-
-                
-
-                if(!$upload)
-                    return redirect()
-                        ->back()
-                        ->with('error','Falha ao fazer upload');
-            }
-
-        $update = auth()->user()->update($data);
-
-        if($update)
-            return redirect()
-                       ->route('User.index');
+        if ($request->hasFile('img') && $request->file('img')->isValid()) {
+            if ($user->img)
+                $name = $user->img;
             else
-            return  redirect()
-                    ->route('User.add');
+                $name = $user->id.kebab_case($user->name);
+            
+            $extenstion = $request->img->extension();
+            $nameFile = "{$name}.{$extenstion}";
 
+            $data['img'] = $nameFile;
 
+            $upload = $request->img->storeAs('users', $nameFile);
 
+            if (!$upload)
+                return redirect()
+                            ->back()
+                            ->with('error', 'Falha ao fazer o upload da imgm');
+        }
 
+        $update = $user->update($data);
+
+        if ($update)
+            return redirect()
+                        ->route('profile')
+                        ->with('success', 'Sucesso ao atualizar!');
+
+        return redirect()
+                    ->back()
+                    ->with('error', 'Falha ao atualizar o perfil...');
     }
 
     public function add()
@@ -88,15 +85,15 @@ class UserController extends Controller
         return view('User.add', ['results' => $results, $peoples]);
     }
 
-
     public function save(Request $request)
     {
-       
+        if($request['password']!=null)
+        $request['password'] = bcrypt( $request['password']);
+         else    
+        unset( $request['password']);
+
        $insert = user::create($request->all()); 
-       if($insert['password']!=null)
-       $insert['password'] = bcrypt( $insert['password']);
-        else    
-       unset( $insert['password']);
+
 
 
 
