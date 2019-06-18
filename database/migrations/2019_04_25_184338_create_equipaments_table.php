@@ -20,7 +20,8 @@ class CreateEquipamentsTable extends Migration
             $table->string('serialnumber', 50)->unique();
             $table->boolean('active')->default(true);
             $table->text('description')->nullable(); 
-            $table->string('servicestype', 45)->nullable(); 
+            $table->integer('examtype_id')->unsigned()->nullable();
+            $table->foreign('examtype_id')->references('id')->on('examtype');
             $table->timestamps();
             $table->softDeletes();
         });
