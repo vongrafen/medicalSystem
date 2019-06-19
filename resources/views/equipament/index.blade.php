@@ -33,10 +33,11 @@
                                 <th>Ativo</th>
                                 <th>Descrição</th>
                                 <th>Tipo</th>
+                                <th>Ação</th>
                                 </tr>
                         </thead>
                         <tbody>
-                        
+                               
                         @foreach($equipaments as $equipament)
                         
                         <tr>
@@ -46,11 +47,13 @@
                                 <td>{{ $equipament->serialnumber }}</td>
                                 <td>{{ $equipament->active }}</td>
                                 <td>{{ $equipament->description }}</td>
+                                <td>{{ $equipament->examtype_id }}</td>
                                 <td>
                                     <a class="btn btn-default" href="{{route('equipament.edit',$equipament->id)}}">Editar</a>
                                     <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('equipament.delete',$equipament->id)}}' : false)">Deletar</a>
                                 </td>
                             <tr>
+                        
                         @endforeach
                             
                         </tbody>

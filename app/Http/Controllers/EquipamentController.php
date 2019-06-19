@@ -26,9 +26,10 @@ class EquipamentController extends Controller
 
     public function index()
     {
-        
+        $TipoExame = examtype::all();
         $equipaments = $this->equipamentModel->paginate(20); // whereNotNull('rg')->
-        return view('equipament.index', ['equipaments' => $equipaments]);
+        //dd($TipoExame);
+        return view('equipament.index', ['equipaments' => $equipaments, 'TipoExame' => $TipoExame]);
     }
 
     public function menu()
@@ -63,18 +64,23 @@ class EquipamentController extends Controller
     public function edit ($id)
     {
         $equipament = Equipament::find($id);
+        $results = examtype::all();
         if(!$equipament){
             \Session::flash('flash_message', [
                 'msg'=>"Não existe esse equipamento cadastrado, deseja cadastrar um novo equipamento?",
                 'class'=>"alert-danger"
             ]);
-            return redirect()->route('equipament.add');
+            //return redirect()->route('equipament.add');
+            return redirect()->back();
         }
-        return view('equipament.edit', compact('equipament'));
+        //return view('equipament.edit', compact('equipament'));
+        return view('equipament.edit', ['equipament' => $equipament,'results' => $results]);
+        
     }
 
     public function update(Request $request, $id)
     {
+        
         Equipament::find($id)->update($request->all());
         
         \Session::flash('flash_message',[

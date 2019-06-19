@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\People;
 use App\specialty;
 use App\User;
 use Illuminate\Http\Request;
-use Session;
+
 
 class PeopleController extends Controller
 {

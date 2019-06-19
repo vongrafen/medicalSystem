@@ -23,37 +23,30 @@
 
 
                         <!-- Fazer esse formulário de editar também value= "{ {$results->email or old('email')}}" -->
-                        <select class="form-control"  name="people_id" id="people_id" >
-                                <option value="">Selecione um Cliente</option>       
-                                @foreach($peoples as $people)
-                                 <option value="{{ $people->id }}">{{ $people->name }}</option>
-                                @endforeach
+                        <select class="form-control"  id = "people_id" name="people_id" onchange="habilitaBtn()" >            <option value="">Selecione um Cliente</option>       
+                            @foreach($peoples as $people)   
+                                <option required value="{{ $people->id }}">{{ $people->name }}</option>
+                            @endforeach
                         </select>
-                        {{ $people->name }}
-                           
-                        <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}" value= "{{ old('name')}}" >
+
+                        <div class="form-group">
                             <label for="name">Nome</label>
-                            <input disabled=true type="text" name="name" value= "{{ $people->name}}" class="form-control" placeholder="Nome do Usuário">
-                        @if($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{$errors->first('name')}}</strong>
-                        </span>
-                        @endif
+                            <input  readOnly = "true" type="text" name="name" value= "{{ $people->name}}" class="form-control" placeholder="Nome do Usuário">
                         </div>
 
                         <div class="form-group {{$errors->has('profile') ? 'has-error' : '' }}" value= "{{ old('profile')}}" >
                                 <label for="profile">Perfil</label>
                                 @if( $people->profile == 1)
-                                    <input disabled=true type="text" value= "Admininstrador" name="profile"  class="form-control">
+                                    <input readOnly = "true"  type="text" value= "Admininstrador" name="profile"  class="form-control">
                                 @endif
                                 @if( $people->profile == 2)
-                                    <input disabled=true type="text" value= "Funcionário" name="profile"  class="form-control">
+                                    <input readOnly = "true" type="text" value= "Funcionário" name="profile"  class="form-control">
                                 @endif
                                 @if( $people->profile == 3)
-                                    <input disabled=true type="text" value= "Médico" name="profile"  class="form-control">
+                                    <input readOnly = "true" type="text" value= "Médico" name="profile"  class="form-control">
                                 @endif
                                 @if( $people->profile == 4)
-                                <input disabled=true type="text" value= "Cliente" name="profile"  class="form-control">
+                                <input readOnly = "true" type="text" value= "Cliente" name="profile"  class="form-control">
                             @endif   
                                 
 
@@ -71,7 +64,7 @@
 
                         <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}" value= "{{ old('email')}}">
                             <label for="email">E-mail</label>
-                            <input disabled=true type="email" name="email"  value= "{{  $people->email }}" class="form-control" placeholder="E-mail do Usuário">
+                            <input readOnly = "true" type="email" name="email"  value= "{{  $people->email }}" class="form-control" placeholder="E-mail do Usuário">
                         </div>
 
                         <div class=" form-group" value="{{ old('ativo') }}">
@@ -98,18 +91,25 @@
     </div>
 </div>
 @stop
+<!-- validação dos medicos -->
 <script type="text/javascript">
+
     function habilitaBtn () {
         var op = document.getElementById("people_id").value;
-          alert('entrou no método jaava script');
-        if(op == "4") // Paciente
-        {
-            document.getElementById('medico').style.display = 'none';
-            document.getElementById('funcionario').style.display = 'none';
-        }
+        if(op==''){
+           // quando o campo está marcado de "selecione"
+        }else{
+            alert("entrou-"+op);
 
-
-        function atualiza() {
-            $people = $people->['2']
-        }
+            if(op == "3") // Alison
+            {
+                alert('deve trazer o ID da pessoa, chamar o método loadP')
+                document.getElementById("people_id").setAttribute.href="{{ URL::previous() }}"
+                //href="{{ URL::previous() }}"
+            // <option value="{{ $people->op }}">{{ $people->name }}</option>
+                
+            }
+            }
+    }
 </script>
+<!-- validação dos medicos -->

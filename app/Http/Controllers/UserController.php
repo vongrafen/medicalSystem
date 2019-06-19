@@ -6,6 +6,7 @@ use App\User;
 use App\People;
 use Illuminate\Http\Request;
 use Session;
+use DB;
 
 class UserController extends Controller
 {
@@ -14,6 +15,8 @@ class UserController extends Controller
     public function __construct(User $user)
     {   
         $this->user = $user;
+        $user = auth()->user();
+        $Id_Pessoa_load = DB::table('users')->where('id', $user)->first();
         $this->middleware('auth');
         
     }
@@ -31,7 +34,7 @@ class UserController extends Controller
         return view('User.index',['results' => $results]);
     }
 
-    public function profileUpdate(UpdateProfileFormRequest $request)
+    public function profileUpdate(Request $request)
     {
         $user = auth()->user();
 
@@ -88,12 +91,7 @@ class UserController extends Controller
         $request['password'] = bcrypt( $request['password']);
          else    
         unset( $request['password']);
-
        $insert = user::create($request->all()); 
-
-
-
-
         if ($insert)    // Verifica se inseriu com sucesso
                 return redirect()
                         ->route('User.index');
@@ -121,11 +119,18 @@ class UserController extends Controller
 
         return view('User.add', ['peoples' => $peoples]);
     }
+    public function loadP($id)
+    {
+        $peoples = People::find($id);
+        dd($peoples);
+        return view('User.add', ['peoples' => $peoples]);
+    }
 
 
     public function profile()
     {
         $user = auth()->user();
+        dd($user);
         $peoples = People::all()->find($user->people_id);
         
         return view('profile', ['results' => $user, 'peoples' => $peoples]);
@@ -139,6 +144,22 @@ class UserController extends Controller
         
         return redirect()->route('User.index');        
         
+    }
+
+    public function editProfile($id)
+    {
+        $Id_pessoa_user = DB::table('users')->where('people_id', $id)->first();
+        $user = auth()->user();
+        $peoples = People::find($user);
+        dd($user);
+        if(!$peoples){
+            \Session::flash('flash_message', [
+                'msg'=>"Não existe esse pessoa cadastrada, deseja cadastrar nova pessoa?",
+                'class'=>"alert-danger"
+            ]);
+            return redirect()->route('profile');
+        }
+        return view('profile', compact('peoples','Id_pessoa_user',$user));
     }
 
     public function delete($id)

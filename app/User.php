@@ -23,6 +23,8 @@ class User extends Authenticatable
         'ativo',
         'img',
         'password',
+        'profile',
+        'people_id',
     ];
 
     /**

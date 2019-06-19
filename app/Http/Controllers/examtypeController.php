@@ -22,18 +22,22 @@ class examtypeController extends Controller
 
     public function save(Request $request)
     {
-        $insert = examtype::create($request->all());
+        try{
+            $insert = examtype::create($request->all());
+            // Verifica se inseriu com sucesso
+            if ($insert)
+            return redirect()
+                        ->back();
+                        
 
-        // Verifica se inseriu com sucesso
-        if ($insert)
-        return redirect()
-                    ->route('equipament.add')
-                    ->with('success', 'cadastrada com sucesso!');
-
-        // Redireciona de volta com uma mensagem de erro
-        return redirect()
-                    ->back()
-                    ->with('error', 'Falha ao inserir');
+            // Redireciona de volta com uma mensagem de erro
+            return redirect()
+                        ->back()
+                        ->with('error', 'Falha ao inserir');
+        
+        }catch(Exeption $e){
+            return 'Erro';
         }
+    }
 
 }
