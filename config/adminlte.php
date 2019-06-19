@@ -152,6 +152,11 @@ return [
                     'url'  => '/Pacientes',
                 ],
                 [
+                    'text' => 'Funcionários',
+                    'icon' => 'fa-user',
+                    'url'  => '/Funcionarios',
+                ],
+                [
                     'text' => 'Equipamentos',
                     'icon' => 'contact',
                     'url'  => '/equipament',

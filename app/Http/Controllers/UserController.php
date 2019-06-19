@@ -9,10 +9,7 @@ use Session;
 
 class UserController extends Controller
 {
-    public function profile()
-    {
-        return view('profile');
-    }
+    
     protected $user;
     public function __construct(User $user)
     {   
@@ -82,7 +79,7 @@ class UserController extends Controller
     {
         $results = user::all();
         $peoples = People::all();
-        return view('User.add', ['results' => $results, $peoples]);
+        return view('User.add', ['results' => $results, 'peoples' => $peoples]);
     }
 
     public function save(Request $request)
@@ -118,6 +115,23 @@ class UserController extends Controller
         return view('User.edit', compact('User'));
     }
 
+    public function load()
+    {
+        $peoples = People::all();
+
+        return view('User.add', ['peoples' => $peoples]);
+    }
+
+
+    public function profile()
+    {
+        $user = auth()->user();
+        $peoples = People::all()->find($user->people_id);
+        
+        return view('profile', ['results' => $user, 'peoples' => $peoples]);
+    }
+
+    
     public function update(Request $request, $id)
     {
         Session::flash('message', 'Olá');

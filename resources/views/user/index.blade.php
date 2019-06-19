@@ -13,7 +13,7 @@
                 </ol>
 
                 <div class="panel-body">
-                    <p><a class="btn btn-info" href="{{route('User.add')}}">Adicionar</a></p>
+                    <p><a class="btn btn-info" href="{{route('User.load')}}">Adicionar</a></p>
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}

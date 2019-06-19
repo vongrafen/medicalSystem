@@ -21,9 +21,13 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('ativo')->default(true);
+            $table->string('profile', 45);
             $table->string('img')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('people_id')->unsigned()->nullable();
+            $table->foreign('people_id')->references('id')->on('peoples');
+
 
 
 

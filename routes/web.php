@@ -32,6 +32,7 @@ Route::group( [ 'middleware' => 'auth'], function()
 
     //Perfil do cliente (crair middleware client) https://blog.especializati.com.br/middleware-no-laravel-filtros/
     Route::view('/Profile', 'profile')->name('profile')->middleware('auth'); 
+    Route::get('/Profile', ['uses'=>'UserController@profile', 'as' => 'profile']);
     Route::view('/ExamesPaciente', 'paciente')->name('paciente')->middleware('auth'); 
     });
 
@@ -65,6 +66,8 @@ Route::get('/Medicos', ['uses'=>'PeopleController@indexMedicos', 'as' => 'people
 
 Route::get('/Pacientes', ['uses'=>'PeopleController@indexPacientes', 'as' => 'people.indexPacientes']);
 
+//Funcionarios
+Route::get('/Funcionarios', ['uses'=>'PeopleController@indexFuncionarios', 'as' => 'people.indexFuncionarios']);
 
 //Especialidade
 Route::Post('/people/add/specialty', ['uses'=>'specialtyController@save', 'as' => 'specialty.save']);

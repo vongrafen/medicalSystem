@@ -87,7 +87,7 @@
                         <button id= 'mensagem-sucesso'class="btn btn-info">Adicionar</button> 
                     </form>
 
-                    @if (session('status'))
+                    @if (session('Sucesso'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>

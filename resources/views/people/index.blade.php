@@ -9,7 +9,7 @@
             <div class="panel panel-default">
             <ol class="breadcrumb panel-heading">
             
-            <li class="active">People</li>
+            <li class="active">Cadastros</li>
             </ol>
 
                 <div class="panel-body">

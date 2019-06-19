@@ -46,6 +46,12 @@ class PeopleController extends Controller
     
     public function indexPacientes()
     {
+        $peoples = $this->peopleModel->whereNull('office')->whereNull('crm')->paginate(20);
+        return view('people.index', ['peoples' => $peoples]);
+    }
+
+    public function indexFuncionarios()
+    {
         $peoples = $this->peopleModel->whereNotNull('office')->paginate(20);
         return view('people.index', ['peoples' => $peoples]);
     }
@@ -69,21 +75,38 @@ class PeopleController extends Controller
 
     public function save(\App\Http\Requests\PeopleRequest $request)
     {
-       
-       $insert = People::create($request->all()); 
-        $tipopessoa = $request->get('profile');
-        if ($insert){    // Verifica se inseriu com sucesso
-            if($tipopessoa == 3){
+        $insert = 0;
+       try{
+            $insert = People::create($request->all());
+            
+            $tipopessoa = $request->get('profile');
+            if ($insert){    // Verifica se inseriu com sucesso
+                if($tipopessoa == 3){
+                    return redirect()
+                            ->route('people.indexMedicos')
+                            ->with('success', 'cadastrado com sucesso!');
+                }
+                if($tipopessoa == 2){
+                    return redirect()
+                            ->route('people.indexFuncionarios')
+                            ->with('success', 'cadastrado com sucesso!');
+                }
+                if($tipopessoa == 4){
+                    return redirect()
+                            ->route('people.indexPacientes')
+                            ->with('success', 'cadastrado com sucesso!');
+                }else
                 return redirect()
-                        ->route('people.indexMedicos');
+                            ->route('people.index')
+                            ->with('success', 'cadastrado com sucesso!');
             }
-            if($tipopessoa == 2){
-                return redirect()
-                        ->route('people.indexPacientes');
-            }
-        }else
-            return 'Problema ao inserir';
+       return redirect()
+                    ->route('people.add')
+                    ->with('success', 'cadastrado com sucesso!');
+       }catch(Exception $e){
+           echo('Erro!');
     }
+}
 
     public function edit ($id)
     {

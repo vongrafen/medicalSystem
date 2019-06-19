@@ -13,7 +13,7 @@
             <div class="panel panel-default">
 
             <ol class="breadcrumb panel-heading" >
-            <li><a style="font-size:110%" href="{{ URL::previous() }}"><b>Pessoas</b></a></li>
+            <li><a style="font-size:110%" href="{{ URL::previous() }}"><b>Cadastros</b></a></li>
             <li class="active" style="font-size:110%">Adicionar</li>
             </ol>
 
@@ -181,14 +181,6 @@
                         @endif
                         </div>
 
-                        <!-- Devemos trazer do campo o valor  O campo já está desativado-->    
-                        <div class="form-group">
-                                <label for="user" class="control-label">Usuário</label>
-                                <input disabled=true name="user" type="text" class="form-control">
-                        </div>
-                        <!-- Fim-->
-                        <label>Adicionar Usuário</label>
-                        <input type="button" class="form-control" value="Adicionar Usuário" data-toggle="modal" data-target="#UsermyModal">
                         
                         <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
                     </form>
@@ -240,63 +232,6 @@
                         </div>
                     </div>
                     <!-- Fim Especialidade Modal -->
-
-
-                    
-                    <!-- Inicio Usuário Modal -->
-                    <div class="modal fade" id="UsermyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title text-center" id="myModalLabel">Cadastrar Usuário</h4>
-                                    </div>
-                                    <div class="modal-body">
-
-
-                                        <form action="{{ route('user.save') }}" method="post">
-                                            {{ csrf_field() }}
-
-                                            <!-- TUTORIAL https://pt.stackoverflow.com/questions/243361/como-pegar-o-valor-de-um-campo-na-mesma-p%C3%A1gina-->
-                                            <!-- Devemos trazer do campo o valor  O campo já está desativado-->
-                                            <div class="form-group">
-                                                    <label disabled=true for="name" class="control-label">Nome:</label>
-                                                    <input name='name' type="text" class="form-control">
-                                            </div>
-                                            <!-- Devemos trazer do campo o valor  O campo já está desativado-->
-                                            
-                                            <div class="form-group">
-                                                    <label disabled=true for="email" class="control-label">E-mail:</label>
-                                                    <input name='email' type="text" class="form-control">
-                                            </div>
-
-                                            <div class="form-group">
-                                                    <label for="user" class="control-label">Usuário</label>
-                                                    <input name="user" type="text" class="form-control">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="password" class="control-label">Senha</label>
-                                                <input name="password" type="password" class="form-control">
-                                            </div>
-
-                                            <div class=" form-group" value="{{ old('ativo') }}">
-                                                    <label for="ativo">Ativo</label>
-                                                    <select class="form-control" name = "ativo">
-                                                        <option value="1">Sim</option>
-                                                        <option value="0">Não</option>
-                                                    </select>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success">Cadastrar</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!-- Inicio Usuário Modal -->
 @stop
 
 
