@@ -28,20 +28,19 @@ class CreatePeoplesTable extends Migration
             $table->String('telephone', 15)->nullable();
             $table->String('email', 80)->unique();
             $table->String('obs', 200)->nullable();
-            /* Chave estrangeira de Especialidade*/
+            //Chave estrangeira de Perfil
             $table->integer('profile')->unsigned()->nullable();
             $table->foreign('profile')->references('id')->on('profiles');
+            // Chave estrangeira de Perfil
             $table->string('crm', 10)->nullable();
             $table->string('office', 200)->nullable();
             $table->string('sector', 200)->nullable();
             $table->string('city', 200)->nullable();
             $table->String('state',2)->nullable();
-            
-            //$table->string('specialty')->nullable();
-            /* Chave estrangeira de Especialidade*/
+            // Chave estrangeira de Especialidade
             $table->integer('specialty_id')->unsigned()->nullable();
             $table->foreign('specialty_id')->references('id')->on('specialties');
-    
+            // Chave estrangeira de Especialidade
             $table->timestamps();
             $table->softDeletes();
             

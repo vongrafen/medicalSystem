@@ -20,8 +20,10 @@ class CreateEquipamentsTable extends Migration
             $table->string('serialnumber', 50)->unique();
             $table->boolean('active')->default(true);
             $table->text('description')->nullable(); 
+            // Chave estrangeira de Exames
             $table->integer('examtype_id')->unsigned()->nullable();
             $table->foreign('examtype_id')->references('id')->on('examtype');
+            // Chave estrangeira de Exames
             $table->timestamps();
             $table->softDeletes();
         });

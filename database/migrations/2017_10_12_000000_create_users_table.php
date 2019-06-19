@@ -22,12 +22,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('ativo')->default(true);
             $table->string('profile', 45);
+            // Chave extrangeira de pessoas
+            $table->integer('people_id')->unsigned()->nullable();
+            $table->foreign('people_id')->references('id')->on('peoples');
+            // Chave extrangeira de pessoas
             $table->string('img')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('people_id')->unsigned()->nullable();
-            $table->foreign('people_id')->references('id')->on('peoples');
-
+            
 
 
 

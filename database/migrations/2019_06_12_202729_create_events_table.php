@@ -23,17 +23,19 @@ class CreateEventsTable extends Migration
             $table->string('event_name');
             $table->date('start_date');
             $table->date('end_date');
-
+            // Chave estrangeira de Pessoas - com CRM
             $table->integer('doctor_id')->unsigned()->nullable();
             $table->foreign('doctor_id')->references('id')->on('peoples');
+            // Chave estrangeira de Pessoas - com CRM
+            // Chave estrangeira de Pessoas - Pacientes
             $table->integer('patients_id')->unsigned()->nullable();
             $table->foreign('patients_id')->references('id')->on('peoples');
-
+            // Chave estrangeira de Pessoas - Pacientes
+            // Chave estrangeira de Pessoas - Equipamentos
             $table->integer('equipament_id')->unsigned()->nullable();
             $table->foreign('equipament_id')-> references('id')->on('equipaments');
+            // Chave estrangeira de Pessoas - Equipamentos
             $table->integer('convenant_id');
-            //$table->timestamp('event_date');
-            //$table->time('event_time');
         });
     }
 

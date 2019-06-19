@@ -11,19 +11,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'admin',
-            'user'=> 'admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('admin'),
-        ]);
         DB::table('profiles')->insert([
             ['id' => 1, 'name' => 'Administrador', 'description' => 'Administrador do sistema'],
             ['id' => 2, 'name' => 'Funcionário', 'description' => 'Todos os funcionários que utilizarão o sistema.'],
             ['id' => 3, 'name' => 'Médico', 'description' => 'Médico.'],
             ['id' => 4, 'name' => 'Cliente', 'description' => 'O cliente da empresa.']
         ]);
+        DB::table('peoples')->insert([
+            ['id' => 1, 'name' => 'Administrador', 'birthdate' => '2999-01-01', 'genre' => 'M', 'cpf' => '12345677890','rg' => '1234567789', 'address' => 'Rua', 'number' => '12345',  'district' => 'Admin',  'complement' => 'Sem complemento', 'cep' => '987654321', 'state' => 'RS', 'city' => 'Ijuí', 'telephone' => '9978988765', 'email' => 'Admin@Admin.com', 'obs' => 'ele é o adin', 'profile' => '1'],
+            ['id' => 2, 'name' => 'Joana Roubalheira', 'birthdate' => '1959-01-13', 'genre' => 'F', 'cpf' => '87676899999','rg' => '4564564564', 'address' => 'rua da amargura', 'number' => '999',  'district' => 'Pedreira',  'complement' => 'Sem complemento', 'cep' => '12345678', 'state' => 'DF', 'city' => 'Roubalheira', 'telephone' => '8876765656', 'email' => 'joana@gmail.com', 'obs' => 'ela é legal', 'profile' => '4'],
+            ['id' => 3, 'name' => 'Joao da Slva', 'birthdate' => '1995-01-05', 'genre' => 'M', 'cpf' => '87676876543','rg' => '5645312345', 'address' => 'rua da silva mello', 'number' => '12555',  'district' => 'Penha',  'complement' => 'Sem complemento', 'cep' => '98677778', 'state' => 'RS', 'city' => 'Ijuí', 'telephone' => '9978988765', 'email' => 'joao@gmail.com', 'obs' => 'ele é legal', 'profile' => '4'],
+            ]);
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'user'=> 'admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('admin'),
+            'profile' => 'Administrador',
+            'people_id' => '1',
 
+        ]);
         
         DB::table('specialties')->insert([
             ['id' => 1, 'name' => 'Acupuntura', 'description' => ''],
@@ -44,6 +51,8 @@ class DatabaseSeeder extends Seeder
             ['id' => 4, 'name' => 'Tomografo', 'model' => 'HISPEED CT/E - GE','serialnumber' => '4','active' => '1','description' => '','examtype_id' => '4'],
             ['id' => 5, 'name' => 'Ultra-Som', 'model' => 'RT 3200 ADVANTAGE II - GE','serialnumber' => '5','active' => '1','description' => '','examtype_id' => '5']
             ]);
+        
+        // Não está sendo Usado, pois está buscando as cidades e estados no JS
         DB::table('states')->insert([
             ['id' => 1, 'name' => 'Acre', 'abbreviation' => 'AC'],
             ['id' => 2, 'name' => 'Alagoas', 'abbreviation' => 'AL'],
