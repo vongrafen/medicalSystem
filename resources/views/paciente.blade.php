@@ -24,10 +24,10 @@
                 <table class="table no-margin">
                   <thead>
                   <tr>
-                    <th>Order ID</th>
-                    <th>Item</th>
+                    <th>Código Exame</th>
+                    <th>Nome Exame</th>
                     <th>Status</th>
-                    <th>Popularity</th>
+                    <th>Ação</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -36,7 +36,7 @@
                     <td>Call of Duty IV</td>
                     <td><span class="label label-success">Shipped</span></td>
                     <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
                     </td>
                   </tr>
                   <tr>
@@ -44,7 +44,7 @@
                     <td>Samsung Smart TV</td>
                     <td><span class="label label-warning">Pending</span></td>
                     <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
                     </td>
                   </tr>
                   <tr>
@@ -52,7 +52,7 @@
                     <td>iPhone 6 Plus</td>
                     <td><span class="label label-danger">Delivered</span></td>
                     <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
                     </td>
                   </tr>
                   <tr>
@@ -60,7 +60,7 @@
                     <td>Samsung Smart TV</td>
                     <td><span class="label label-info">Processing</span></td>
                     <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
+                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
                     </td>
                   </tr>
                   <tr>
@@ -68,7 +68,7 @@
                     <td>Samsung Smart TV</td>
                     <td><span class="label label-warning">Pending</span></td>
                     <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
                     </td>
                   </tr>
                   <tr>
@@ -76,15 +76,15 @@
                     <td>iPhone 6 Plus</td>
                     <td><span class="label label-danger">Delivered</span></td>
                     <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                    </td>
+                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
+                      </td>
                   </tr>
                   <tr>
                     <td><a href="pages/examples/invoice.html">OR9842</a></td>
                     <td>Call of Duty IV</td>
                     <td><span class="label label-success">Shipped</span></td>
                     <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                      <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
                     </td>
                   </tr>
                   </tbody>
@@ -94,8 +94,8 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Solicitar um exame</a>
+              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Ver todos os exames</a>
             </div>
             <!-- /.box-footer -->
           </div>
