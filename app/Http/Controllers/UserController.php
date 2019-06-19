@@ -159,7 +159,9 @@ class UserController extends Controller
             ]);
             return redirect()->route('profile');
         }
-        return view('profile', compact('peoples','Id_pessoa_user',$user));
+        return view('profile', ['user' => $user, 'peoples' => $peoples, 'Id_pessoa_user'=> $Id_pessoa_user ]);
+
+        //return view('profile', compact('peoples','Id_pessoa_user',$user));
     }
 
     public function delete($id)

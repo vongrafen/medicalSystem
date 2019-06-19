@@ -10,6 +10,8 @@
 
 
 <body class="hold-transition skin-blue sidebar-mini">
+    <form action="{{ route('User.save') }}" method="get" enctype="multipart/form-data">
+      {{ csrf_field() }}
   <!-- Content Wrapper. Contains page content -->
   <div>
 
@@ -23,7 +25,7 @@
             <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Quantidade de Usuários</span>
-            <span class="info-box-number">10<small>%</small></span>
+            <span class="info-box-number">{{$QtdUsers}}<small>%</small></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -820,7 +822,7 @@
 <script src="dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-  
+    </form>
 </body>
 
 @stop

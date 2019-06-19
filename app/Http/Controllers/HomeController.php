@@ -26,7 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $QtdUsers = DB::table('users')
+                        ->select(DB::raw('count(*) as QtdUsers'))
+                        ->get();
+                        dd($QtdUsers);
 
-        return view('home');
+        return view('home', ['QtdUsers' => $QtdUsers]);
     }
 }
