@@ -52,7 +52,7 @@ class EquipamentController extends Controller
 
     public function save(\App\Requests\EquipamentRequest $request)
     {
-         //dd('entro');
+        
         Equipament::create($request->all());
         \Session::flash('flash_message', [
             'msg'=>"Equipamento adicionado com sucesso",

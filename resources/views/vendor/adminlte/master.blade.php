@@ -100,6 +100,7 @@ $(document).ready( function () {
 </script>
 
 <script>
+
 document.getElementById('mensagem-sucesso').onclick = function(){
     swal('Boa!', 'Cadastrado com Sucesso', 'success')
 };
