@@ -130,7 +130,7 @@ class UserController extends Controller
     public function profile()
     {
         $user = auth()->user();
-        dd($user);
+        
         $peoples = People::all()->find($user->people_id);
         
         return view('profile', ['results' => $user, 'peoples' => $peoples]);
@@ -151,7 +151,7 @@ class UserController extends Controller
         $Id_pessoa_user = DB::table('users')->where('people_id', $id)->first();
         $user = auth()->user();
         $peoples = People::find($user);
-        dd($user);
+        
         if(!$peoples){
             \Session::flash('flash_message', [
                 'msg'=>"Não existe esse pessoa cadastrada, deseja cadastrar nova pessoa?",
