@@ -79,33 +79,34 @@ class PeopleController extends Controller
         $insert = 0;
        try{
             $insert = People::create($request->all());
-            
-            $tipopessoa = $request->get('profile');
-            if ($insert){    // Verifica se inseriu com sucesso
-                if($tipopessoa == 3){
-                    return redirect()
-                            ->route('people.indexMedicos')
-                            ->with('success', 'cadastrado com sucesso!');
-                }
-                if($tipopessoa == 2){
-                    return redirect()
-                            ->route('people.indexFuncionarios')
-                            ->with('success', 'cadastrado com sucesso!');
-                }
-                if($tipopessoa == 4){
-                    return redirect()
-                            ->route('people.indexPacientes')
-                            ->with('success', 'cadastrado com sucesso!');
-                }else
-                return redirect()
-                            ->route('people.index')
-                            ->with('success', 'cadastrado com sucesso!');
-            }
-       return redirect()
-                    ->route('people.add')
-                    ->with('success', 'cadastrado com sucesso!');
+
        }catch(Exception $e){
            echo('Erro!');
+    }finally{
+        $tipopessoa = $request->get('profile');
+        if ($insert){    // Verifica se inseriu com sucesso
+            if($tipopessoa == 3){
+                return redirect()
+                        ->route('people.indexMedicos')
+                        ->with('success', 'cadastrado com sucesso!');
+            }
+            if($tipopessoa == 2){
+                return redirect()
+                        ->route('people.indexFuncionarios')
+                        ->with('success', 'cadastrado com sucesso!');
+            }
+            if($tipopessoa == 4){
+                return redirect()
+                        ->route('people.indexPacientes')
+                        ->with('success', 'cadastrado com sucesso!');
+            }else
+            return redirect()
+                        ->route('people.index')
+                        ->with('success', 'cadastrado com sucesso!');
+        }
+   return redirect()
+                ->route('people.add')
+                ->with('success', 'cadastrado com sucesso!');
     }
 }
 

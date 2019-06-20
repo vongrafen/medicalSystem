@@ -33,8 +33,9 @@ Route::group( [ 'middleware' => 'auth'], function()
     //Perfil do cliente (crair middleware client) https://blog.especializati.com.br/middleware-no-laravel-filtros/
     Route::view('/Profile', 'profile')->name('profile')->middleware('auth'); 
     Route::get('/Profile', ['uses'=>'UserController@profile', 'as' => 'profile']);
+    Route::post('/Profile', ['uses'=>'UserController@profile', 'as' => 'profile']);
     Route::view('/ExamesPaciente', 'paciente')->name('paciente')->middleware('auth');
-    Route::post('/User/editProfile/{id}', ['uses'=>'UserController@editProfile', 'as' => 'User.editProfile']);
+    Route::post('/Profile/update/{id}', ['uses'=>'UserController@updateProfile', 'as' => 'User.updateProfile']);
     
 });
 
@@ -58,8 +59,7 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::post('/User/save', ['uses'=>'UserController@save', 'as' => 'User.save']);
     Route::get('/User/edit/{id}', ['uses'=>'UserController@edit', 'as' => 'User.edit']);
     Route::get('/User/updateProfile', ['uses'=>'UserController@profileUpdate', 'as' => 'User.profileUpdate']);
-    Route::get('/User/load', ['uses'=>'UserController@load', 'as' => 'User.load']);
-    Route::get('/User/loadP{id}', ['uses'=>'UserController@loadP', 'as' => 'User.loadP']);
+    Route::get('/User/load/{id}', ['uses'=>'UserController@load', 'as' => 'User.load']);
     Route::get('/User/delete/{id}', ['uses'=>'UserController@delete', 'as' => 'User.delete']);
 
 

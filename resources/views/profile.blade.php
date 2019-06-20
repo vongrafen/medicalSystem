@@ -7,17 +7,13 @@
 @stop
 
 @section('content')
-    <form action="{{ route('User.editProfile', $peoples->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('User.updateProfile', $peoples->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
             <!-- Profile Image -->
         <div class="box box-primary">
             <div class="box-body box-profile">
             <img class="profile-user-img img-responsive img-circle" src="https://i1.wp.com/syminvestments.com.br/wp-content/uploads/2018/02/user-a.jpg" alt="User profile picture">
                 <h3 class="profile-username text-center">{{$peoples->name}}</h3>
-  
-                <p class="text-muted text-center">Empresária</p>
-  
-               
                       <!-- TABLE: LATEST ORDERS -->
                     <div class="box box-info">
                         <div class="box-header with-border">
@@ -132,7 +128,7 @@
 
                                             <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}">
                                                 <label for="email">E-mail</label>
-                                                <input type="email" name="email" value="{{$peoples->email}}" class="form-control" placeholder="E-mail do cliente">
+                                                <input readOnly = "true" type="email" name="email" value="{{$peoples->email}}" class="form-control" placeholder="E-mail do cliente">
                                                 @if($errors->has('email'))
                                             <span class="help-block">
                                                 <strong>{{$errors->first('email')}}</strong>

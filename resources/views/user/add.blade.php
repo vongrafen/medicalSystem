@@ -23,12 +23,7 @@
 
 
                         <!-- Fazer esse formulário de editar também value= "{ {$results->email or old('email')}}" -->
-                        <select class="form-control"  id = "people_id" name="people_id" onchange="habilitaBtn()" >            <option value="">Selecione um Cliente</option>       
-                            @foreach($peoples as $people)   
-                                <option required value="{{ $people->id }}">{{ $people->name }}</option>
-                            @endforeach
-                        </select>
-
+                        
                         <div class="form-group">
                             <label for="name">Nome</label>
                             <input  readOnly = "true" type="text" name="name" value= "{{ $people->name}}" class="form-control" placeholder="Nome do Usuário">
@@ -55,7 +50,7 @@
 
                         <div class=" form-group" value= "{{ old('user')}}">
                             <label required for="user">Nome de Login</label>
-                            <input type="text" name="user" value= "usuario{{ $people->id }}" class="form-control" placeholder="Nome de login">
+                            <input type="text" name="user" value= "{{ $people->email }}" class="form-control" placeholder="Nome de login">
                         </div>
 
                         <div class=" form-group" value= "{{ old('password')}}">

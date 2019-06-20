@@ -15,8 +15,6 @@ class UserController extends Controller
     public function __construct(User $user)
     {   
         $this->user = $user;
-        $user = auth()->user();
-        $Id_Pessoa_load = DB::table('users')->where('id', $user)->first();
         $this->middleware('auth');
         
     }
@@ -91,13 +89,15 @@ class UserController extends Controller
         $request['password'] = bcrypt( $request['password']);
          else    
         unset( $request['password']);
+
        $insert = user::create($request->all()); 
+       
         if ($insert)    // Verifica se inseriu com sucesso
                 return redirect()
                         ->route('User.index');
             else
                 return  redirect()
-                        ->route('User.add');
+                        ->back();
     }
 
     public function edit ($id)
@@ -113,17 +113,11 @@ class UserController extends Controller
         return view('User.edit', compact('User'));
     }
 
-    public function load()
+    public function load($id)
     {
-        $peoples = People::all();
-
-        return view('User.add', ['peoples' => $peoples]);
-    }
-    public function loadP($id)
-    {
-        $peoples = People::find($id);
-        dd($peoples);
-        return view('User.add', ['peoples' => $peoples]);
+        $people = People::find($id);
+        
+        return view('User.add', ['people' => $people]);
     }
 
 
@@ -146,22 +140,21 @@ class UserController extends Controller
         
     }
 
+    public function updateProfile(Request $request, $id)
+    {
+        People::find($id)->update($request->all());
+        
+        return redirect()->route('profile');        
+        
+    }
+
     public function editProfile($id)
     {
-        $Id_pessoa_user = DB::table('users')->where('people_id', $id)->first();
         $user = auth()->user();
-        $peoples = People::find($user);
         
-        if(!$peoples){
-            \Session::flash('flash_message', [
-                'msg'=>"Não existe esse pessoa cadastrada, deseja cadastrar nova pessoa?",
-                'class'=>"alert-danger"
-            ]);
-            return redirect()->route('profile');
-        }
-        return view('profile', ['user' => $user, 'peoples' => $peoples, 'Id_pessoa_user'=> $Id_pessoa_user ]);
-
-        //return view('profile', compact('peoples','Id_pessoa_user',$user));
+        $peoples = People::all()->find($id);
+        
+        return view('profile', ['results' => $user, 'peoples' => $peoples]);
     }
 
     public function delete($id)

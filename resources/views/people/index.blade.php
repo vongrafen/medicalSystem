@@ -46,6 +46,8 @@
                                     <!--<a class="btn btn-default" href="{{route('people.detail',$people->id)}}">Detalhe</a>-->
                                     <a class="btn btn-default" href="{{route('people.edit',$people->id)}}">Editar</a>
                                     <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('people.delete',$people->id)}}' : false)">Deletar</a>
+                                    <a class="btn btn-default" href="{{route('User.load',$people->id)}}">Criar Usuario</a>
+                                    
                                 </td>
                             <tr>
                         @endforeach                        
