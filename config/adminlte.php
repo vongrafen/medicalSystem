@@ -173,14 +173,14 @@ return [
             'icon'    => 'fa-calendar-minus-o',
             'submenu' => [
                 [
-                    'text' => 'Agendamento',
+                    'text' => 'Agendar',
                     'icon' => 'fa-calendar-plus-o',
-                    'url'  => '/agendamento',
+                    'url'  => '/event/add',
                 ],
                 [
                     'text' => 'Consulta',
                     'icon' => 'cube',
-                    'url'  => '/agenda',
+                    'url'  => '/event',
                 ],
             ],        
         ],

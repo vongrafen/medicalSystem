@@ -20,7 +20,10 @@ Route::get('/login', 'Auth\LoginController@isLogged')->name('login');
 Route::post('/authentication', 'Auth\LoginController@authentication')->name('authentication');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-
+//calendar
+Route::get('event/add','ScheduleController@createEvent');
+Route::post('event/add','ScheduleController@store');
+Route::get('event','ScheduleController@calender');
 
 
 Route::group( [ 'middleware' => 'auth'], function()

@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             ['id' => 1, 'name' => 'Administrador', 'birthdate' => '2999-01-01', 'genre' => 'M', 'cpf' => '12345677890','rg' => '1234567789', 'address' => 'Rua', 'number' => '12345',  'district' => 'Admin',  'complement' => 'Sem complemento', 'cep' => '987654321', 'state' => 'RS', 'city' => 'Ijuí', 'telephone' => '9978988765', 'email' => 'Admin@Admin.com', 'obs' => 'ele é o adin', 'profile' => '1'],
             ['id' => 2, 'name' => 'Joana Roubalheira', 'birthdate' => '1959-01-13', 'genre' => 'F', 'cpf' => '87676899999','rg' => '4564564564', 'address' => 'rua da amargura', 'number' => '999',  'district' => 'Pedreira',  'complement' => 'Sem complemento', 'cep' => '12345678', 'state' => 'DF', 'city' => 'Roubalheira', 'telephone' => '8876765656', 'email' => 'joana@gmail.com', 'obs' => 'ela é legal', 'profile' => '4'],
             ['id' => 3, 'name' => 'Joao da Slva', 'birthdate' => '1995-01-05', 'genre' => 'M', 'cpf' => '87676876543','rg' => '5645312345', 'address' => 'rua da silva mello', 'number' => '12555',  'district' => 'Penha',  'complement' => 'Sem complemento', 'cep' => '98677778', 'state' => 'RS', 'city' => 'Ijuí', 'telephone' => '9978988765', 'email' => 'joao@gmail.com', 'obs' => 'ele é legal', 'profile' => '4'],
-            ]);
+        ]);
         DB::table('users')->insert([
             'name' => 'admin',
             'user'=> 'admin',
@@ -50,8 +50,11 @@ class DatabaseSeeder extends Seeder
             ['id' => 3, 'name' => 'Raio-X convencional', 'model' => 'Raio-X','serialnumber' => '3','active' => '1','description' => '','examtype_id' => '3'],
             ['id' => 4, 'name' => 'Tomografo', 'model' => 'HISPEED CT/E - GE','serialnumber' => '4','active' => '1','description' => '','examtype_id' => '4'],
             ['id' => 5, 'name' => 'Ultra-Som', 'model' => 'RT 3200 ADVANTAGE II - GE','serialnumber' => '5','active' => '1','description' => '','examtype_id' => '5']
-            ]);
+        ]);
         
+        DB::table('schedules')->insert([
+                ['id' => 1, 'title' => 'Mamografia Joana Roubalheira', 'start_date' => '2019-06-20 07:00:00','end_date' => '2019-06-20 12:00:00','note' => 'No feriado?','doctor_id' => '3','patients_id' => '2','equipament_id' => '1','convenant' => 'Unimed'],
+        ]);
         // Não está sendo Usado, pois está buscando as cidades e estados no JS
         DB::table('states')->insert([
             ['id' => 1, 'name' => 'Acre', 'abbreviation' => 'AC'],

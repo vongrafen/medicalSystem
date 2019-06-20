@@ -2,30 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Schedule;
 use Illuminate\Http\Request;
-use App\Event;
+use App\Http\Controllers\Controller;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
-class EventController extends Controller
+class ScheduleController extends Controller
 {
-    //
-public function createEvent()
+    public function createEvent()
     {
         return view('createevent');
     }
 public function store(Request $request)
     {
-        $event= new Event();
+        $event= new Schedule();
         $event->title=$request->get('title');
         $event->start_date=$request->get('startdate');
         $event->end_date=$request->get('enddate');
+        $event->note=$request->get('note');
+        $event->doctor_id=$request->get('doctor_id');
+        $event->patients_id=$request->get('patients_id');
+        $event->equipament_id=$request->get('equipament_id');
+        $event->convenant=$request->get('convenant');
         $event->save();
         return redirect('event')->with('success', 'Event has been added');
     }
 public function calender()
             {
                 $events = [];
-                $data = Event::all();
+                $data = Schedule::all();
                 if($data->count())
                  {
                     
@@ -40,8 +45,8 @@ public function calender()
                             null,
                             // Add color
                          [
-                             'color' => '#000000',
-                             'textColor' => '#008900',
+                             'color' => 'yellow',
+                             'textColor' => '#008000',
                          ]
                         );
                     }
