@@ -1,7 +1,7 @@
 <!-- createevent.blade.php -->
 @extends('adminlte::page')
 
-@section('title', 'Cadastro de Equipamentos')
+@section('title', 'Agenda')
 
 @section('content')
 

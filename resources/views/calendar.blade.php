@@ -1,3 +1,4 @@
+
 <!-- calendar.blade.php -->
 <!doctype html>
 <html lang="en">
@@ -14,9 +15,9 @@
      @endif
    <div class="panel panel-default">
          <div class="panel-heading">
-             <h2>Full Calendar</h2>
-             <a href="event/add">Add New Event to Calendar</a>
-             <button id= 'calendar'class="btn btn-info">Teste</button>
+             <a href="event/add">Criar um Agendamento</a>
+             <li><a href="{{ URL::previous() }}"><b>Voltar</b></a></li>
+            
          </div>
 
          <div class="panel-body" >
