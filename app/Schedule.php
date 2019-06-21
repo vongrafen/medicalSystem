@@ -11,7 +11,7 @@ class Schedule extends Model
         'start_date',
         'end_date',
         'note',
-        'doctor_id',
+        'doctor_requests_id',
         'patients_id',
         'equipament_id',
         'convenant',

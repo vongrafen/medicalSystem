@@ -184,6 +184,17 @@ return [
                 ],
             ],        
         ],
+        [
+            'text'    => 'Exames',
+            'icon'    => '',
+            'submenu' => [
+                [
+                    'text' => 'Exames',
+                    'icon' => '',
+                    'url'  => '/Exam',
+                ],
+            ],        
+        ],
     ],
 
     /*

@@ -23,9 +23,9 @@ class CreateSchedulesTable extends Migration
                 //fullcalendar
                 $table->text('note')->nullable();
                 //Chave extrangeira pessoas - doutor
-                $table->integer('doctor_id')->unsigned()->nullable();
-                $table->foreign('doctor_id')->references('id')->on('peoples');
-                //Chave extrangeira pessoas - doutor
+                $table->integer('doctor_requests_id')->unsigned()->nullable();
+                $table->foreign('doctor_requests_id')->references('id')->on('peoples');
+                //Chave extrangeira pessoas - doutor solicitante
                 //Chave extrangeira pessoas - pacientes
                 $table->integer('patients_id')->unsigned()->nullable();
                 $table->foreign('patients_id')->references('id')->on('peoples');

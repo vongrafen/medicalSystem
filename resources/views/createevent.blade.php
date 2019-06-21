@@ -48,7 +48,7 @@
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
               <strong> Doutor : </strong>  
-              <input required class="date form-control"  type="text" id="doctor_id" name="doctor_id">   
+              <input required class="date form-control"  type="text" id="doctor_requests_id" name="doctor_requests_id">   
            </div>
           </div>
 

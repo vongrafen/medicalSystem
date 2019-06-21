@@ -15,15 +15,15 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-//oute::view('/login', "auth.login")->name('login');
-Route::get('/login', 'Auth\LoginController@isLogged')->name('login');
-Route::post('/authentication', 'Auth\LoginController@authentication')->name('authentication');
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+    //route::view('/login', "auth.login")->name('login');
+    Route::get('/login', 'Auth\LoginController@isLogged')->name('login');
+    Route::post('/authentication', 'Auth\LoginController@authentication')->name('authentication');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-//calendar
-Route::get('event/add','ScheduleController@createEvent');
-Route::post('event/add','ScheduleController@store');
-Route::get('event','ScheduleController@calender');
+    //calendar
+    Route::get('event/add','ScheduleController@createEvent');
+    Route::post('event/add','ScheduleController@store');
+    Route::get('event','ScheduleController@calender');
 
 
 Route::group( [ 'middleware' => 'auth'], function()
@@ -64,6 +64,15 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::get('/User/updateProfile', ['uses'=>'UserController@profileUpdate', 'as' => 'User.profileUpdate']);
     Route::get('/User/load/{id}', ['uses'=>'UserController@load', 'as' => 'User.load']);
     Route::get('/User/delete/{id}', ['uses'=>'UserController@delete', 'as' => 'User.delete']);
+
+
+    //Routes Exam
+    Route::get('/Exam', ['uses'=>'ExamController@index', 'as' => 'Exam.index']);
+    Route::get('/Exam/add', ['uses'=>'ExamController@add', 'as' => 'Exam.add']);
+    Route::post('/Exam/save', ['uses'=>'ExamController@save', 'as' => 'Exam.save']);
+    Route::get('/Exam/edit/{id}', ['uses'=>'ExamController@edit', 'as' => 'Exam.edit']);
+    Route::put('/Exam/update/{id}', ['uses'=>'ExamController@update', 'as' => 'Exam.update']);
+    Route::get('/Exam/delete/{id}', ['uses'=>'ExamController@delete', 'as' => 'Exam.delete']);
 
 
 //Medicos 

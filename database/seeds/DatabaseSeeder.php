@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         DB::table('schedules')->insert([
-                ['id' => 1, 'title' => 'Mamografia Joana Roubalheira', 'start_date' => '2019-06-20 07:00:00','end_date' => '2019-06-20 12:00:00','note' => 'No feriado?','doctor_id' => '3','patients_id' => '2','equipament_id' => '1','convenant' => 'Unimed'],
+                ['id' => 1, 'title' => 'Mamografia Joana Roubalheira', 'start_date' => '2019-06-20 07:00:00','end_date' => '2019-06-20 12:00:00','note' => 'No feriado?','doctor_requests_id' => '3','patients_id' => '2','equipament_id' => '1','convenant' => 'Unimed'],
         ]);
         // Não está sendo Usado, pois está buscando as cidades e estados no JS
         DB::table('states')->insert([
