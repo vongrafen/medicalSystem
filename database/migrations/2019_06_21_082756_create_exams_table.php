@@ -16,8 +16,8 @@ class CreateExamsTable extends Migration
         Schema::create('exams', function (Blueprint $table) {
             
             $table->increments('id')->unique();
-            $table->dateTime('data_agendada');
-            $table->dateTime('data_realizada');
+            $table->dateTime('scheduled_date');
+            $table->dateTime('performed_date');
             $table->text('description'); 
             // Chave estrangeira de funcionarios
             $table->integer('employee_id')->unsigned();

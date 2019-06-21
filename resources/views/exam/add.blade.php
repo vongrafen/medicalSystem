@@ -23,73 +23,49 @@
 
 
                         <!-- Fazer esse formulário de editar também value= "{ {$results->email or old('email')}}" -->
-                        
-                        <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input  readOnly = "true" type="text" name="name" value= "{{ $people->name}}" class="form-control" placeholder="Nome do Usuário">
+
+                        <div class="row">
+                            <div class="col-md-4" value= "{{ old('scheduled_date')}}" ></div>
+                            <div class="form-group col-md-4">
+                              <strong> Data Agendada : </strong>  
+                              <input  required class="date form-control"  type="text" id="scheduled_date" name="scheduled_date">   
+                           </div>
+                          </div>
+
+                          <div class="row" value= "{{ old('performed_date')}}">
+                            <div class="col-md-4"></div>
+                            <div class="form-group col-md-4">
+                              <strong> Data Realizada : </strong>  
+                              <input  required class="date form-control"  type="text" id="performed_date" name="performed_date">   
+                           </div>
+                          </div>
+
+
+                        <div class="form-group" value= "{{ old('description')}}" >
+                            <label for="description">Descricao</label>
+                            <input type="text" name="description"  class="form-control" placeholder="Descriçao">
                         </div>
 
-                        <div class="form-group {{$errors->has('profile') ? 'has-error' : '' }}" value= "{{ old('profile')}}" >
-                                <label for="profile">Perfil</label>
-                                @if( $people->profile == 1)
-                                    <input readOnly = "true"  type="text" value= "Admininstrador" name="profile"  class="form-control">
-                                @endif
-                                @if( $people->profile == 2)
-                                    <input readOnly = "true" type="text" value= "Funcionário" name="profile"  class="form-control">
-                                @endif
-                                @if( $people->profile == 3)
-                                    <input readOnly = "true" type="text" value= "Médico" name="profile"  class="form-control">
-                                @endif
-                                @if( $people->profile == 4)
-                                <input readOnly = "true" type="text" value= "Cliente" name="profile"  class="form-control">
-                            @endif   
-                                
-
-                            </div>
-    
-
-                        <div class=" form-group" value= "{{ old('user')}}">
-                            <label required for="user">Nome de Login</label>
-                            <input type="text" name="user" value= "{{ $people->email }}" class="form-control" placeholder="Nome de login">
+                        <div class="form-group" value= "{{ old('employee_id')}}" >
+                            <label for="employee_id">Funcionário Responsável</label>
+                            <input type="text" name="employee_id"  class="form-control" >
                         </div>
 
-                        <!-- http://opensource.locaweb.com.br/locawebstyle-v2/manual/formularios/forca-de-senha/-->
-                        <div class="form-inline">
-                                <div class="form-group">
-                                    <label class="control-label" for="user_password2">Nova senha</label>
-                                    <p class="info-label">Senha entre 8 a 14 caracteres, contendo letras e números</p>
-                                    <div>
-                                        <div class="input-group col-md-4 f-left">
-                                            <input class="password form-control" id="user_password2" data-component="password-strength" data-monitor-id="password-strength-monitor" type="password">
-                                            <a class=" input-group-addon toggle-pass ico-eye" data-classtoggle="ico-eye,ico-eye-blocked" data-target="#user_password2" href="#"></a>
-                                        </div>
-                         
-                                        <div class="password-strength">
-                                            <p>Força da senha</p>
-                                            <div id="password-strength-monitor" class="monitor"></div>
-                                        </div>
-                                    </div>
-                         
-                                </div>
-                            </div>
-
-                        <div class=" form-group" value= "{{ old('password')}}">
-                            <label for="password">Senha</label>
-                            <input required type="password" name="password" class="form-control" placeholder="Digite a senha">
-
-                        <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}" value= "{{ old('email')}}">
-                            <label for="email">E-mail</label>
-                            <input readOnly = "true" type="email" name="email"  value= "{{  $people->email }}" class="form-control" placeholder="E-mail do Usuário">
+                        <div class="form-group" value= "{{ old('doctor_performer_id')}}" >
+                            <label for="doctor_performer_id">Médico Executante Responsável</label>
+                            <input type="text" name="doctor_performer_id"  class="form-control" >
                         </div>
 
-                        <div class=" form-group" value="{{ old('ativo') }}">
-                            <label for="ativo">Ativo</label>
-                            <select class="form-control" name = "ativo">
-                                <option value="1">Sim</option>
-                                <option value="0">Não</option>
-                            </select>
+                        <div class="form-group" value= "{{ old('patients_id')}}" >
+                            <label for="patients_id">Paciente</label>
+                            <input type="text" name="patients_id"  class="form-control">
                         </div>
-                        
+
+                        <div class="form-group" value= "{{ old('id_schedules_exam')}}" >
+                            <label for="id_schedules_exam">Identificador do exame</label>
+                            <input type="text" name="id_schedules_exam"  class="form-control">
+                        </div>
+
                         <div class=" form-group">
                                 @if (auth()->user()->img != null)
                                 <img src="{{ url('storage/users/'.auth()->user()->img) }}" alt="{{ auth()->user()->name }}" style="max-width: 50px;">
@@ -100,31 +76,73 @@
 
                         <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
                     </form>
+
+                    <form action="{{ route('Exam.save') }}" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+    
+    
+                            <!-- Fazer esse formulário de editar também value= "{ {$results->email or old('email')}}" -->
+    
+                            <div class="row">
+                                <div class="col-md-4" value= "{{ old('scheduled_date')}}" ></div>
+                                <div class="form-group col-md-4">
+                                  <strong> Data Agendada : </strong>  
+                                  <input  required class="date form-control"  type="text" id="scheduled_date" name="scheduled_date">   
+                               </div>
+                              </div>
+    
+                              <div class="row" value= "{{ old('performed_date')}}">
+                                <div class="col-md-4"></div>
+                                <div class="form-group col-md-4">
+                                  <strong> Data Realizada : </strong>  
+                                  <input  required class="date form-control"  type="text" id="performed_date" name="performed_date">   
+                               </div>
+                              </div>
+    
+    
+                            <div class="form-group" value= "{{ old('description')}}" >
+                                <label for="description">Descricao</label>
+                                <input type="text" name="description"  class="form-control" placeholder="Descriçao">
+                            </div>
+    
+                            <div class="form-group" value= "{{ old('employee_id')}}" >
+                                <label for="employee_id">Funcionário Responsável</label>
+                                <input type="text" name="employee_id"  class="form-control" >
+                            </div>
+    
+                            <div class="form-group" value= "{{ old('doctor_performer_id')}}" >
+                                <label for="doctor_performer_id">Médico Executante Responsável</label>
+                                <input type="text" name="doctor_performer_id"  class="form-control" >
+                            </div>
+    
+                            <div class="form-group" value= "{{ old('patients_id')}}" >
+                                <label for="patients_id">Paciente</label>
+                                <input type="text" name="patients_id"  class="form-control">
+                            </div>
+    
+                            <div class="form-group" value= "{{ old('id_schedules_exam')}}" >
+                                <label for="id_schedules_exam">Identificador do exame</label>
+                                <input type="text" name="id_schedules_exam"  class="form-control">
+                            </div>
+    
+                            <div class=" form-group">
+                                    @if (auth()->user()->img != null)
+                                    <img src="{{ url('storage/users/'.auth()->user()->img) }}" alt="{{ auth()->user()->name }}" style="max-width: 50px;">
+                                    @endif
+                                <label for="img">Imagem:</label>
+                                <input  name="img" type="file" class="form-control">
+                            </div>
+    
+                            <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
+                        </form>
+
+
+
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 @stop
-<!-- validação dos medicos -->
-<script type="text/javascript">
-
-    function habilitaBtn () {
-        var op = document.getElementById("people_id").value;
-        if(op==''){
-           // quando o campo está marcado de "selecione"
-        }else{
-            alert("entrou-"+op);
-
-            if(op == "3") // Alison
-            {
-                alert('deve trazer o ID da pessoa, chamar o método loadP')
-                document.getElementById("people_id").setAttribute.href="{{ URL::previous() }}"
-                //href="{{ URL::previous() }}"
-            // <option value="{{ $people->op }}">{{ $people->name }}</option>
-                
-            }
-            }
-    }
-</script>
-<!-- validação dos medicos -->
