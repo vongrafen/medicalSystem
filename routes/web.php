@@ -74,6 +74,10 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::put('/Exam/update/{id}', ['uses'=>'ExamController@update', 'as' => 'Exam.update']);
     Route::get('/Exam/delete/{id}', ['uses'=>'ExamController@delete', 'as' => 'Exam.delete']);
 
+    //Routes Imagens de exames
+    Route::post('/Exam/uploadImages', ['uses'=>'ExamImageController@uploadImages', 'as' => 'ExamImage.uploadImages']);
+    Route::get('/Exam/uploadImages{id}', ['uses'=>'ExamImageController@images', 'as' => 'ExamImage.images']);
+
 
 //Medicos 
 Route::get('/Medicos', ['uses'=>'PeopleController@indexMedicos', 'as' => 'people.indexMedicos']);

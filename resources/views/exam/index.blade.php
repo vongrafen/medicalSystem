@@ -13,7 +13,7 @@
                 </ol>
 
                 <div class="panel-body">
-                    <p><a class="btn btn-info" href="{{route('User.load')}}">Adicionar</a></p>
+                    <p><a class="btn btn-info" href="{{route('Exam.add')}}">Adicionar</a></p>
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -35,10 +35,12 @@
                                 <th scope="row">{{ $x->id }}</th>
                                 <td>{{ $x->patients_id }}</td>
                                 <td>{{ $x->doctor_performer_id }}</td>
-                                <td>{{ $x->Data_realizada }}</td>
+                                <td>{{ $x->performed_date }}</td>
                                 <td>    
-                                    <a class="btn btn-default" href="{{route('User.edit',$x->id)}}">Editar</a>
-                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('User.delete',$x->id)}}' : false)">Deletar</a>
+                                    <a class="btn btn-default" href="{{route('Exam.edit',$x->id)}}">Editar</a>
+                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('Exam.delete',$x->id)}}' : false)">Deletar</a>
+                                    <a class="btn btn-info" href="{{route('Exam.images',$x->id)}}">Adicionar Imagens</a>
+                                    
                                 </td>
                             <tr>
                         @endforeach                           
