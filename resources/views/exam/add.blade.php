@@ -68,6 +68,19 @@
 
                         <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
                     </form>
+
+                    @if(session('success'))
+                    <div id="mensagem-sucesso">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                 
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
                 </div>
             </div>
         </div>

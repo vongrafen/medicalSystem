@@ -34,6 +34,7 @@ class CreateExamsTable extends Migration
             // Chave estrangeira de agenda_exames
             $table->integer('id_schedules_exam')->unsigned();
             $table->foreign('id_schedules_exam')->references('id')->on('schedules');    
+            $table->String('status',50);
             // Chave estrangeira de agenda_exames
             $table->timestamps();
             $table->softDeletes();

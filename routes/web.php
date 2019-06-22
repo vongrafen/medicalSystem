@@ -75,8 +75,9 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::get('/Exam/delete/{id}', ['uses'=>'ExamController@delete', 'as' => 'Exam.delete']);
 
     //Routes Imagens de exames
-    Route::post('/Exam/uploadImages', ['uses'=>'ExamImageController@uploadImages', 'as' => 'ExamImage.uploadImages']);
-    Route::get('/Exam/uploadImages{id}', ['uses'=>'ExamImageController@images', 'as' => 'ExamImage.images']);
+    Route::post('/Exam/uploadImages', ['uses'=>'ExamImageController@uploadImages', 'as' => 'Exam.uploadImages']);
+    Route::get('/Exam/images/{id}', ['uses'=>'ExamImageController@images', 'as' => 'Exam.images']);
+    
 
 
 //Medicos 

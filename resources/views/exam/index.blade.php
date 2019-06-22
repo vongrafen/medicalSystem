@@ -24,8 +24,10 @@
                             <tr>
                                 <th></th>
                                 <th>Paciente</th>
-                                <th>Médico Executante</th>
-                                <th>Data Realizada</th>
+                                <th>Médico</th>
+                                <th>Data</th>
+                                <th>Tipo Equipamento</th>
+                                <th>Staus</th>
                                 <th>Ação</th>
                                 </tr>
                         </thead>
@@ -36,6 +38,7 @@
                                 <td>{{ $x->patients_id }}</td>
                                 <td>{{ $x->doctor_performer_id }}</td>
                                 <td>{{ $x->performed_date }}</td>
+
                                 <td>    
                                     <a class="btn btn-default" href="{{route('Exam.edit',$x->id)}}">Editar</a>
                                     <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('Exam.delete',$x->id)}}' : false)">Deletar</a>

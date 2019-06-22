@@ -61,7 +61,7 @@
                                         @endif
                                         </div>
                                         
-                                            <label for="status">Tipo de Equipamento</label>
+                                        <label for="status">Tipo de Equipamento</label>
                                         <select class="form-control"  name="examtype_id" id="examtype_id">
                                             @foreach($results as $examtype)
                                              @if($equipament->examtype_id == $examtype->id )
