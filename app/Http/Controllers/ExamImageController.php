@@ -60,7 +60,6 @@ if(!is_dir($diretorio)){
     {
         // Define o valor default para a variável que contém o nome da imagem 
         $nameFile = null;
-     
         // Verifica se informou o arquivo e se é válido
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
              
@@ -87,7 +86,7 @@ if(!is_dir($diretorio)){
                             ->withInput();
      
         }
-        return view('Exam.add');
+        echo('Não deu Certo, tem que upar a imagem.');
     }
 
         public function store(ManifestationFormRequest $request)

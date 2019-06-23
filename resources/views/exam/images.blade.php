@@ -16,7 +16,7 @@
                         <li class="active" style="font-size:110%">Editar</li>
                     </ol>
 
-                        <form action="{{ route('Exam.store') }}" method="POST" enctype="multipart/form-data"> 
+                        <form action="{{ route('Exam.uploadImages') }}" method="POST" enctype="multipart/form-data"> 
                             {{ csrf_field() }}
                             
                             
