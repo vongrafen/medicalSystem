@@ -50,17 +50,15 @@
                         @endif
                         </div>
 
-                        <div class="form-group {{$errors->has('status') ? 'has-error' : '' }}">
-                            <label for="status">Status</label>
-                            <select  class="form-control"  id="status" data-placeholder="Selecione">
+                        <div class="form-group">
+                           <label>Status</label>
+                            <select class="form-control" name="active" id="active">
                                 <option value="1">Ativo</option>
                                 <option value="0">Inativo</option>
                             </select>
-                            @if ($errors->has('ativo'))
-                            <span class="help-block">{{ $errors->first('ativo') }}</span>
-                            @endif
-                            </div>
+                        </div>
 
+                            
                             <select class="form-control"  name="examtype_id" id="examtype_id">
                                 <option value="">Selecione um tipo</option>       
                                 @foreach($results as $examtype)
@@ -79,7 +77,6 @@
                                         <strong>{{ $errors->first('description') }}</strong>
                                     </span>
                                 @endif
-                            
                         </div>
 
                         

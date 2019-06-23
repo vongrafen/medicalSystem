@@ -50,17 +50,16 @@
                                     @endif
                                     </div>
             
-                                    <div class="form-group {{$errors->has('status') ? 'has-error' : '' }}">
-                                        <label for="status">Status</label>
-                                        <select  class="form-control"  value="{{$equipament->ativo}}" id="status" data-placeholder="Selecione">
-                                            <option value="1">Ativo</option>
-                                            <option value="0">Inativo</option>
-                                        </select>
-                                        @if ($errors->has('ativo'))
-                                        <span class="help-block">{{ $errors->first('ativo') }}</span>
-                                        @endif
-                                        </div>
-                                        
+
+                                    <div class="form-group">
+                                            <label>Status</label>
+                                             <select class="form-control"  value="{{$equipament->ativo}}" name="active" id="active">
+                                                 <option value="1">Ativo</option>
+                                                 <option value="0">Inativo</option>
+                                             </select>
+                                    </div>
+
+      
                                         <label for="status">Tipo de Equipamento</label>
                                         <select class="form-control"  name="examtype_id" id="examtype_id">
                                             @foreach($results as $examtype)

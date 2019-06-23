@@ -20,6 +20,11 @@ Route::get('/', function () {
     Route::post('/authentication', 'Auth\LoginController@authentication')->name('authentication');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
+    //HOME
+    Route::view('/home', 'home')->name('home'); 
+    Route::get('/home', ['uses'=>'HomeController@index', 'as' => 'home']);  
+
+
     //calendar
     Route::get('event/add','ScheduleController@createEvent');
     Route::post('event/add','ScheduleController@store');
@@ -44,7 +49,6 @@ Route::group( [ 'middleware' => 'auth'], function()
 
 
     //Equipamentos
-    Route::view('/home', 'home')->name('home'); 
     Route::get('/equipament', ['uses'=>'EquipamentController@index', 'as' => 'equipament.index']);  
     Route::get('/equipament/add', ['uses'=>'EquipamentController@add', 'as' => 'equipament.add']);
     Route::get('/equipament/menu', ['uses'=>'EquipamentController@menu', 'as' => 'equipament.menu']);
