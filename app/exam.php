@@ -15,5 +15,6 @@ class exam extends Model
        'patients_id',
        'doctor_performer_id',
        'id_schedules_exam',
+       'status',
    ];
 }

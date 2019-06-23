@@ -45,7 +45,17 @@
                                 <td>{{ $equipament->name }}</td>
                                 <td>{{ $equipament->model }}</td>
                                 <td>{{ $equipament->serialnumber }}</td>
-                                <td>{{ $equipament->active }}</td>
+                                <td> 
+                                    @if($equipament->active  == 1)
+                                        Ativo
+                                    @else
+                                        Inativo
+                                    @endif
+                                </td>
+
+
+
+                                
                                 <td>{{ $equipament->description }}</td>
                                 <td>{{ $equipament->examtype_id }}</td>
                                 <td>

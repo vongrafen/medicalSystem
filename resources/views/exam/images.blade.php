@@ -16,17 +16,17 @@
                         <li class="active" style="font-size:110%">Editar</li>
                     </ol>
 
-                        <form action="{{ route('Exam.uploadImages') }}" method="POST" enctype="multipart/form-data"> 
+                        <form action="{{ route('Exam.store') }}" method="POST" enctype="multipart/form-data"> 
                             {{ csrf_field() }}
                             
                             
-                            <label for="exam_id">Identificador Exame</label>
+                            {{-- <label>Identificador Exame</label>
                             <select class="form-control"  name="exam_id" id="exam_id">
-                                @foreach($exm as $exam)
-                                <option value="{{$exam['id']}}">{{$exam['id']}}</option>
-                                
+                                <option value="">Selecione um Médico</option>       
+                                @foreach($exm as $medicos)
+                                    <option required value="{{ $medicos->id }}">{{ $medicos->id }}</option>
                                 @endforeach
-                            </select>
+                            </select> --}}
 
                             <div class="form-row col-md-6 col-xs-6">
                                 <div class="form-group">

@@ -33,40 +33,57 @@
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <strong> Data inicial : </strong>  
-            <input  required class="date form-control"  type="text" id="startdate" name="startdate">   
+            <input  required class="date form-control" value='2019-06-29 08:00:00' type="text" id="startdate" name="startdate">   
          </div>
         </div>
+
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <strong> Data final : </strong>  
-            <input required class="date form-control"  type="text" id="enddate" name="enddate">   
+            <input required class="date form-control" value='2019-06-29 12:00:00' type="text" id="enddate" name="enddate">   
          </div>
         </div>
 
+        
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <strong> Doutor : </strong>  
-              <input required class="date form-control"  type="text" id="doctor_requests_id" name="doctor_requests_id">   
-           </div>
-          </div>
+         <div class="col-md-4"></div>
+         <div class="form-group col-md-4">
+        <label>Médico</label>
+        <select class="form-control"  name="doctor_requests_id" id="doctor_requests_id">
+            <option   value="">Selecione um Médico</option>       
+            @foreach($medico as $medicos)
+                <option required value="{{ $medicos->id }}">{{ $medicos->name }}</option>
+            @endforeach
+        </select>
+      </div>
+      </div>
+        
+        <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
+        <label>Pacientes</label>
+        <select class="form-control"  name="patients_id" id="patients_id">
+            <option   value="">Selecione um Pacientes</option>       
+            @foreach($paciente as $pacientes)
+                <option required value="{{ $pacientes->id }}">{{ $pacientes->name }}</option>
+            @endforeach
+        </select>
+      </div>
+    </div>
 
-          <div class="row">
-              <div class="col-md-4"></div>
-              <div class="form-group col-md-4">
-                <strong> Pacientes : </strong>  
-                <input required  class="date form-control"  type="text" id="patients_id" name="patients_id">   
-             </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="form-group col-md-4">
-                  <strong> Equipamentos : </strong>  
-                  <input required class="date form-control"  type="text" id="equipament_id" name="equipament_id">   
-               </div>
-              </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="form-group col-md-4">
+        <label>Equipamentos</label>
+        <select class="form-control"  name="equipament_id" id="equipament_id">
+            <option   value="">Selecione um Equipamentos</option>       
+            @foreach($equipamento as $equipamentos)
+                <option required value="{{ $equipamentos->id }}">{{ $equipamentos->name }}</option>
+            @endforeach
+        </select>
+      </div>
+    </div>
 
               <div class="row">
                   <div class="col-md-4"></div>

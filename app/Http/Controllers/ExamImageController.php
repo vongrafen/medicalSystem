@@ -21,6 +21,7 @@ class ExamImageController extends Controller
         try{
             $exm = Exam::find($id);
             return view('Exam.images', ['exm' => $exm] );
+
         }catch(Exeption $e){
             dd('Erro!');
             \Session::flash('flash_message', [

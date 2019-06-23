@@ -24,51 +24,63 @@
 
                         <!-- Fazer esse formulário de editar também value= "{ {$results->email or old('email')}}" -->
 
-                        <div class="row">
-                            <div class="col-md-4" value= "{{ old('scheduled_date')}}" ></div>
-                            <div class="form-group col-md-4">
-                              <strong> Data Agendada : </strong>  
-                              <input  required class="date form-control"  type="text" id="scheduled_date" name="scheduled_date">   
-                           </div>
-                          </div>
+                        <label>Paciente</label>
+                        <select class="form-control"  name="patients_id" id="patients_id">
+                            <option value="">Selecione um Paciente</option>       
+                              @foreach($paciente as $pacientes)
+                              <option required value="{{ $pacientes->id }}">{{ $pacientes->name }}</option>
+                                @endforeach
+                        </select>
 
-                          <div class="row" value= "{{ old('performed_date')}}">
-                            <div class="col-md-4"></div>
-                            <div class="form-group col-md-4">
-                              <strong> Data Realizada : </strong>  
-                              <input  required class="date form-control"  type="text" id="performed_date" name="performed_date">   
-                           </div>
-                          </div>
 
+                        <label>Dia Agendado</label>
+                        <select class="form-control"  name="id_schedules_exam" id="id_schedules_exam">
+                            @foreach($id_Agenda as $id_Agendas)
+                                <option required value="{{ $id_Agendas->id }}">{{ $id_Agendas->title }} - Dia Agendado: {{ $id_Agendas->start_date }}</option>
+                            @endforeach
+                        </select>
+
+                        <div class="form-group" >
+                                <label >Data Agendada</label>
+                                <input type="text" name="scheduled_date" value="{{ $id_Agendas->start_date }}" id= "scheduled_date"  class="form-control">
+                        </div>
+
+                        <div class="form-group" >
+                                <label >Data Realizada</label>
+                                <input type="text" name="performed_date" value="{{ $id_Agendas->start_date }}" id= "performed_date"  class="form-control">
+                        </div>
 
                         <div class="form-group" value= "{{ old('description')}}" >
                             <label for="description">Descricao</label>
-                            <input type="text" name="description"  class="form-control" placeholder="Descriçao">
+                            <input type="text" name="description" value='OBS:' class="form-control" placeholder="Descriçao">
                         </div>
 
-                        <div class="form-group" value= "{{ old('employee_id')}}" >
-                            <label for="employee_id">Funcionário Responsável</label>
-                            <input type="text" name="employee_id"  class="form-control" >
-                        </div>
+                        <label>funcionário Responsável</label>
+                        <select class="form-control"  name="employee_id" id="employee_id">
+                            <option   value="">Selecione um Funiconario</option>       
+                            @foreach($funcionario as $funcionarios)
+                                <option required value="{{ $funcionarios->id }}">{{ $funcionarios->name }}</option>
+                            @endforeach
+                        </select>
 
-                        <div class="form-group" value= "{{ old('doctor_performer_id')}}" >
-                            <label for="doctor_performer_id">Médico Executante Responsável</label>
-                            <input type="text" name="doctor_performer_id"  class="form-control" >
-                        </div>
 
-                        <div class="form-group" value= "{{ old('patients_id')}}" >
-                            <label for="patients_id">Paciente</label>
-                            <input type="text" name="patients_id"  class="form-control">
-                        </div>
-                        
+                        <label>Médico Responsável</label>
+                        <select class="form-control"  name="doctor_performer_id" id="doctor_performer_id">
+                            <option   value="">Selecione um Médico</option>       
+                            @foreach($medico as $medicos)
+                                <option required value="{{ $medicos->id }}">{{ $medicos->name }}</option>
+                            @endforeach
+                        </select>
+
                         <div class="form-group">
                             <label for="status" >Status</label>
                             <div required name="status" class="auto-control" value="{{ old('status') }}" required autofocus>
                             <select class="form-control"  id = "status" name="status" onchange="habilitaBtn()" >
                                 <option value="Agendado">Agendado</option>
                                 <option value="Realizado">Realizado</option>
-                                <option value="Pendente">Pendente</option>
+                                <!--<option value="Pendente">Pendente</option>-->
                                 <option value="Cancelado">Cancelado</option>
+                                <option value="test">teste</option>
                             </select>
                             @if($errors->has('status'))
                             <span class="help-block">
@@ -76,11 +88,6 @@
                             </span>
                             @endif
                             </div>
-                        </div> 
-
-                        <div class="form-group" value= "{{ old('id_schedules_exam')}}" >
-                            <label for="id_schedules_exam">Identificador da agenda</label>
-                            <input type="text" name="id_schedules_exam"  class="form-control">
                         </div>
 
                         <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>

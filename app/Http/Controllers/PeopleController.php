@@ -41,19 +41,19 @@ class PeopleController extends Controller
 
     public function indexMedicos()
     {
-        $peoples = $this->peopleModel->whereNotNull('crm')->paginate(20);
+        $peoples = $this->peopleModel->where('profile','=','3')->paginate(20);
         return view('people.index', ['peoples' => $peoples]);
     }
     
     public function indexPacientes()
     {
-        $peoples = $this->peopleModel->whereNull('office')->whereNull('crm')->paginate(20);
+        $peoples = $this->peopleModel->where('profile','=','4')->paginate(20);
         return view('people.index', ['peoples' => $peoples]);
     }
 
     public function indexFuncionarios()
     {
-        $peoples = $this->peopleModel->whereNotNull('office')->paginate(20);
+        $peoples = $this->peopleModel->where('profile','=','2')->paginate(20);
         return view('people.index', ['peoples' => $peoples]);
     }
     public function menu()
