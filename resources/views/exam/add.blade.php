@@ -60,6 +60,23 @@
                             <label for="patients_id">Paciente</label>
                             <input type="text" name="patients_id"  class="form-control">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="status" >Status</label>
+                            <div required name="status" class="auto-control" value="{{ old('status') }}" required autofocus>
+                            <select class="form-control"  id = "status" name="status" onchange="habilitaBtn()" >
+                                <option value="Agendado">Agendado</option>
+                                <option value="Realizado">Realizado</option>
+                                <option value="Pendente">Pendente</option>
+                                <option value="Cancelado">Cancelado</option>
+                            </select>
+                            @if($errors->has('status'))
+                            <span class="help-block">
+                                <strong>{{$errors->first('status')}}</strong>
+                            </span>
+                            @endif
+                            </div>
+                        </div> 
 
                         <div class="form-group" value= "{{ old('id_schedules_exam')}}" >
                             <label for="id_schedules_exam">Identificador da agenda</label>

@@ -20,7 +20,7 @@ public function store(Request $request)
         $event->start_date=$request->get('startdate');
         $event->end_date=$request->get('enddate');
         $event->note=$request->get('note');
-        $event->doctor_id=$request->get('doctor_id');
+        $event->doctor_requests_id=$request->get('doctor_requests_id');
         $event->patients_id=$request->get('patients_id');
         $event->equipament_id=$request->get('equipament_id');
         $event->convenant=$request->get('convenant');
