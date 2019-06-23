@@ -1,44 +1,41 @@
-## Laravel Roles Permissions Admin - Spatie version
-https://www.youtube.com/watch?v=k7mPaNfCHCE
-This is a Laravel 5.4 adminpanel starter project with roles-permissions management based on [Spatie Laravel-permission package](https://github.com/spatie/laravel-permission), [AdminLTE theme](https://adminlte.io/) and [Datatables.net](https://datatables.net).
+# Sistema Medical System em Laravels
 
-We've also created almost identical project based on Joseph Silber's Bouncer package: [see here](https://github.com/LaravelDaily/laravel-roles-permissions-bouncer)
+## Introdução
 
-Part of this project was generated automatically by [QuickAdminPanel system](https://quickadminpanel.com/).
+Esboço de um sistema de exames clinicos.
 
-![Roles Permissions screenshot](https://laraveldaily.com/wp-content/uploads/2018/11/roles-permissions-manager-spatie.png)
 
-## Usage
+## Ações disponiveis
 
-This is not a package - it's a full Laravel project that you should use as a starter boilerplate, and then add your own custom functionality.
+CRUD de usuário com 3 niveis diferentes de acesso(Amin,paciente e profissional da saúde)
 
-- Clone the repository with `git clone`
-- Edit file `.env.example` and edit database credentials there
-- Run  php -r "copy('.env.example', '.env');"
-- Run `composer install`
-- Run `php artisan key:generate`
-- Run `php artisan migrate --seed` (it has some seeded data - see below)
-- That's it: launch the main URL and login with default credentials `admin@admin.com` - `password`
+CRUD de consultas, exames e serviços médicos
 
-This boilerplate has one role (`administrator`), one permission (`users_manage`) and one administrator user.
+## Instalação
 
-With that user you can create more roles/permissions/users, and then use them in your code, by using functionality like `Gate` or `@can`, as in default Laravel, or with help of Spatie's package methods.
+Em uma pasta do seu computador, digitar no cmd =  git clone https://github.com/vongrafen/medicalSystem
+
+OBS: "Irá fazer dowload do projeto"
+
+DENTRO DA PASTA "medicalsystem" digitar = composer install
+OBS: "Irá criar as pastas necessárias"
+
+Se não tiver o banco de dados, Criar no mysql
+
+Abrir o arquivo .env.example e substituir as linhas : DB_DATABASE=SUA_BASE_DE_DADOS /// DB_USERNAME=SEU_NOME_DE_USUARIO /// DB_PASSWORD=SUA_SENHA
+
+Rodar o comando = php -r "copy('.env.example', '.env');"
+Rodar o comando = php artisan key:generate
+Rodar o comando = php artisan migrate --seed
+Rodar o comando = php artisan serve
+
+Para logar-se como ADMIN, acesse a url http://SEU_LOCAL_HOST/home
+
+Login e senha padrão: 
+*login:* admin 
+*senha:*admin
+
 
 ## License
 
-The [MIT license](http://opensource.org/licenses/MIT).
-
-## Notice
-
-We are not responsible for any functionality or bugs in **AdminLTE**, **Laravel-permission** or **Datatables** packages or their future versions, if you find bugs there - please contact vendors directly.
-
----
-
-## More from our LaravelDaily Team
-
-- Read our [Daily Blog with Laravel Tutorials](https://laraveldaily.com)
-- FREE E-book: [50 Laravel Quick Tips (and counting)](https://laraveldaily.com/free-e-book-40-laravel-quick-tips-and-counting/)
-- Check out our adminpanel generator QuickAdminPanel: [Laravel version](https://quickadminpanel.com) and [Vue.js version](https://vue.quickadminpanel.com)
-- Subscribe to our [newsletter with 20+ Laravel links every Thursday](http://laraveldaily.com/weekly-laravel-newsletter/)
-- Subscribe to our [YouTube channel Laravel Business](https://www.youtube.com/channel/UCTuplgOBi6tJIlesIboymGA)
-- Enroll in our [Laravel Online Courses](https://laraveldaily.teachable.com/)
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
