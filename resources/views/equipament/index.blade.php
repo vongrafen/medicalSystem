@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            @include('sweet::alert')
             <div class="panel panel-default">
             <ol class="breadcrumb panel-heading">
             
@@ -50,7 +51,7 @@
                                 <td>{{ $equipament->examtype_id }}</td>
                                 <td>
                                     <a class="btn btn-default" href="{{route('equipament.edit',$equipament->id)}}">Editar</a>
-                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('equipament.delete',$equipament->id)}}' : false)">Deletar</a>
+                                    <a class="btn btn-danger" href="{{route('equipament.delete',$equipament->id)}}' : false)">Deletar</a>
                                 </td>
                             <tr>
                         

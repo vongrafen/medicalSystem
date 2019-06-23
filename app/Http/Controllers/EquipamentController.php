@@ -7,7 +7,7 @@ use App\examtype;
 use Illuminate\Http\Request;
 use App\Requests\EquipamentRequest;
 use App\Requests\examtypeRequest;
-
+use Alert;
 class EquipamentController extends Controller
 {
     protected $equipamentModel;
@@ -28,7 +28,6 @@ class EquipamentController extends Controller
     {
         $TipoExame = examtype::all();
         $equipaments = $this->equipamentModel->paginate(20); // whereNotNull('rg')->
-        //dd($TipoExame);
         return view('equipament.index', ['equipaments' => $equipaments, 'TipoExame' => $TipoExame]);
     }
 
@@ -105,10 +104,7 @@ class EquipamentController extends Controller
             return redirect()->route('equipament.index');
         }*/
         $equipament->delete();
-         \Session::flash('flash_message',[
-            'msg'=>"Equipamento atualizado com sucesso!",
-            'class'=>"alert-success"
-        ]);
+        Alert::info('Muito bem', 'Deletado com sucesso');
 
         return redirect()->route('equipament.index');        
         
