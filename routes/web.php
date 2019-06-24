@@ -68,6 +68,7 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::get('/User/edit/{id}', ['uses'=>'UserController@edit', 'as' => 'User.edit']);
     Route::get('/User/updateProfile', ['uses'=>'UserController@profileUpdate', 'as' => 'User.profileUpdate']);
     Route::get('/User/load/{id}', ['uses'=>'UserController@load', 'as' => 'User.load']);
+    Route::get('/User/load', ['uses'=>'UserController@load', 'as' => 'User.load']);
     Route::get('/User/delete/{id}', ['uses'=>'UserController@delete', 'as' => 'User.delete']);
 
 
