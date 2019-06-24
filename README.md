@@ -1,26 +1,35 @@
 # Sistema Medical System em Laravels
 
-## IntroduÁ„o
+## Introdu√ß√£o
 
-EsboÁo de um sistema de exames clinicos.
+Sistema de agendamento de exames de uma clinica m√©dica.
 
 
-## AÁıes disponiveis
+## A√ß√µes disponiveis
 
-CRUD de usu·rio com 3 niveis diferentes de acesso(Amin,paciente e profissional da sa˙de)
+Cadastro de Clientes;
+Cadastro de M√©dicos;
+Cadastro de Funcion√°rios;
+Agendar exame;
+Realiza√ß√£o do exame;
+Informa√ß√µes pr√© exame;
+Verifica√ß√£o de taxa;
+Visualiza√ß√£o do laudo;
+Retirada do exame;
+Gera√ß√£o de relat√≥rios;
+Atualiza√ß√£o do prontu√°rio;
+Consulta do hist√≥rico dos pacientes (prontu√°rio);
 
-CRUD de consultas, exames e serviÁos mÈdicos
-
-## InstalaÁ„o
+## Instala√ß√£o
 
 Em uma pasta do seu computador, digitar no cmd =  git clone https://github.com/vongrafen/medicalSystem
 
-OBS: "Ir· fazer dowload do projeto"
+OBS: "Ir√° fazer dowload do projeto"
 
 DENTRO DA PASTA "medicalsystem" digitar = composer install
-OBS: "Ir· criar as pastas necess·rias"
+OBS: "Ir√° criar as pastas necess√°rias"
 
-Se n„o tiver o banco de dados, Criar no mysql
+Se n√£o tiver o banco de dados, Criar no mysql
 
 Abrir o arquivo .env.example e substituir as linhas : DB_DATABASE=SUA_BASE_DE_DADOS /// DB_USERNAME=SEU_NOME_DE_USUARIO /// DB_PASSWORD=SUA_SENHA
 
@@ -31,7 +40,7 @@ Rodar o comando = php artisan serve
 
 Para logar-se como ADMIN, acesse a url http://SEU_LOCAL_HOST/home
 
-Login e senha padr„o: 
+Login e senha padr√£o: 
 *login:* admin 
 *senha:*admin
 
