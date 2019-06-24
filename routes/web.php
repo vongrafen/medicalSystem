@@ -68,7 +68,6 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::get('/User/edit/{id}', ['uses'=>'UserController@edit', 'as' => 'User.edit']);
     Route::get('/User/updateProfile', ['uses'=>'UserController@profileUpdate', 'as' => 'User.profileUpdate']);
     Route::get('/User/load/{id}', ['uses'=>'UserController@load', 'as' => 'User.load']);
-    Route::get('/User/load', ['uses'=>'UserController@load', 'as' => 'User.load']);
     Route::get('/User/delete/{id}', ['uses'=>'UserController@delete', 'as' => 'User.delete']);
 
 
@@ -81,8 +80,10 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::get('/Exam/delete/{id}', ['uses'=>'ExamController@delete', 'as' => 'Exam.delete']);
 
     //Routes Imagens de exames
-    Route::post('/Exam/uploadImages', ['uses'=>'ExamImageController@uploadImages', 'as' => 'Exam.uploadImages']);
-    Route::get('/Exam/images/{id}', ['uses'=>'ExamImageController@images', 'as' => 'Exam.images']);
+    Route::post('/ExamImage/uploadImages', ['uses'=>'ExamImageController@uploadImages', 'as' => 'Exam.uploadImages']);
+    Route::get('/ExamImage/images/{id}', ['uses'=>'ExamImageController@images', 'as' => 'Exam.images']);
+    Route::post('/ExamImage/images', ['uses'=>'ExamImageController@UparImagens', 'as' => 'Examimage.UparImagens']);
+    
     
 
 

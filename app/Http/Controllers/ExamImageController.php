@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\exam_image;
 use App\Exam;
+use Image;
+
 
 class ExamImageController extends Controller
 {
@@ -32,6 +34,26 @@ class ExamImageController extends Controller
         }
     }
 
+    public function UparImagens(Request $request){
+
+        if($request->hasFile('imagem')){
+            $Image=$request->file('imagem');
+
+            $nome_arquivo=time() . '.' . $Image->getClientOriginalExtension();
+            Image::make($Image)->resize(300, 300)->save( public_path('/imagens/Exames/' . $nome_arquivo));
+           
+
+            $IMG= new exam_image();
+            $IMG->exam_id='1'; // tem que pegar o valor do exame
+            $IMG->imagem=$nome_arquivo;
+            $IMG->Data=date('Y-m-d H:i');
+            $IMG->save();
+
+            //Alert::success('Enviado!', 'Pode anexar outra.');
+            return back();
+        }
+    }
+
 
 /*    MULTIPLAS IMAGENS 
 
@@ -54,40 +76,6 @@ if(!is_dir($diretorio)){
 }
 */
 
-    // TUTORIAL https://blog.especializati.com.br/upload-de-arquivos-no-laravel-com-request/
-
-    public function uploadImages(Request $request)
-    {
-        // Define o valor default para a variável que contém o nome da imagem 
-        $nameFile = null;
-        // Verifica se informou o arquivo e se é válido
-        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-             
-            // Define um aleatório para o arquivo baseado no timestamps atual
-            $name = uniqid(date('HisYmd'));
-     
-            // Recupera a extensão do arquivo
-
-            $extension = $request->image->extension();
-     
-            // Define finalmente o nome
-            // definimos ID(do cliente)+ID(exame)+dataatual???
-            $nameFile = "{$name}.{$extension}";
-     
-            // Faz o upload:
-            $upload = $request->image->storeAs('ImagensExame', $nameFile);
-            // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
-     
-            // Verifica se NÃO deu certo o upload (Redireciona de volta)
-            if ( !$upload )
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao fazer upload')
-                            ->withInput();
-     
-        }
-        echo('Não deu Certo, tem que upar a imagem.');
-    }
 
         public function store(ManifestationFormRequest $request)
         {

@@ -66,36 +66,6 @@ class UserController extends Controller
             $data['password'] = bcrypt($data['password']);
         else
             unset($data['password']);
-        
-        // if($request->hasFile('avatar')){
-        //     $avatar=$request->file('avatar');
-        //     $nome_arquivo=time() . '.' . $avatar->getClientOriginalExtension();
-        //     Image::make($avatar)->resize(300, 300)->save( public_path('/imagens/avatar/' . $nome_arquivo));
-
-        //     $user=Auth::user();
-        //     $user->avatar = $nome_arquivo;
-        //     $user->save();
-
-        // }
-        // $data['avatar'] = $user->img;
-        // if ($request->hasFile('img') && $request->file('img')->isValid()) {
-        //     if ($user->img)
-        //         $name = $user->img;
-        //     else
-        //         $name = $user->id.kebab_case($user->name);
-            
-        //     $extenstion = $request->img->extension();
-        //     $nameFile = "{$name}.{$extenstion}";
-
-        //     $data['img'] = $nameFile;
-
-        //     $upload = $request->img->storeAs('users', $nameFile);
-
-        //     if (!$upload)
-        //         return redirect()
-        //                     ->back()
-        //                     ->with('error', 'Falha ao fazer o upload da imgm');
-        // }
 
         $update = $user->update($data);
 
