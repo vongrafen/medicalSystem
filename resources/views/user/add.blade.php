@@ -90,13 +90,9 @@
                             </select>
                         </div>
                         
-                        <div class=" form-group">
-                                @if (auth()->user()->img != null)
-                                <img src="{{ url('storage/users/'.auth()->user()->img) }}" alt="{{ auth()->user()->name }}" style="max-width: 50px;">
-                                @endif
-                            <label for="img">Imagem:</label>
-                            <input  name="img" type="file" class="form-control">
-                        </div>
+                        <label>Imagem do perfil</label>
+                        <input type="file" name="avatar">
+
 
                         <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
                     </form>

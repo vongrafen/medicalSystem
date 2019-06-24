@@ -66,11 +66,10 @@ class ExamController extends Controller
     public function add()
     {
         $exam = Exam::all();
-
+        $paciente = DB::select('SELECT * FROM peoples WHERE peoples.profile = 4');
         $funcionario = DB::select('SELECT * FROM peoples WHERE peoples.profile = 2');
         $medico = DB::select('SELECT * FROM peoples WHERE peoples.profile = 3');
-        $paciente = DB::select('SELECT * FROM peoples WHERE peoples.profile = 4');
-
+        
         $id_Agenda = DB::select('SELECT * FROM schedules WHERE schedules.patients_id IN (SELECT id FROM peoples WHERE peoples.profile = 4)');
         
         return view('Exam.add', [
@@ -106,7 +105,44 @@ class ExamController extends Controller
             ]);
             return redirect()->route('Exam.add');
         }
-        return view('Exam.edit', compact('Exam'));
+        
+
+        $paciente = DB::select("SELECT * FROM peoples
+        LEFT JOIN exams ON exams.patients_id = peoples.id
+        WHERE exams.id = $Exam->id ");
+
+
+        if($Exam->employee_id == null){
+            $funcionario = DB::select('SELECT * FROM peoples WHERE peoples.profile = 2');
+        }else{
+        $funcionario = DB::select("SELECT * FROM peoples
+        LEFT JOIN exams ON exams.employee_id = peoples.id
+        WHERE employee_id = $Exam->employee_id ");
+        }
+
+        
+        if($Exam->employee_id == null){
+            $medico = DB::select('SELECT * FROM peoples WHERE peoples.profile = 3');
+        }else{
+        $medico = DB::select("SELECT * FROM peoples
+        LEFT JOIN exams ON exams.doctor_performer_id = peoples.id
+        WHERE doctor_performer_id = $Exam->doctor_performer_id ");
+        }
+
+        $id_Agenda = DB::select("SELECT * FROM schedules WHERE schedules.id = $Exam->id_schedules_exam");
+        $status= $Exam->status;
+
+
+
+        //dd($paciente->name);
+        return view('Exam.edit', [
+            'funcionario' => $funcionario,
+            'medico' => $medico,
+            'paciente' => $paciente,
+            'id_Agenda' => $id_Agenda,
+            'Exam' => $Exam,
+            'status' => $status,
+            ]);
     }
 
     public function update(Request $request, $id)

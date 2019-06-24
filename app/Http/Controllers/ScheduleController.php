@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Schedule;
+use App\Exam;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
@@ -28,7 +29,7 @@ class ScheduleController extends Controller
 public function store(Request $request)
     {
 
-        // verificar a data
+        
 
         $event= new Schedule();
         $event->title=$request->get('title');
@@ -39,7 +40,20 @@ public function store(Request $request)
         $event->patients_id=$request->get('patients_id');
         $event->equipament_id=$request->get('equipament_id');
         $event->convenant=$request->get('convenant');
+        
+        // verificar a data e hora
+        
+
         $event->save();
+        try{
+         DB::INSERT("INSERT INTO exams(scheduled_date, patients_id,id_schedules_exam, status) 
+                    VALUES ('$event->start_date',
+                            $event->patients_id,
+                            $event->id,
+                            'Agendado');");
+        }catch(Exception $e){
+            Echo('Erro ao inserir');
+        }
         return redirect('event')->with('Agendado', 'Agendado Com Sucesso!');
     }
 public function calender()

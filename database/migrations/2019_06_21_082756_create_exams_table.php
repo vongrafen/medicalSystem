@@ -16,11 +16,11 @@ class CreateExamsTable extends Migration
         Schema::create('exams', function (Blueprint $table) {
             
             $table->increments('id')->unique();
-            $table->dateTime('scheduled_date');
-            $table->dateTime('performed_date');
-            $table->text('description'); 
+            $table->dateTime('scheduled_date')->nullable();
+            $table->dateTime('performed_date')->nullable();
+            $table->text('description')->nullable(); 
             // Chave estrangeira de funcionarios
-            $table->integer('employee_id')->unsigned();
+            $table->integer('employee_id')->unsigned()->nullable();
             $table->foreign('employee_id')->references('id')->on('peoples');
             // Chave estrangeira de funcionarios
             //Chave extrangeira pessoas - pacientes
@@ -28,7 +28,7 @@ class CreateExamsTable extends Migration
             $table->foreign('patients_id')->references('id')->on('peoples');
             //Chave extrangeira pessoas - pacientes
             //Chave extrangeira pessoas - doutor executante
-            $table->integer('doctor_performer_id')->unsigned();
+            $table->integer('doctor_performer_id')->unsigned()->nullable();
             $table->foreign('doctor_performer_id')->references('id')->on('peoples');
             //Chave extrangeira pessoas - doutor executante
             // Chave estrangeira de agenda_exames

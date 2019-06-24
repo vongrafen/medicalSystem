@@ -80,7 +80,6 @@
                                 <option value="Realizado">Realizado</option>
                                 <!--<option value="Pendente">Pendente</option>-->
                                 <option value="Cancelado">Cancelado</option>
-                                <option value="test">teste</option>
                             </select>
                             @if($errors->has('status'))
                             <span class="help-block">
@@ -90,21 +89,8 @@
                             </div>
                         </div>
 
-                        <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
+                        <button  class=" form-group btn btn-info">Adicionar</button>
                     </form>
-
-                    @if(session('success'))
-                    <div id="mensagem-sucesso">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                 
-                @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                @endif
-
                 </div>
             </div>
         </div>
