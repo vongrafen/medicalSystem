@@ -7,6 +7,8 @@ use App\People;
 use Illuminate\Http\Request;
 use Session;
 use DB;
+use Auth;
+use Image;
 
 class UserController extends Controller
 {
@@ -32,6 +34,28 @@ class UserController extends Controller
         return view('User.index',['results' => $results]);
     }
 
+    public function perfilAtualiza(Request $request){
+
+
+        if($request->hasFile('avatar')){
+            $avatar=$request->file('avatar');
+            
+            $nome_arquivo=time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save( public_path('/imagens/avatar/' . $nome_arquivo));
+           
+            $user=Auth::user();
+            $user->avatar = $nome_arquivo;
+            $user->save();
+
+        }
+
+        $user = auth()->user();
+        $peoples = People::all()->find($user->people_id);
+         return view('profile', ['user'=>Auth::user(), 'peoples' => $peoples]);
+         //return view('profile',array('user'=>Auth::user(),$peopleModel));
+
+    }
+
     public function profileUpdate(Request $request)
     {
         $user = auth()->user();
@@ -42,27 +66,36 @@ class UserController extends Controller
             $data['password'] = bcrypt($data['password']);
         else
             unset($data['password']);
-
         
-        $data['img'] = $user->img;
-        if ($request->hasFile('img') && $request->file('img')->isValid()) {
-            if ($user->img)
-                $name = $user->img;
-            else
-                $name = $user->id.kebab_case($user->name);
+        // if($request->hasFile('avatar')){
+        //     $avatar=$request->file('avatar');
+        //     $nome_arquivo=time() . '.' . $avatar->getClientOriginalExtension();
+        //     Image::make($avatar)->resize(300, 300)->save( public_path('/imagens/avatar/' . $nome_arquivo));
+
+        //     $user=Auth::user();
+        //     $user->avatar = $nome_arquivo;
+        //     $user->save();
+
+        // }
+        // $data['avatar'] = $user->img;
+        // if ($request->hasFile('img') && $request->file('img')->isValid()) {
+        //     if ($user->img)
+        //         $name = $user->img;
+        //     else
+        //         $name = $user->id.kebab_case($user->name);
             
-            $extenstion = $request->img->extension();
-            $nameFile = "{$name}.{$extenstion}";
+        //     $extenstion = $request->img->extension();
+        //     $nameFile = "{$name}.{$extenstion}";
 
-            $data['img'] = $nameFile;
+        //     $data['img'] = $nameFile;
 
-            $upload = $request->img->storeAs('users', $nameFile);
+        //     $upload = $request->img->storeAs('users', $nameFile);
 
-            if (!$upload)
-                return redirect()
-                            ->back()
-                            ->with('error', 'Falha ao fazer o upload da imgm');
-        }
+        //     if (!$upload)
+        //         return redirect()
+        //                     ->back()
+        //                     ->with('error', 'Falha ao fazer o upload da imgm');
+        // }
 
         $update = $user->update($data);
 

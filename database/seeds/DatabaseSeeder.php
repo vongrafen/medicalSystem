@@ -53,7 +53,9 @@ class DatabaseSeeder extends Seeder
         ]);
         
         DB::table('schedules')->insert([
-                ['id' => 1, 'title' => 'Mamografia Joana Roubalheira', 'start_date' => '2019-06-20 07:00:00','end_date' => '2019-06-20 12:00:00','note' => 'No feriado?','doctor_requests_id' => '3','patients_id' => '2','equipament_id' => '1','convenant' => 'Unimed'],
+                ['id' => 1, 'title' => 'Mamografia Joana Roubalheira', 'start_date' => '2019-06-29 07:00:00','end_date' => '2019-06-29 12:00:00','note' => 'Primeira','doctor_requests_id' => '3','patients_id' => '2','equipament_id' => '1','convenant' => 'Unimed'],
+                ['id' => 2, 'title' => 'Outra Mamografia em Joana', 'start_date' => '2019-07-20 07:00:00','end_date' => '2019-07-20 12:00:00','note' => 'segunda','doctor_requests_id' => '3','patients_id' => '2','equipament_id' => '1','convenant' => 'Unimed'],
+                ['id' => 3, 'title' => 'Terceira Mamografia Joana Roubalheira', 'start_date' => '2019-08-20 07:00:00','end_date' => '2019-08-20 12:00:00','note' => 'terceira','doctor_requests_id' => '3','patients_id' => '2','equipament_id' => '1','convenant' => 'Unimed'],
         ]);
         // Não está sendo Usado, pois está buscando as cidades e estados no JS
         DB::table('states')->insert([

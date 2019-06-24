@@ -44,7 +44,8 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::post('/Profile', ['uses'=>'UserController@profile', 'as' => 'profile']);
     Route::view('/ExamesPaciente', 'paciente')->name('paciente')->middleware('auth');
     Route::post('/Profile/update/{id}', ['uses'=>'UserController@updateProfile', 'as' => 'User.updateProfile']);
-    
+    Route::post('/perfil', ['uses'=>'UserController@perfilAtualiza','as'=>'User.perfilAtualiza']);
+
 });
 
 

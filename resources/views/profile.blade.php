@@ -7,13 +7,30 @@
 @stop
 
 @section('content')
+<div class="panel-body">
+        <img src="/imagens/avatar/{{Auth::user()->avatar}}" style="width:150px;height:150px;float:left;border-radius:50%;margin-right:25px;">
+        <h2>{{$peoples->name}}</h2>
+        <form enctype="multipart/form-data" action="{{route('User.perfilAtualiza')}}" method="POST">
+        <label>Atualizar imagem do perfil</label>
+            <input type="file" name="avatar">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <input type="submit" class="pull-right btn btn-sm btn-primary"> 	
+        </form>
+    </div>
     <form action="{{ route('User.updateProfile', $peoples->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
             <!-- Profile Image -->
+            
         <div class="box box-primary">
             <div class="box-body box-profile">
-            <img class="profile-user-img img-responsive img-circle" src="https://i1.wp.com/syminvestments.com.br/wp-content/uploads/2018/02/user-a.jpg" alt="User profile picture">
-                <h3 class="profile-username text-center">{{$peoples->name}}</h3>
+
+                    {{-- <div class="panel-body">
+                            <img src="/imagens/avatar/{{Auth::user()->avatar}}" style="width:150px;height:150px;float:left;border-radius:50%;margin-right:25px;">
+                             <h2>{{$peoples->name}}</h2>
+                    </div> --}}
+
+            {{-- <img class="profile-user-img img-responsive img-circle" src="/imagens/avatar/{{Auth::user()->avatar}}" alt="User profile picture">           
+            <h3 class="profile-username text-center">{{$peoples->name}}</h3> --}}
                       <!-- TABLE: LATEST ORDERS -->
                     <div class="box box-info">
                         <div class="box-header with-border">
@@ -23,6 +40,7 @@
                         <div class="table-responsive">
                             <table class="table no-margin">
                                     <tbody>
+
                                             <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                                                 <label for="name">Nome</label>
                                                 <input type="text" value="{{$peoples->name}}" name="name" class="form-control" placeholder="Nome do cliente">
@@ -151,7 +169,7 @@
                             </div>
                         </div>
                     </div>
-  
+
                     <button id="mensagem-sucesso" class="btn btn-primary btn-block"> <b>Salvar</b> </button>
                     <button href="{{ URL::previous() }}" class="btn btn-primary btn-block"><b>Sair</b></button>
             </div>

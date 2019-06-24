@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->integer('people_id')->unsigned()->nullable();
             $table->foreign('people_id')->references('id')->on('peoples');
             // Chave extrangeira de pessoas
-            $table->string('img')->nullable();
+            $table->string('avatar')->default('default.jpg');
             $table->rememberToken();
             $table->timestamps();
             
