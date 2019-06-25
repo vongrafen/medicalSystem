@@ -27,7 +27,9 @@ Route::get('/', function () {
 
     //calendar
     Route::get('event/add','ScheduleController@createEvent');
+    Route::get('/event/add/client','ScheduleController@createEventCliente');
     Route::post('event/add','ScheduleController@store');
+    Route::post('event/client','ScheduleController@storeClient');
     Route::get('event','ScheduleController@calender');
 
 
@@ -42,7 +44,8 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::view('/Profile', 'profile')->name('profile')->middleware('auth'); 
     Route::get('/Profile', ['uses'=>'UserController@profile', 'as' => 'profile']);
     Route::post('/Profile', ['uses'=>'UserController@profile', 'as' => 'profile']);
-    Route::view('/ExamesPaciente', 'paciente')->name('paciente')->middleware('auth');
+    //Route::view('/ExamesPaciente', 'paciente')->name('paciente')->middleware('auth'); 
+    Route::get('/ExamesPaciente', ['uses'=>'ExamController@indexPaciente', 'as' => 'paciente']);
     Route::post('/Profile/update/{id}', ['uses'=>'UserController@updateProfile', 'as' => 'User.updateProfile']);
     Route::post('/perfil', ['uses'=>'UserController@perfilAtualiza','as'=>'User.perfilAtualiza']);
 

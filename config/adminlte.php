@@ -136,20 +136,18 @@ return [
         ],
         [
             'text' => 'Meu perfil',
-            'icon' => 'home',
+            'icon' => 'fa-smile-o',
             'url'  => '/Profile',
         ],
-        // Somente para o Cliente
         [
-            'text'    => 'Consulta de Exames',
-            'icon'    => 'folder-open',
-            'submenu' => [
-                [
-                    'text' => 'Exames Realizados',
-                    'icon' => 'fa-user-md',
-                    'url'  => '/ExamesPaciente',
-                ],
-            ],
+            'text' => 'Meus Exames',
+            'icon' => 'fa-user-md',
+            'url'  => '/ExamesPaciente',
+        ],
+        [
+            'text' => 'Agendar Exames',
+            'icon' => 'fa-calendar-plus-o',
+            'url'  => '/event/add/client',
         ],
 
         [
@@ -200,15 +198,9 @@ return [
             ],        
         ],
         [
-            'text'    => 'Exames',
-            'icon'    => '',
-            'submenu' => [
-                [
-                    'text' => 'Exames',
-                    'icon' => '',
-                    'url'  => '/Exam',
-                ],
-            ],        
+            'text' => 'Exames',
+            'icon' => '',
+            'url'  => '/Exam',       
         ],
     ],
 

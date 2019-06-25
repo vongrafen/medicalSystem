@@ -108,6 +108,8 @@
                                       <span class="label label-success">{{$x->status}}</span>
                                   @elseif ($x->status == 'Cancelado')
                                       <span class="label label-danger">{{$x->status}}</span>
+                                  @elseif ($x->status == 'Solicitado')
+                                      <span class="label label-warning">{{$x->status}}</span>
                                   @else
                                       <span class="label label-default">{{$x->status}}</span>
                                       @endif

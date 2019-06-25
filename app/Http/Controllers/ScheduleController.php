@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Schedule;
 use App\Exam;
+use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
@@ -26,10 +27,27 @@ class ScheduleController extends Controller
             'equipamento' => $equipamento,
             ]);
     }
-public function store(Request $request)
-    {
 
+ //------------------- Termina parte Agendamento do Cliente--------------------------------
+
+    public function createEventCliente()
+    {
         
+        $funcionario = DB::select('SELECT * FROM peoples WHERE peoples.profile = 2');
+        $medico = DB::select('SELECT * FROM peoples WHERE peoples.profile = 3');
+        $equipamento = DB::select('SELECT * FROM equipaments');
+
+        return view('createEventCliente', [ 
+            'funcionario' => $funcionario,
+            'medico' => $medico,
+            'equipamento' => $equipamento,
+            ]);
+    }
+
+
+
+    public function storeClient(Request $request)
+    {
 
         $event= new Schedule();
         $event->title=$request->get('title');
@@ -43,7 +61,36 @@ public function store(Request $request)
         
         // verificar a data e hora
         
+        $event->save();
+        try{
+         DB::INSERT("INSERT INTO exams(scheduled_date, patients_id,id_schedules_exam, status) 
+                    VALUES ('$event->start_date',
+                            $event->patients_id,
+                            $event->id,
+                            'Solicitado');");
+        }catch(Exception $e){
+            Echo('Erro ao inserir');
+        }
+        return redirect('/ExamesPaciente')->with('Agendado', 'Agendado Com Sucesso!');
+    }
 
+ //------------------- Termina parte Agendamento do Cliente--------------------------------
+
+
+public function store(Request $request)
+    {
+        $event= new Schedule();
+        $event->title=$request->get('title');
+        $event->start_date=$request->get('startdate');
+        $event->end_date=$request->get('enddate');
+        $event->note=$request->get('note');
+        $event->doctor_requests_id=$request->get('doctor_requests_id');
+        $event->patients_id=$request->get('patients_id');
+        $event->equipament_id=$request->get('equipament_id');
+        $event->convenant=$request->get('convenant');
+        
+        // verificar a data e hora
+        
         $event->save();
         try{
          DB::INSERT("INSERT INTO exams(scheduled_date, patients_id,id_schedules_exam, status) 

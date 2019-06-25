@@ -62,6 +62,34 @@ class ExamController extends Controller
 
     }
 
+
+    public function indexPaciente()
+    {
+        $sql = "SELECT 
+                exams.id,
+                DATE_FORMAT(schedules.start_date, '%d/%m/%Y %H:%i:%s') as Data_Agendada,
+                medico.name          as medico,
+                DATE_FORMAT(exams.performed_date, '%d/%m/%Y %H:%i:%s') as Data_Realizada,
+                examtypes.name     as Tipo_Exame,
+                exams.status 
+                FROM exams
+                LEFT JOIN peoples paciente  ON paciente.id = exams.patients_id
+                LEFT JOIN peoples medico    ON medico.id = exams.doctor_performer_id
+                LEFT JOIN schedules         ON schedules.id = exams.id_schedules_exam
+                LEFT JOIN equipaments       ON equipaments.id = schedules.equipament_id
+                LEFT JOIN examtypes			ON examtypes.id = equipaments.examtype_id";
+
+        // Adicionar o PAGINATE Deve usar o use Illuminate\Pagination\LengthAwarePaginator;
+        $page = 1;
+        $size = 20;
+        $data = DB::select($sql);
+        $collect = collect($data);
+        $results = new LengthAwarePaginator( $collect->forPage($page, $size), $collect->count(),$size,  $page);
+        // Fim do Adicionar o PAGINATE      
+
+        return view('paciente', ['results' => $results]);
+    }
+
     
     public function add()
     {

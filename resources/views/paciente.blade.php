@@ -1,106 +1,67 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
-
-@section('content_header')
-    <h1>Meus Exames</h1>
-@stop
+@section('title', 'Cadastro de Exames')
 
 @section('content')
-                      <!-- TABLE: LATEST ORDERS -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Meus Exames Realizados</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <ol class="breadcrumb panel-heading">
+                
+                <li class="active">Meus Exames</li>
+                </ol>
 
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                      <thead>
+                          <tr>
+                              <th></th>
+                              <th>Data Agendada</th>
+                              <th>Médico</th>
+                              <th>Data Realizada</th>
+                              <th>Tipo Exame</th>
+                              <th>Staus</th>
+                              <th>Ação</th>
+                              </tr>
+                      </thead>
+                      <tbody>
+                      @foreach($results as $x)
+                      <tr>
+                              <th scope="row">{{ $x->id }}</th>
+                              <td>{{ $x->Data_Agendada }}</td>
+                              <td>{{ $x->medico }}</td>
+                              <td>{{ $x->Data_Realizada }}</td>
+                              <td>{{ $x->Tipo_Exame }}</td>
+                              <td> 
+                                  @if($x->status == 'Agendado')
+                                      <span class="label label-info">{{$x->status}}</span>
+                                  @elseif ($x->status == 'Realizado')
+                                      <span class="label label-success">{{$x->status}}</span>
+                                  @elseif ($x->status == 'Cancelado')
+                                      <span class="label label-danger">{{$x->status}}</span>
+                                  @elseif ($x->status == 'Solicitado')
+                                      <span class="label label-warning">{{$x->status}}</span>
+                                  @else
+                                      <span class="label label-default">{{$x->status}}</span>
+                                      @endif
+                              </td>
+                              <td>    
+                                  <a class="btn btn-info" href="{{route('paciente',$x->id)}}">Visualizar</a>
+                              </td>
+                          <tr>
+                      @endforeach                           
+                      </tbody>
+                  </table>
+
+                    <div align="center">
+                        {!! $results->links() !!}
+                    </div> 
+
+                </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-                <table class="table no-margin">
-                  <thead>
-                  <tr>
-                    <th>Código Exame</th>
-                    <th>Nome Exame</th>
-                    <th>Status</th>
-                    <th>Ação</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-info">Processing</span></td>
-                    <td>
-                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                        <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
-                      </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <a class="btn btn-sm btn-info btn-flat pull-left" >Editar</a> <!-- href="{ {route('User.edit',$x->id)}}"-->
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Solicitar um exame</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Ver todos os exames</a>
-            </div>
-            <!-- /.box-footer -->
-          </div>
-          <!-- /.box -->
         </div>
-        <!-- /.col -->
-          <!-- TABLE: LATEST ORDERS -->
+    </div>
+</div>
 @stop
+
