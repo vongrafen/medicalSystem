@@ -125,24 +125,24 @@ return [
     //     </div>
     //   </div>
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
             'text' => 'Inicio',
             'icon' => 'home',
             'url'  => '/home',
+            'can'  => 'adm',
+            'can'  => 'user',
         ],
         [
             'text' => 'Meu perfil',
             'icon' => 'smile-o',
+            'can'  => 'adm',
             'url'  => '/Profile',
         ],
         [
             'text' => 'Meus Exames',
             'icon' => 'user-md',
             'url'  => '/ExamesPaciente',
+            'can'  => 'adm',
+            'can'  => 'user',
         ],
         [
             'text' => 'Agendar Exames',
@@ -153,6 +153,7 @@ return [
         [
             'text'    => 'Consulta',
             'icon'    => 'folder-open',
+            'can'  => 'adm',
             'submenu' => [
                 [
                     'text' => 'Médicos',
@@ -184,15 +185,17 @@ return [
         [
             'text'    => 'Agenda',
             'icon'    => 'calendar-minus-o',
+            'can'  => 'adm',
             'submenu' => [
                 [
-                    'text' => 'Agendar',
+                    'text' => 'Agendar meu horário',
                     'icon' => 'calendar-plus-o',
                     'url'  => '/event/add',
                 ],
                 [
                     'text' => 'Consulta',
                     'icon' => 'cube',
+                    'can'  => 'adm',
                     'url'  => '/event',
                 ],
             ],        
@@ -200,11 +203,13 @@ return [
         [
             'text' => 'Exames',
             'icon' => 'medkit',
+            'can'  => 'medic',
             'url'  => '/Exam',       
         ],
         [
             'text' => 'Visualizar Exames',
             'icon' => 'file-image-o',
+            'can'  => 'medic',
             'url'  => '/ViewExam',       
         ],
     ],

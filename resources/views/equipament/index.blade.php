@@ -3,31 +3,24 @@
 @section('title', 'Listas de Equipamentos')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            @include('sweet::alert')
-            <div class="panel panel-default">
-            <ol class="breadcrumb panel-heading">
-            
-            <li class="active">Equipament</li>
-            </ol>
+<div class="box box-primary">
+        <div class="box-header with-border">
+           <h3 class="box-title">Consulta</h3>
+        </div>
 
-                <div class="panel-body">
-                <p>
-                <a class="btn btn-info" href="{{route('equipament.add')}}">Adicionar</a>
-                </p>
+            <div class="panel-body">
+                
+            @include('sweet::alert')
+
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
-
                    
-                    <table class="table table-bordered">
+                    <table id="tableDepartament" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="listEquip">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th>Nome</th>
                                 <th>Modelo</th>
                                 <th>Serial</th>
@@ -35,14 +28,13 @@
                                 <th>Descrição</th>
                                 <th>Tipo</th>
                                 <th>Ação</th>
-                                </tr>
+                            </tr>
                         </thead>
                         <tbody>
                                
                         @foreach($equipaments as $equipament)
                         
                         <tr>
-                                <th scope="row">{{ $equipament->id }}</th>
                                 <td>{{ $equipament->name }}</td>
                                 <td>{{ $equipament->model }}</td>
                                 <td>{{ $equipament->serialnumber }}</td>
@@ -53,9 +45,6 @@
                                         Inativo
                                     @endif
                                 </td>
-
-
-
                                 
                                 <td>{{ $equipament->description }}</td>
                                 <td>{{ $equipament->examtype_id }}</td>
@@ -73,8 +62,11 @@
                     <div align="center">
                         {!! $equipaments->links() !!}
                     </div> 
-                </div>
-            </div>
+
+                    
+                    <a class="btn btn-primary" href="{{route('equipament.add')}}">Adicionar</a>
+                    
+
         </div>
     </div>
 </div>

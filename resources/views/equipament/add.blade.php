@@ -8,14 +8,8 @@
  <div class="box-header with-border">
     <h3 class="box-title">Cadastro de Equipamentos</h3>
  </div>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-
-            <ol class="breadcrumb panel-heading" >
-            <li><a style="font-size:110%" href="{{ route('equipament.index') }}"><b>Equipamentos</b></a></li>
-            <li class="active" style="font-size:110%">Adicionar</li>
-            </ol>
+ <div role="form">
+        <div class="box-body">
 
                     <form action="{{ route('equipament.save') }}" method="post">
                     {{ csrf_field() }}
@@ -67,7 +61,7 @@
                             </select>
                             <br>
                             <input type="button" class="form-control" value="Adicionar Tipo de exame" data-toggle="modal" data-target="#myModalcad">
-
+                            <br>
                         <div class="form-group {{$errors->has('description') ? 'has-error' : '' }}">
                         <label for="description">Descrição</label>
                             <textarea for="description" type="text" id="description" class="form-control rounded-0 {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required autofocus>Descrição</textarea>
@@ -81,7 +75,7 @@
 
                         
 
-                        <button id= 'mensagem-sucesso'class="btn btn-info">Adicionar</button> 
+                        <button id= 'mensagem-sucesso'class="btn btn-primary">Adicionar</button> 
                     </form>
 
                     @if (session('Sucesso'))

@@ -8,21 +8,14 @@
  <div class="box-header with-border">
     <h3 class="box-title">Cadastro de Pessoas</h3>
  </div>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-
-            <ol class="breadcrumb panel-heading" >
-            <li><a style="font-size:110%" href="{{ URL::previous() }}"><b>Cadastros</b></a></li>
-            <li class="active" style="font-size:110%">Adicionar</li>
-            </ol>
+    <div role="form">
+        <div class="box-body">
 
                     <form action="{{ route('people.save') }}" method="post">
                     {{ csrf_field() }}
-
                         
-                    <div class="form-group">
-                        <label for="profile" >Perfil</label>
+                    <div class="form-group col-md-12">
+                        <label for="profile" >Tipo</label>
                         <div required name="profile" class="auto-control" value="{{ old('profile') }}" required autofocus>
                         <select class="form-control"  id = "profile" name="profile" onchange="habilitaBtn()" >
                             <option value="4">Paciente</option>
@@ -38,34 +31,31 @@
                     </div>
 
 					<!-- se clicar em Funcionario -->
-                    <div style="display:none" id='funcionario' value="{{ old('funcionario') }}" required autofocus class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
+                    <div style="display:none" id='funcionario' value="{{ old('funcionario') }}" required autofocus class="form-group col-md-12 {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="office">Cargo</label>
                             <input id = "cargo" type="text" name="office" class="form-control" placeholder="Descreva o Cargo do Funcionário">
+                            <br>
                             <label for="sector">Setor</label>
                             <input type="text" name="sector" class="form-control" placeholder="Descreva o setor que trabalha">
                     </div>
 
                     <!-- se clicar em Medico -->
-                    <div style="display:none" id='medico' value="{{ old('medico') }}" class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
+                    <div style="display:none" id='medico' value="{{ old('medico') }}" class="form-group col-md-12 {{$errors->has('name') ? 'has-error' : '' }}">
                         <label for="crm">CRM</label>
                         <input type="text" id = "crm" name="crm" class="form-control" placeholder="CRM do Médico">
-                        
+                        <br>
                         <label for="specialty_id" class="col-md-auto">Especialidade</label>
-                             
-
-                        <select class="form-control"  name="specialty_id" id="specialty_id">
+                        <select class="form-control col-md-12"  name="specialty_id" id="specialty_id">
                             <option value="">Selecione uma Especialidade</option>       
                              @foreach($results as $specialty)
                                 <option value="{{ $specialty->id }}">{{ $specialty->name }}</option>
                              @endforeach
                         </select>
-                            <br>
+                            <hr>
                             <input type="button" class="form-control" value="Adicionar Especialidade" data-toggle="modal" data-target="#myModalcad">
-                            
-                    
-                        </div>
+                    </div>
 
-                    <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}" value="{{ old('name') }}">
+                    <div class="form-group col-md-8 {{$errors->has('name') ? 'has-error' : '' }}" value="{{ old('name') }}">
                             <label for="name">Nome</label>
                             <input type="text" name="name" class="form-control" placeholder="Nome do cliente">
                         @if($errors->has('name'))
@@ -75,13 +65,13 @@
                         @endif
                         </div>
 
-                        <div class=" form-group" value="{{ old('birthdate') }}">
+                        <div class=" form-group col-md-3" value="{{ old('birthdate') }}">
                             <label for="birthdate">Data de nascimento</label>
                             <input type="date" name="birthdate" class="form-control" placeholder="Data de nascimento">
                         </div>
 
 
-                        <div class=" form-group" value="{{ old('genre') }}">
+                        <div class=" form-group col-md-1" value="{{ old('genre') }}">
                             <label for="genre">Genero</label>
                             <select class="form-control" name = "genre">
                                 <option value="">Selecione</option>
@@ -90,7 +80,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group {{$errors->has('cpf') ? 'has-error' : '' }}" value="{{ old('cpf') }}">
+                        <div class="form-group col-md-6 {{$errors->has('cpf') ? 'has-error' : '' }}" value="{{ old('cpf') }}">
                             <label for="cpf">CPF</label>
                             <input type="text" name="cpf" id= "cpf"  class="form-control" placeholder="999.999.999-99" >
                         @if($errors->has('cpf'))
@@ -103,30 +93,31 @@
                         <!-- https://www.botecodigital.info/jquery/criando-mascaras-de-input-com-jquery-mask-plugin/ --> 
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label for="rg">RG</label>
                             <input type="text" name="rg" id ="rg" class="form-control" placeholder="9999.999.99-9">
                         </div>
 
-                        <div  class="form-group ">
+                        <div  class="form-group col-md-2">
                             <label for="state">Estado</label>
                             <select  name ='state' class="form-control" value='' id="state" ></select>
                             <small class="text-danger"></small>
                         </div>
 
-                        <div  class="form-group ">
+                        <div class="form-group col-md-2">
+                                <label for="cep">CEP</label>
+                                <input class="form-control" name="cep" type="text" id="cep"  placeholder="99.999-999">
+                                <small class="text-danger"></small>
+                        </div>
+
+                        <div  class="form-group col-md-8">
                             <label for="city">Cidade</label>
                             <select  name ='city' class="form-control" value='' id="city"></select>
                             <small class="text-danger"></small>
                         </div>
+                                               
 
-                        <div class="form-group">
-                            <label for="cep">CEP</label>
-                            <input class="form-control" name="cep" type="text" id="cep"  placeholder="99.999-999">
-                            <small class="text-danger"></small>
-                        </div>
-
-                        <div class="form-group {{$errors->has('address') ? 'has-error' : '' }}">
+                        <div class="form-group col-md-8 {{$errors->has('address') ? 'has-error' : '' }}">
                             <label for="address">Endereço</label>
                             <input type="text" name="address" class="form-control" placeholder="Endereço do cliente">
                             @if($errors->has('address'))
@@ -136,22 +127,22 @@
                         @endif
                         </div>
 
-                        <div class="form-group ">
+                        <div class="form-group col-md-1">
                             <label for="number">Número</label>
                             <input type="text" name="number" class="form-control" placeholder="Número residência">
                         </div>
 
-                        <div class="form-group ">
+                        <div class="form-group col-md-3">
                             <label for="district">Bairro</label>
                             <input type="text" name="district" class="form-control" placeholder="Bairro">
                         </div>
 
-                        <div class="form-group ">
+                        <div class="form-group col-md-8">
                             <label for="complement">Complemento</label>
                             <input type="text" name="complement" class="form-control" placeholder="Complemento">
                         </div>
 
-                        <div class="form-group {{$errors->has('telephone') ? 'has-error' : '' }}">
+                        <div class="form-group col-md-4 {{$errors->has('telephone') ? 'has-error' : '' }}">
                             <label for="telephone">Telefone</label>
                             <input type="text" name="telephone" id = "telephone" class="form-control" placeholder="Telefone do cliente">
                         @if($errors->has('telephone'))
@@ -161,7 +152,7 @@
                         @endif
                         </div>
 
-                        <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}">
+                        <div class="form-group col-md-12 {{$errors->has('email') ? 'has-error' : '' }}">
                             <label for="email">E-mail</label>
                             <input type="email" name="email" class="form-control" placeholder="E-mail do cliente">
                             @if($errors->has('email'))
@@ -171,7 +162,7 @@
                         @endif
                         </div>
 
-                        <div class="form-group {{$errors->has('obs') ? 'has-error' : '' }}">
+                        <div class="form-group col-md-12 {{$errors->has('obs') ? 'has-error' : '' }}">
                             <label for="obs">Observação</label>
                             <input type="textarea" name="obs" class="form-control" placeholder="Observação">
                             @if($errors->has('obs'))
@@ -182,7 +173,9 @@
                         </div>
 
                         
-                        <button id="mensagem-sucesso" class=" form-group btn btn-info">Adicionar</button>
+                        <button id="mensagem-sucesso" class="btn btn-primary">Adicionar</button>
+                    
+                        
                     </form>
 
                     @if(session('success'))
@@ -197,11 +190,11 @@
                     </div>
                 @endif
 
-                </div>
+
             </div>
         </div>
     </div>
-</div>
+
                     <!-- Inicio Especialidade Modal -->
                     <div class="modal fade" id="myModalcad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
@@ -224,7 +217,7 @@
                                             <textarea name="description" class="form-control"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button id= 'mensagem-sucesso' type="submit" class="btn btn-success">Cadastrar</button>
+                                            <button id= 'mensagem-sucesso' type="submit" class="btn btn-primary">Cadastrar</button>
                                         </div>
                                     </form>
                                 </div>
