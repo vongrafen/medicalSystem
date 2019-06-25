@@ -136,17 +136,17 @@ return [
         ],
         [
             'text' => 'Meu perfil',
-            'icon' => 'fa-smile-o',
+            'icon' => 'smile-o',
             'url'  => '/Profile',
         ],
         [
             'text' => 'Meus Exames',
-            'icon' => 'fa-user-md',
+            'icon' => 'user-md',
             'url'  => '/ExamesPaciente',
         ],
         [
             'text' => 'Agendar Exames',
-            'icon' => 'fa-calendar-plus-o',
+            'icon' => 'calendar-plus-o',
             'url'  => '/event/add/client',
         ],
 
@@ -156,38 +156,38 @@ return [
             'submenu' => [
                 [
                     'text' => 'Médicos',
-                    'icon' => 'fa-user-md',
+                    'icon' => 'user-md',
                     'url'  => '/Medicos',
                 ],
                 [
                     'text' => 'Pacientes',
-                    'icon' => 'fa-user',
+                    'icon' => 'user',
                     'url'  => '/Pacientes',
                 ],
                 [
                     'text' => 'Funcionários',
-                    'icon' => 'fa-user',
+                    'icon' => 'user',
                     'url'  => '/Funcionarios',
                 ],
                 [
                     'text' => 'Equipamentos',
-                    'icon' => 'contact',
+                    'icon' => 'plug',
                     'url'  => '/equipament',
                 ],
                 [
                     'text' => 'Pessoas',
-                    'icon' => 'fa-user-plus',
+                    'icon' => 'user-plus',
                     'url'  => '/people',
                 ],
             ],        
         ],
         [
             'text'    => 'Agenda',
-            'icon'    => 'fa-calendar-minus-o',
+            'icon'    => 'calendar-minus-o',
             'submenu' => [
                 [
                     'text' => 'Agendar',
-                    'icon' => 'fa-calendar-plus-o',
+                    'icon' => 'calendar-plus-o',
                     'url'  => '/event/add',
                 ],
                 [
@@ -199,8 +199,13 @@ return [
         ],
         [
             'text' => 'Exames',
-            'icon' => '',
+            'icon' => 'medkit',
             'url'  => '/Exam',       
+        ],
+        [
+            'text' => 'Visualizar Exames',
+            'icon' => 'file-image-o',
+            'url'  => '/ViewExam',       
         ],
     ],
 

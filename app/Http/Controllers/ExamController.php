@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exam;
 use App\People;
+use App\exam_image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB; // para usar o SQL
@@ -21,10 +22,6 @@ class ExamController extends Controller
 
     public function index()
     {
- 
-        //$results = $this->Exam->paginate(20); // whereNotNull('rg')->
-        //return view('Exam.index', ['results' => $results]);
-
         $sql = "SELECT 
                 exams.id,
                 paciente.name        as paciente,
@@ -37,14 +34,11 @@ class ExamController extends Controller
                 LEFT JOIN peoples medico    ON medico.id = exams.doctor_performer_id
                 LEFT JOIN schedules         ON schedules.id = exams.id_schedules_exam
                 LEFT JOIN equipaments       ON equipaments.id = schedules.equipament_id";
-
-        
         // Adicionar o PAGINATE Deve usar o use Illuminate\Pagination\LengthAwarePaginator;
         $page = 1;
         $size = 20;
         $data = DB::select($sql);
         $collect = collect($data);
-        
         $results = new LengthAwarePaginator(
                                  $collect->forPage($page, $size),
                                  $collect->count(), 
@@ -52,14 +46,8 @@ class ExamController extends Controller
                                  $page
                                );
 
-        // Fim do Adicionar o PAGINATE
-
-                            
+        // Fim do Adicionar o PAGINATE                
         return view('Exam.index', ['results' => $results]);
-
-
-
-
     }
 
 
@@ -171,6 +159,53 @@ class ExamController extends Controller
             'Exam' => $Exam,
             'status' => $status,
             ]);
+    }
+
+    public function ViewExam()
+    {
+
+        $sql = "SELECT 
+                exams.id,
+                paciente.name        as paciente,
+                medico.name          as medico,
+                DATE_FORMAT(exams.performed_date, '%d/%m/%Y %H:%i:%s') as dataRealizada,
+                equipaments.name     as TipoEquipaments,
+                exams.status 
+                FROM exams
+                LEFT JOIN peoples paciente  ON paciente.id = exams.patients_id
+                LEFT JOIN peoples medico    ON medico.id = exams.doctor_performer_id
+                LEFT JOIN schedules         ON schedules.id = exams.id_schedules_exam
+                LEFT JOIN equipaments       ON equipaments.id = schedules.equipament_id";
+
+        // Adicionar o PAGINATE Deve usar o use Illuminate\Pagination\LengthAwarePaginator;
+        $page = 1;
+        $size = 20;
+        $data = DB::select($sql);
+        $collect = collect($data);
+        $results = new LengthAwarePaginator(
+                                 $collect->forPage($page, $size),
+                                 $collect->count(), 
+                                 $size, 
+                                 $page
+                               );
+        // Fim do Adicionar o PAGINATE           
+        return view('Exam.ViewExam', ['results' => $results]);
+    }
+
+    public function visualizar($id)
+    {
+        
+        $ImagemExame = DB::select("SELECT exam_images.imagem 
+                                    FROM exams 
+                                    LEFT JOIN exam_images ON exam_images.exam_id = exams.id
+                                    WHERE exams.id = $id");
+        
+        if($ImagemExame == null){
+            echo'não tem imagem';
+        }
+
+
+        return view('Exam.visualizar', ['ImagemExame' => $ImagemExame]);
     }
 
     public function update(Request $request, $id)
