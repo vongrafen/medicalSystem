@@ -53,6 +53,8 @@ class ExamController extends Controller
 
     public function indexPaciente()
     {
+        $userAtual= auth()->user()->people_id;
+
         $sql = "SELECT 
                 exams.id,
                 DATE_FORMAT(schedules.start_date, '%d/%m/%Y %H:%i:%s') as Data_Agendada,
@@ -65,7 +67,8 @@ class ExamController extends Controller
                 LEFT JOIN peoples medico    ON medico.id = exams.doctor_performer_id
                 LEFT JOIN schedules         ON schedules.id = exams.id_schedules_exam
                 LEFT JOIN equipaments       ON equipaments.id = schedules.equipament_id
-                LEFT JOIN examtypes			ON examtypes.id = equipaments.examtype_id";
+                LEFT JOIN examtypes			ON examtypes.id = equipaments.examtype_id
+                WHERE paciente.id = $userAtual";
 
         // Adicionar o PAGINATE Deve usar o use Illuminate\Pagination\LengthAwarePaginator;
         $page = 1;
