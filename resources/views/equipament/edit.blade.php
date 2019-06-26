@@ -3,15 +3,12 @@
 @section('title', 'Editar Equipamentos')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-
-            <ol class="breadcrumb panel-heading">
-            <li><a href="{{ route('equipament.index') }}">Equipament</a></li>
-            <li class="active">Editar</li>
-            </ol>
+<div class="box box-primary">
+    <div class="box-header with-border">
+       <h3 class="box-title">Editar Equipamento</h3>
+    </div>
+    <div role="form">
+    <div class="box-body">
 
                     <form action="{{ route('equipament.update', $equipament->id) }}" method="post">
                     {{ csrf_field() }}
@@ -81,7 +78,7 @@
                                                 </span>
                                             @endif
                                     </div>
-                        <button class="btn btn-info">Salvar</button>
+                        <button class="btn btn-primary">Salvar</button>
                     </form>
 
                     @if (session('status'))
@@ -90,8 +87,6 @@
                         </div>
                     @endif 
 
-                </div>
-            </div>
         </div>
     </div>
 </div>

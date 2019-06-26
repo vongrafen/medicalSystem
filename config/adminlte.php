@@ -129,7 +129,6 @@ return [
             'icon' => 'home',
             'url'  => '/home',
             'can'  => 'adm',
-            'can'  => 'user',
         ],
         [
             'text' => 'Meu perfil',
@@ -142,7 +141,6 @@ return [
             'icon' => 'user-md',
             'url'  => '/ExamesPaciente',
             'can'  => 'adm',
-            'can'  => 'user',
         ],
         [
             'text' => 'Agendar Exames',
@@ -203,13 +201,13 @@ return [
         [
             'text' => 'Exames',
             'icon' => 'medkit',
-            'can'  => 'medic',
+            'can'  => 'adm',
             'url'  => '/Exam',       
         ],
         [
             'text' => 'Visualizar Exames',
             'icon' => 'file-image-o',
-            'can'  => 'medic',
+            'can'  => 'adm',
             'url'  => '/ViewExam',       
         ],
     ],
