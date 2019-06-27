@@ -137,10 +137,22 @@ return [
             'url'  => '/Profile',
         ],
         [
+            'text' => 'Meu perfil',
+            'icon' => 'smile-o',
+            'can'  => 'user',
+            'url'  => '/Profile',
+        ],
+        [
             'text' => 'Meus Exames',
             'icon' => 'user-md',
             'url'  => '/ExamesPaciente',
             'can'  => 'adm',
+        ],
+        [
+            'text' => 'Meus Exames',
+            'icon' => 'user-md',
+            'url'  => '/ExamesPaciente',
+            'can'  => 'user',
         ],
         [
             'text' => 'Agendar Exames',

@@ -120,9 +120,8 @@ public function calender()
                             new \DateTime($value->end_date),
                             null,
                             
-                            // Add color
                          [
-                             'color' => '#0000FF',
+                             'color' => 'yellow',
                              'textColor' => '#008000',
                          ]
                         );

@@ -10,8 +10,8 @@
   <div class="panel-body">
       @if($ImagemExame[0]->imagem !== null)
         @foreach ($ImagemExame as $img)
-          <img width="150" height="150" src="{{asset("imagens/Exames/".$img->imagem)}}"  alt="">
-        @endforeach
+          <img width="300" height="300" src="{{asset("imagens/Exames/".$img->imagem)}}"   alt="">
+          @endforeach
       @else
           <h1>Não existe imagem!</h1>
       @endif

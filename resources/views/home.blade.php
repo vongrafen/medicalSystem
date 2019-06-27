@@ -144,8 +144,8 @@
                 <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
     
                 <div class="info-box-content">
-                  <span class="info-box-text">LAUDOS PENDENTES</span>
-                  <span class="info-box-number">100000</span>
+                  <span class="info-box-text">Exames Solicitados</span>
+                  <span class="info-box-number">{{count($ExamesSolicitado)}}</span>
               </div>
             </div>
               <div class="info-box bg-green">
