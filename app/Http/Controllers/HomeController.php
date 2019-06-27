@@ -56,6 +56,8 @@ class HomeController extends Controller
         $ExamesCancelados = DB::select('SELECT * FROM exams WHERE exams.status = "Cancelado"');
         $ExamesAgendado = DB::select('SELECT * FROM exams WHERE exams.status = "Agendado"');
         $ExamesRealizado = DB::select('SELECT * FROM exams WHERE exams.status = "Realizado"');
+        $ExamesSolicitado = DB::select('SELECT * FROM exams WHERE exams.status = "Solicitado"');
+        
         
         
         return view('home', [
@@ -67,6 +69,8 @@ class HomeController extends Controller
             'ExamesCancelados' => $ExamesCancelados,
             'ExamesAgendado' => $ExamesAgendado,
             'ExamesRealizado' => $ExamesRealizado,
+            'ExamesSolicitado' => $ExamesSolicitado,
+
             ]);
     }
 }

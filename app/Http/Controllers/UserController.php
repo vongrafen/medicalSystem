@@ -97,10 +97,10 @@ class UserController extends Controller
        
         if ($insert)    // Verifica se inseriu com sucesso
                 return redirect()
-                        ->route('User.index');
+                        ->route('home');
             else
                 return  redirect()
-                        ->back();
+                        ->route('home');
     }
 
     public function edit ($id)

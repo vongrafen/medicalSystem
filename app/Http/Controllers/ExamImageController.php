@@ -44,7 +44,7 @@ class ExamImageController extends Controller
            
 
             $IMG= new exam_image();
-            $IMG->exam_id='1'; // tem que pegar o valor do exame
+            $IMG->exam_id= $request->exam_id; // tem que pegar o valor do exame
             $IMG->imagem=$nome_arquivo;
             $IMG->Data=date('Y-m-d H:i');
             $IMG->save();

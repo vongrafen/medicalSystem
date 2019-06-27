@@ -11,17 +11,15 @@
         <form enctype="multipart/form-data" action="{{route('Examimage.UparImagens')}}" method="POST">
         
             <label>Enviar imagens do Exame</label>
-
-            <input disabled=true type="text" id='exam_id' name="exam_id" value='{{$exm->id}}' class="form-control"> 
-            <div class="form-group">
+                <div class="form-group">
                     <div class="row">
                         <div class="col-xs-4" value= "{{ old('exam_id')}}">
                                 <label>Id Exame</label>
-                                <input disabled=true type="text" id='exam_id' name="exam_id" value='{{$exm->id}}' class="form-control"> 
+                                <input readonly type="text" id='exam_id' name="exam_id" value='{{$exm->id}}' class="form-control"> 
                         </div>
                         <div class="col-xs-4">
                                 <label>Data</label>
-                                <input disabled=true type="text" id='Data' name="Data" value='{{date('Y-m-d H:i')}}' class="form-control"> 
+                                <input readonly type="text" id='Data' name="Data" value='{{date('Y-m-d H:i')}}' class="form-control"> 
                         </div>
                     </div>
             </div>
