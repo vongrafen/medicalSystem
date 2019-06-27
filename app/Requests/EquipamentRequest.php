@@ -19,7 +19,10 @@ class EquipamentRequest extends FormRequest
     public function messages(){
 
         return[
-            'name.required'=>'Preencha o nome do equipamento'
+            'name.required'=>'Preencha o nome do equipamento',
+            'serialnumber.required'=>'Preencha o número de série do equipamento',
+            'serialnumber.unique'=>'Este número de série ja existe'
+
         ];
     }
 
@@ -32,6 +35,7 @@ class EquipamentRequest extends FormRequest
     {
         return [
             'name'=>'required|max:255',
+            'serialnumber' => 'required|unique:equipaments|max:255'
             
         ];
     }

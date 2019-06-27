@@ -10,6 +10,7 @@
  </div>
  <div role="form">
         <div class="box-body">
+            @include('sweet::alert')
 
                     <form action="{{ route('equipament.save') }}" method="post">
                     {{ csrf_field() }}
@@ -52,7 +53,8 @@
                             </select>
                         </div>
 
-                            
+                        <div class="form-group">
+                           <label>Tipo de Exame</label>
                             <select class="form-control"  name="examtype_id" id="examtype_id">
                                 <option value="">Selecione um tipo</option>       
                                 @foreach($results as $examtype)
@@ -75,15 +77,8 @@
 
                         
 
-                        <button id= 'mensagem-sucesso'class="btn btn-primary">Adicionar</button> 
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Adicionar</button> 
                     </form>
-
-                    @if (session('Sucesso'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                 </div>
             </div>
         </div>
@@ -103,9 +98,14 @@
                                                 <form action=" {{ route('examtype.save') }}" method="post">
                                                     {{ csrf_field() }}
                                                     
-                                                    <div class="form-group">
+                                                    <div class="form-group {{$errors->has('name') ? 'has-error' : '' }}">
                                                         <label for="recipient-name" class="control-label">Nome:</label>
                                                         <input name="name" type="text" class="form-control">
+                                                        @if($errors->has('name'))
+                                                            <span class="help-block">
+                                                            <strong>{{$errors->first('name')}}</strong>
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                     
                                                     <div class="form-group">

@@ -23,7 +23,7 @@ class EquipamentController extends Controller
         $this->middleware('auth');
     }
 
-
+    // Função Responsavel por trazer todos os equipamentos cadastrados
     public function index()
     {
         $TipoExame = examtype::all();
@@ -41,25 +41,21 @@ class EquipamentController extends Controller
         $equipament = Equipament::find($id);
         return view('equipament.detail', compact('equipament'));
     }
-
+    // Função Responsavel por trazer a tela de cadastro de equipamentos
     public function add()
     {
         $results = examtype::all();
-        //dd($results);
         return view('equipament.add', ['results' => $results]);
     }
-
+    // Função Responsavel por salvar um novo equipamento no banco
     public function save(\App\Requests\EquipamentRequest $request)
     {
         
         Equipament::create($request->all());
-        \Session::flash('flash_message', [
-            'msg'=>"Equipamento adicionado com sucesso",
-            'class'=>"alert-success"
-        ]);
+        alert()->success('', 'Equipamento Cadastrado com sucesso')->persistent('OK');
         return redirect()->route('equipament.add');
     }
-
+    // Função Responsavel por trazer a tela de edição de equipamentos
     public function edit ($id)
     {
         $equipament = Equipament::find($id);
@@ -69,28 +65,23 @@ class EquipamentController extends Controller
                 'msg'=>"Não existe esse equipamento cadastrado, deseja cadastrar um novo equipamento?",
                 'class'=>"alert-danger"
             ]);
-            //return redirect()->route('equipament.add');
             return redirect()->back();
         }
-        //return view('equipament.edit', compact('equipament'));
         return view('equipament.edit', ['equipament' => $equipament,'results' => $results]);
         
     }
-
+    // Função Responsavel por salvar a edição de um equipamento
     public function update(Request $request, $id)
     {
         
         Equipament::find($id)->update($request->all());
-        
-        \Session::flash('flash_message',[
-            'msg'=>"Equipamento atualizada com sucesso!",
-            'class'=>"alert-success"
-        ]);
+
+        alert()->success('', 'Equipamento Atualizado com sucesso');
 
         return redirect()->route('equipament.index');        
         
     }
-
+    // Função Responsavel pela exclusão de um equipamento
     public function delete($id)
     {
         $equipament = Equipament::find($id);
@@ -104,6 +95,7 @@ class EquipamentController extends Controller
             return redirect()->route('equipament.index');
         }*/
         $equipament->delete();
+
         Alert::info('Muito bem', 'Deletado com sucesso');
 
         return redirect()->route('equipament.index');        

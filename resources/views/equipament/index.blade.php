@@ -49,8 +49,8 @@
                                 <td>{{ $equipament->description }}</td>
                                 <td>{{ $equipament->examtype_id }}</td>
                                 <td>
-                                    <a class="btn btn-default" href="{{route('equipament.edit',$equipament->id)}}">Editar</a>
-                                    <a class="btn btn-danger" href="{{route('equipament.delete',$equipament->id)}}' : false)">Deletar</a>
+                                    <a class="btn btn-default" href="{{route('equipament.edit',$equipament->id)}}"><i class="glyphicon glyphicon-edit"></i >Editar</a>
+                                    <a class="btn btn-danger" href="{{route('equipament.delete',$equipament->id)}}' : false)"><i class="glyphicon glyphicon-trash"></i >Deletar</a>
                                 </td>
                             <tr>
                         
@@ -64,7 +64,7 @@
                     </div> 
 
                     
-                    <a class="btn btn-primary" href="{{route('equipament.add')}}">Adicionar</a>
+                    <a class="btn btn-primary" href="{{route('equipament.add')}}"><i class="glyphicon glyphicon-plus"></i >Adicionar</a>
                     
 
         </div>
