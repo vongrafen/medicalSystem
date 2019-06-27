@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\examtype;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Requests\ExamtypeRequest;
+use App\Requests\examtypeRequests;
 use Alert;
 class examtypeController extends Controller
 {
@@ -20,8 +20,9 @@ class examtypeController extends Controller
         
     }
 
-    public function save(Request $request)
+    public function save(examtypeRequests $request)
     {
+       
         Examtype::create($request->all());
 
         alert()->success('', 'Tipo de exame Cadastrado com sucesso')->persistent('OK');
