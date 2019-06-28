@@ -10,7 +10,7 @@
     </div>
     <div role="form">
     <div class="box-body">
-
+        @include('sweet::alert')
                     <form action="{{ route('people.update', $people->id) }}" method="post">
                     {{ csrf_field() }}
 
@@ -175,7 +175,7 @@
                         @endif
                         </div>
                         
-                        <button id="mensagem-sucesso" class=" form-group btn btn-primary" >Salvar</button>
+                        <button class=" form-group btn btn-primary" >Salvar</button>
                     </form>
 
                     @if (Session::has('message'))

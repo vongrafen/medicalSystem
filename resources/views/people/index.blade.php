@@ -7,6 +7,7 @@
 <div class="box box-primary">
         <div class="box-header with-border">
            <h3 class="box-title">Consulta</h3>
+           @include('sweet::alert')
         </div>
 
                 <div class="panel-body">
