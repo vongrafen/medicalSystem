@@ -10,7 +10,7 @@
  </div>
     <div role="form">
         <div class="box-body">
-
+            @include('sweet::alert')
                     <form action="{{ route('people.save') }}" method="post">
                     {{ csrf_field() }}
                         
@@ -173,24 +173,10 @@
                         </div>
 
                         
-                        <button id="mensagem-sucesso" class="btn btn-primary">Adicionar</button>
+                        <button class="btn btn-primary">Adicionar</button>
                     
                         
                     </form>
-
-                    @if(session('success'))
-                    <div id="mensagem-sucesso">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                 
-                @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                @endif
-
-
             </div>
         </div>
     </div>

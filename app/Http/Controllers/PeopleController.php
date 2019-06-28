@@ -7,6 +7,7 @@ use App\People;
 use App\specialty;
 use App\User;
 use Illuminate\Http\Request;
+use Alert;
 
 
 class PeopleController extends Controller
@@ -79,6 +80,7 @@ class PeopleController extends Controller
         $insert = 0;
        try{
             $insert = People::create($request->all());
+            alert()->success('', 'Equipamento Cadastrado com sucesso')->persistent('OK');
 
        }catch(Exception $e){
            echo('Erro!');
@@ -114,10 +116,7 @@ class PeopleController extends Controller
     {
         $people = People::find($id);
         if(!$people){
-            \Session::flash('flash_message', [
-                'msg'=>"Não existe esse pessoa cadastrada, deseja cadastrar nova pessoa?",
-                'class'=>"alert-danger"
-            ]);
+            alert()->success('', 'Pessoa Atualizada com sucesso');
             return redirect()->route('people.add');
         }
         return view('people.edit', compact('people'));
@@ -127,7 +126,7 @@ class PeopleController extends Controller
     {
         Session::flash('message', 'Olá');
         People::find($id)->update($request->all());
-        
+        alert()->success('', 'Pessoa Atualizada com sucesso');
         return redirect()->route('people.index');        
         
     }
@@ -137,11 +136,7 @@ class PeopleController extends Controller
         $people = People::find($id);
         
         $people->delete();
-         \Session::flash('flash_message',[
-            'msg'=>"Pessoa atualizada com sucesso!",
-            'class'=>"alert-success"
-        ]);
-
+        Alert::info('Muito bem', 'Deletado com sucesso');
         return redirect()->route('people.index')->with('success', 'cadastrada com sucesso!');      
         
     }
