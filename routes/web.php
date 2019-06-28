@@ -129,4 +129,6 @@ Route::get('/agendamento', 'EventController@index')->name('events.agenda');
 
 Route::post('/agenda', 'EventController@addEvent')->name('events.agenda');
 
+Route::view('/diagnostico', 'diagnostic.add')->name('diagnostic');
+
 });
