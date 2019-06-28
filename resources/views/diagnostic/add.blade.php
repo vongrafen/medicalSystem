@@ -52,7 +52,8 @@
                     </div>
 
                     <hr>  
-                        <button type="submit" class="btn btn-primary">Salvar</button> 
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <button type="submit" class="btn btn-warning">Imprimir</button> 
                     </form>      
 
         </div>

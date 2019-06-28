@@ -222,6 +222,12 @@ return [
             'can'  => 'adm',
             'url'  => '/ViewExam',       
         ],
+        [
+            'text' => 'Diagnóstico (Visualização)',
+            'icon' => 'file-text-o',
+            'can'  => 'adm',
+            'url'  => '/diagnostico',       
+        ],
     ],
 
     /*
