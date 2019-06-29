@@ -97,7 +97,8 @@ class UserController extends Controller
        
         if ($insert)    // Verifica se inseriu com sucesso
                 return redirect()
-                        ->route('home');
+                        ->route('home')
+                        ->with('success', 'Cadastrado com Sucesso!');
             else
                 return  redirect()
                         ->route('home');

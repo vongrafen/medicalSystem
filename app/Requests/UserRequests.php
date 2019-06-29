@@ -20,7 +20,9 @@ class UserRequests extends FormRequest
 
         return[
             'name.required'=>'Preencha um nome',
-            'password.required' => 'Preencha uma senha'
+            'password.required' => 'Preencha uma senha',
+            'email'=>'Este email ja existe em nosso sistema',
+            'user'=>'Este usuário ja existe em nosso sistema'
         ];
     }
 
@@ -33,7 +35,9 @@ class UserRequests extends FormRequest
     {
         return [
             'name'=>'required|max:255',
-            'password' => 'required'
+            'password' => 'required',
+            'email' => 'required|unique:users|max:255',
+            'user' => 'required|unique:users|max:255'
         ];
     }
 }

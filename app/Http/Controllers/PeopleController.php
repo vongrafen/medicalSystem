@@ -80,7 +80,6 @@ class PeopleController extends Controller
         $insert = 0;
        try{
             $insert = People::create($request->all());
-            alert()->success('', 'Equipamento Cadastrado com sucesso')->persistent('OK');
 
        }catch(Exception $e){
            echo('Erro!');
@@ -90,25 +89,25 @@ class PeopleController extends Controller
             if($tipopessoa == 3){
                 return redirect()
                         ->route('people.indexMedicos')
-                        ->with('success', 'cadastrado com sucesso!');
+                        ->with('success', 'Médico Cadastrado com Sucesso!');
             }
             if($tipopessoa == 2){
                 return redirect()
                         ->route('people.indexFuncionarios')
-                        ->with('success', 'cadastrado com sucesso!');
+                        ->with('success', 'Funcionário Cadastrado com Sucesso!');
             }
             if($tipopessoa == 4){
                 return redirect()
                         ->route('people.indexPacientes')
-                        ->with('success', 'cadastrado com sucesso!');
+                        ->with('success', 'Paciente Cadastrado com Sucesso!');
             }else
             return redirect()
                         ->route('people.index')
-                        ->with('success', 'cadastrado com sucesso!');
+                        ->with('success', 'Cadastrado com Sucesso!');
         }
    return redirect()
                 ->route('people.add')
-                ->with('success', 'cadastrado com sucesso!');
+                ->with('success', 'Cadastrado com Sucesso!');
     }
 }
 
@@ -116,7 +115,6 @@ class PeopleController extends Controller
     {
         $people = People::find($id);
         if(!$people){
-            alert()->success('', 'Pessoa Atualizada com sucesso');
             return redirect()->route('people.add');
         }
         return view('people.edit', compact('people'));
@@ -126,8 +124,9 @@ class PeopleController extends Controller
     {
         Session::flash('message', 'Olá');
         People::find($id)->update($request->all());
-        alert()->success('', 'Pessoa Atualizada com sucesso');
-        return redirect()->route('people.index');        
+        return redirect()
+            ->route('people.index')
+            ->with('info', 'Atualizado com sucesso!');        
         
     }
 
@@ -136,8 +135,7 @@ class PeopleController extends Controller
         $people = People::find($id);
         
         $people->delete();
-        Alert::info('Muito bem', 'Deletado com sucesso');
-        return redirect()->route('people.index')->with('success', 'cadastrada com sucesso!');      
+        return redirect()->route('people.index')->with('success', 'Pessoa deletada com sucesso!');      
         
     }
 }

@@ -50,10 +50,18 @@ class EquipamentController extends Controller
     // Função Responsavel por salvar um novo equipamento no banco
     public function save(\App\Requests\EquipamentRequest $request)
     {
-        
-        Equipament::create($request->all());
-        alert()->success('', 'Equipamento Cadastrado com sucesso')->persistent('OK');
-        return redirect()->route('equipament.add');
+        $insert = 0;
+        try{
+            $insert = Equipament::create($request->all());
+        }catch(Exception $e){
+            echo('Erro!');
+        }finally{
+            if ($insert){
+            return redirect()
+                ->route('equipament.add')
+                ->with('success', 'Cadastrado com Sucesso!');
+            }
+        }
     }
     // Função Responsavel por trazer a tela de edição de equipamentos
     public function edit ($id)

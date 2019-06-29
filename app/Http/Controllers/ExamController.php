@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exam;
+use Alert;
 use App\People;
 use App\exam_image;
 use Illuminate\Http\Request;
@@ -231,10 +232,6 @@ class ExamController extends Controller
         $Exam = Exam::find($id);
         
         $Exam->delete();
-         \Session::flash('flash_message',[
-            'msg'=>"Exame excluido com sucesso!",
-            'class'=>"alert-success"
-        ]);
 
         return redirect()->route('Exam.index')->with('success', 'Excluido com sucesso!');      
         

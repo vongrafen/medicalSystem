@@ -19,7 +19,7 @@ class PeopleRequest extends FormRequest
     public function messages(){
 
         return[
-            'name.required'=>'Preencha um nome',
+            'name.required'=>'Preencha com nome',
             'name.max'=>'Nome deve ter até 255 caracteres',
             'email.required'=>'Preencha um e-mail',
             'email.email'=>'Preencha um e-mail válido',

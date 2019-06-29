@@ -201,7 +201,7 @@
                                             <textarea name="description" class="form-control"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button id= 'mensagem-sucesso' type="submit" class="btn btn-primary">Cadastrar</button>
+                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
                                         </div>
                                     </form>
                                 </div>

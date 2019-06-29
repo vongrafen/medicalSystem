@@ -11,6 +11,7 @@
  </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+        @include('sweet::alert')
             <div class="panel panel-default">
 
             <ol class="breadcrumb panel-heading" >
@@ -55,10 +56,16 @@
 
                         <!-- http://opensource.locaweb.com.br/locawebstyle-v2/manual/formularios/forca-de-senha/-->
 
-                        <div class=" form-group" value= "{{ old('password')}}">
-                                <p class="info-label">Senha entre 8 a 14 caracteres, contendo letras e números</p>
+                        <div class=" form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="password">Senha</label>
                             <input required type="password" name="password" class="form-control" placeholder="Digite a senha">
+                            <p class="info-label">Senha entre 8 a 14 caracteres, contendo letras e números</p>
+                            @if($errors->has('password'))
+                                <span class="help-block">
+                                    <strong>{{$errors->first('password')}}</strong>
+                                </span>
+                            @endif
+                        </div>
 
                         <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}" value= "{{ old('email')}}">
                             <label for="email">E-mail</label>
