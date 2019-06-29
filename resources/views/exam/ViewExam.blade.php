@@ -9,6 +9,7 @@
         </div>
         <div role="form">
                <div class="box-body">
+               @include('sweet::alert')
                     
                     <table id="tableDepartament" class="table table-bordered table-striped dataTable" role="grid">
                         <thead>

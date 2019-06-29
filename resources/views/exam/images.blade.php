@@ -13,6 +13,7 @@
             <label>Enviar imagens do Exame</label>
                 <div class="form-group">
                     <div class="row">
+                    @include('sweet::alert')
                         <div class="col-xs-4" value= "{{ old('exam_id')}}">
                                 <label>Id Exame</label>
                                 <input readonly type="text" id='exam_id' name="exam_id" value='{{$exm->id}}' class="form-control"> 

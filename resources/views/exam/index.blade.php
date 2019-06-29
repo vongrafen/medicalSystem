@@ -6,6 +6,7 @@
 
 <div class="box box-primary">
         <div class="box-header with-border">
+        @include('sweet::alert')
            <h3 class="box-title">Exames</h3>
         </div>
         <div role="form">

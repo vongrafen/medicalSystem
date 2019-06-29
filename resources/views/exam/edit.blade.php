@@ -10,6 +10,7 @@
  </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+        @include('sweet::alert')
             <div class="panel panel-default">
 
             <ol class="breadcrumb panel-heading" >

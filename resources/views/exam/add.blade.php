@@ -10,6 +10,7 @@
         </div>
         <div role="form">
                <div class="box-body">
+               @include('sweet::alert')
 
                     <form action="{{ route('Exam.save') }}" method="post">
                     {{ csrf_field() }}
