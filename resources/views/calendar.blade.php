@@ -15,7 +15,6 @@
      @endif
    <div class="panel panel-default">
          <div class="panel-heading">
-             <a href="event/add">Criar um Agendamento</a>
              <li><a href="{{ URL::previous() }}"><b>Voltar</b></a></li>
             
          </div>

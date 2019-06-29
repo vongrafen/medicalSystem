@@ -17,7 +17,7 @@ class CreateDiagnoticsTable extends Migration
             $table->increments('id')->unique();
 
             //Chave estrangeira da agenda de exames
-            $table->dateTime('exam_id')->unsigned()->nullable();
+            $table->integer('exam_id')->unsigned()->nullable();
             $table->foreign('exam_id')->references('id')->on('exams');
 
             //Chave extrangeira pessoas - pacientes
