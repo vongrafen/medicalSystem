@@ -79,14 +79,14 @@ class EquipamentController extends Controller
         
     }
     // Função Responsavel por salvar a edição de um equipamento
-    public function update(Request $request, $id)
+    public function update(\App\Requests\EquipamentRequest $request, $id)
     {
         
         Equipament::find($id)->update($request->all());
 
-        alert()->success('', 'Equipamento Atualizado com sucesso');
-
-        return redirect()->route('equipament.index');        
+        return redirect()
+                ->route('equipament.index')
+                ->with('info', 'Atualizado com sucesso!');        
         
     }
     // Função Responsavel pela exclusão de um equipamento

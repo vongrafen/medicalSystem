@@ -22,12 +22,18 @@ class examtypeController extends Controller
 
     public function save(examtypeRequests $request)
     {
-       
-        Examtype::create($request->all());
-
-        alert()->success('', 'Tipo de exame Cadastrado com sucesso')->persistent('OK');
-
-        return redirect()->route('equipament.add');
+        $insert = 0;
+        try{
+            $insert=Examtype::create($request->all());
+        }catch(Exception $e){
+            echo('Erro!');
+        }finally{
+            if ($insert){
+        return redirect()
+            ->route('equipament.add')
+            ->with('success', 'Cadastrado com Sucesso!');
+            }
+        }
         // try{
         //     $insert = examtype::create($request->all());
         //     // Verifica se inseriu com sucesso
