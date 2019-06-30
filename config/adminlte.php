@@ -131,6 +131,12 @@ return [
             'can'  => 'adm',
         ],
         [
+            'text' => 'Inicio',
+            'icon' => 'home',
+            'url'  => '/home',
+            'can'  => 'medic',
+        ],
+        [
             'text' => 'Meu perfil',
             'icon' => 'smile-o',
             'can'  => 'adm',
@@ -214,6 +220,12 @@ return [
             'text' => 'Exames',
             'icon' => 'medkit',
             'can'  => 'adm',
+            'url'  => '/Exam',       
+        ],
+        [
+            'text' => 'Exames',
+            'icon' => 'medkit',
+            'can'  => 'medic',
             'url'  => '/Exam',       
         ],
         [

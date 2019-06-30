@@ -2,10 +2,6 @@
 
 @section('title', 'AdminLTE')
 
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
-
 @section('content')
 
 
@@ -15,6 +11,8 @@
 
     <!-- Main content -->
     <section class="content">
+
+      @cannot('user')
         
       <!-- Info boxes -->
       <div class="row">
@@ -62,11 +60,55 @@
         </div>
       </div>
 
+       <!-- LATERAL -->
+       
+          <!-- Info Boxes Style 2 -->
+          <div class="row">
+              <div class="col-md-3 col-sm-6 col-xs-12">
+
+          <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Exames Solicitados</span>
+              <span class="info-box-number">{{count($ExamesSolicitado)}}</span>
+          </div>
+        </div>
+          <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Exames Realizados</span>
+              <span class="info-box-number">{{count($ExamesRealizado)}}</span>
+            </div>
+          </div>
+
+
+          <div class="info-box bg-red">
+            <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Exames Cancelados</span>
+              <span class="info-box-number">{{count($ExamesCancelados)}}</span>
+            </div>
+          </div>
+          <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="ion-ios-pricetag-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Exames Agendados</span>
+              <span class="info-box-number">{{count($ExamesAgendado)}}</span>
+            </div>
+          </div>
+        </div>
+
+    
+
+
        <!-- fim da Info boxes -->
 
        <!-- INICIO DA TABELA -->
-      <div class="row">
-        <div class="col-md-8">
+
+        <div class="col-md-9">
           <div class="row">
 
           <div class="box box-info">
@@ -81,11 +123,10 @@
             </div>
             
             <div class="box-body">
-              <div class="table-responsive">
-                  <table class="table table-bordered">
+                <table id="lista1" class="table table-bordered table-striped dataTable" role="grid">
                       <thead>
                           <tr>
-                              <th></th>
+                              <th>ID</th>
                               <th>Paciente</th>
                               <th>Médico</th>
                               <th>Data Realizada</th>
@@ -119,6 +160,11 @@
                       </tbody>
                   </table>
 
+                  <div class="box-footer clearfix">
+                      <a href="{{route('Exam.add')}}" class="btn btn-sm btn-primary btn-flat">Criar um novo Exame</a>
+                      <a href="{{route('Exam.index')}}" class="btn btn-sm btn-warning btn-flat ">Ver todos os exames</a>
+                    </div>
+
                       <div align="center">
                           {!! $results->links() !!}
                       </div> 
@@ -128,55 +174,17 @@
             <!-- FIM DA box-header -->
         </div>
       </div>
-            
-            <div class="box-footer clearfix">
-              <a href="{{route('Exam.add')}}" class="btn btn-sm btn-info btn-flat pull-left">Criar um novo Exame</a>
-              <a href="{{route('Exam.index')}}" class="btn btn-sm btn-default btn-flat pull-right">Ver todos os exames</a>
-            </div>
-            
+                        
           </div>
           <!-- FIM DA TABELA -->
-
-          <!-- LATERAL -->
-          <div class="col-md-4">
-              <!-- Info Boxes Style 2 -->
-              <div class="info-box bg-yellow">
-                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
-    
-                <div class="info-box-content">
-                  <span class="info-box-text">Exames Solicitados</span>
-                  <span class="info-box-number">{{count($ExamesSolicitado)}}</span>
-              </div>
-            </div>
-              <div class="info-box bg-green">
-                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">Exames Realizados</span>
-                  <span class="info-box-number">{{count($ExamesRealizado)}}</span>
-                </div>
-              </div>
-              <div class="info-box bg-red">
-                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
-    
-                <div class="info-box-content">
-                  <span class="info-box-text">Exames Cancelados</span>
-                  <span class="info-box-number">{{count($ExamesCancelados)}}</span>
-                </div>
-              </div>
-              <div class="info-box bg-aqua">
-                <span class="info-box-icon"><i class="ion-ios-pricetag-outline"></i></span>
-    
-                <div class="info-box-content">
-                  <span class="info-box-text">Exames Agendados</span>
-                  <span class="info-box-number">{{count($ExamesAgendado)}}</span>
-                </div>
-              </div>
-            </div>
-            <!-- FIM LATERAL -->
           </div>
+
         </section>
     </div>
 
+    
+    @endcannot('user')
+    
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -202,3 +210,4 @@
 </body>
 
 @stop
+

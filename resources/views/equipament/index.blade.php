@@ -64,7 +64,7 @@
                     </div> 
 
                     
-                    <a class="btn btn-primary" href="{{route('equipament.add')}}"><i class="glyphicon glyphicon-plus"></i >Adicionar</a>
+                    <a class="btn btn-primary" href="{{route('equipament.add')}}"><i class="glyphicon glyphicon-plus"></i > Adicionar</a>
                     
 
         </div>
@@ -72,3 +72,6 @@
 </div>
 @stop
 
+@section('js')
+    
+@endsection
