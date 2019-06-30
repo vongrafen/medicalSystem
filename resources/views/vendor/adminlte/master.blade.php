@@ -17,7 +17,8 @@
     <!-- DataTable  -->
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}">
     <!-- sweetalert  -->
-    <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 

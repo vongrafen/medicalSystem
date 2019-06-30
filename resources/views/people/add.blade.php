@@ -172,7 +172,7 @@
                         @endif
                         </div>
                         <div class="col-md-12"> 
-                        <button class="btn btn-primary">Adicionar</button>
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
                         </div>
                     </form>
             </div>

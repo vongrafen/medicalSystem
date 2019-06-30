@@ -103,11 +103,11 @@ class PeopleController extends Controller
             }else
             return redirect()
                         ->route('people.index')
-                        ->with('success', 'Cadastrado com Sucesso!');
+                        ->with('error', 'Tipo de Pessoa Inválido!');
         }
    return redirect()
                 ->route('people.add')
-                ->with('success', 'Cadastrado com Sucesso!');
+                ->with('error', 'Dados cadastrais Incompletos!');
     }
 }
 
@@ -122,7 +122,6 @@ class PeopleController extends Controller
 
     public function update(Request $request, $id)
     {
-        Session::flash('message', 'Olá');
         People::find($id)->update($request->all());
         return redirect()
             ->route('people.index')
@@ -135,7 +134,9 @@ class PeopleController extends Controller
         $people = People::find($id);
         
         $people->delete();
-        return redirect()->route('people.index')->with('success', 'Pessoa deletada com sucesso!');      
+        return redirect()
+            ->route('people.index')
+            ->with('success', 'Pessoa deletada com sucesso!');      
         
     }
 }

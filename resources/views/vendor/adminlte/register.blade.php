@@ -9,6 +9,7 @@
 
 @section('body')
     <div class="register-box">
+    @include('sweet::alert')
         <div class="register-logo">
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
