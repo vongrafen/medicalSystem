@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\People;
 use Illuminate\Http\Request;
+use App\Requests\UserRequest;
+use Alert;
 use Session;
 use DB;
 use Auth;
@@ -78,7 +80,7 @@ class UserController extends Controller
                     ->back()
                     ->with('error', 'Falha ao atualizar o perfil...');
     }
-
+    //Responsavel por trazer a tela de cadastro de Usuários
     public function add()
     {
         $results = user::all();
@@ -86,24 +88,25 @@ class UserController extends Controller
         return view('User.add', ['results' => $results, 'peoples' => $peoples]);
     }
 
-    public function save(Request $request)
+    //Responsavel pelo cadastro de um novo usuário
+    public function save(UserRequest $request)
     {
-        if($request['password']!=null)
+        if($request['password']!=null){
         $request['password'] = bcrypt( $request['password']);
-         else    
+        }else{    
         unset( $request['password']);
-
+        }
        $insert = user::create($request->all()); 
        
-        if ($insert)    // Verifica se inseriu com sucesso
+       // Verifica se inseriu com sucesso
                 return redirect()
-                        ->route('home')
+                        ->back()
                         ->with('success', 'Cadastrado com Sucesso!');
-            else
-                return  redirect()
-                        ->route('home');
+            
+       
+        
     }
-
+    //Responsavel por trazer a tela de Edição de Usuario
     public function edit ($id)
     {
         $users = user::find($id);

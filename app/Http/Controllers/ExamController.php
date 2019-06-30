@@ -218,7 +218,7 @@ class ExamController extends Controller
             Exam::find($id)->update($request->all());
             return redirect()
                         ->route('Exam.index')
-                        ->with('success', 'cadastrado com sucesso!');
+                        ->with('success', 'Atualizado com sucesso!');
 
         }catch(Exeption $e){
             return redirect()

@@ -58,7 +58,7 @@
 
                         <div class=" form-group {{$errors->has('name') ? 'has-error' : '' }}">
                             <label for="password">Senha</label>
-                            <input required type="password" name="password" class="form-control" placeholder="Digite a senha">
+                            <input type="password" name="password" class="form-control" placeholder="Digite a senha">
                             <p class="info-label">Senha entre 8 a 14 caracteres, contendo letras e números</p>
                             @if($errors->has('password'))
                                 <span class="help-block">

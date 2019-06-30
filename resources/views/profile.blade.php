@@ -38,6 +38,7 @@
                         </div>
                         <div class="box-body">
                         <div class="table-responsive">
+                        @include('sweet::alert')
                             <table class="table no-margin">
                                     <tbody>
 
@@ -170,7 +171,7 @@
                         </div>
                     </div>
 
-                    <button id="mensagem-sucesso" class="btn btn-primary btn-block"> <b>Salvar</b> </button>
+                    <button class="btn btn-primary btn-block"> <b>Salvar</b> </button>
                     <button href="{{ URL::previous() }}" class="btn btn-primary btn-block"><b>Sair</b></button>
             </div>
         </div>

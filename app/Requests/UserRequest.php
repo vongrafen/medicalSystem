@@ -4,7 +4,7 @@ namespace App\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LaudoRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,10 +19,10 @@ class LaudoRequest extends FormRequest
     public function messages(){
 
         return[
-            'name.diagnostic'=>'Deve-se Preencher o Laudo',
-            'patients_id.diagnostic'=>'Precisa Selecionar um Paciente',
-            'doctor_performer_id'=>'Precisa Selecionar um Médico'
-           
+            'email.unique'=>'Este e-mail ja existe em nosso sistema',
+            'password.required'=>'O Campo senha é Obrigatório',
+            'password.max'=>'A senha é muito extensa',
+            'password.min'=>'A senha é muito curta'
         ];
     }
 
@@ -34,11 +34,8 @@ class LaudoRequest extends FormRequest
     public function rules()
     {
         return [
-            'exam_id'=>'required',
-            'patients_id'=>'required',
-            'doctor_performer_id'=>'required',
-            'status'=>'required',
-            'diagnostic'=>'required',            
+            'email' => 'required|unique:users|max:255',
+            'password' => 'required|max:14|min:8',
         ];
     }
 }

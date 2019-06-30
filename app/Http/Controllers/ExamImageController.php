@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\exam_image;
 use App\Exam;
 use Image;
+use Alert;
 
 
 class ExamImageController extends Controller
@@ -49,8 +50,13 @@ class ExamImageController extends Controller
             $IMG->Data=date('Y-m-d H:i');
             $IMG->save();
 
-            //Alert::success('Enviado!', 'Pode anexar outra.');
-            return back();
+            Alert::success('Adicionado com Sucesso!');
+            return redirect()
+                    ->back();
+        }else{
+            Alert::error('Nenhuma imagem foi selecionada');
+            return redirect()
+                    ->back();
         }
     }
 

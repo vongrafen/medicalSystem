@@ -77,7 +77,7 @@
 
                         
 
-                        <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i><p> Adicionar</button> 
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Adicionar</button> 
                     </form>
                 </div>
             </div>

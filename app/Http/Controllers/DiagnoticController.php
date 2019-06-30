@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Requests\LaudoRequest;
 use Illuminate\Support\Facades\DB; // para usar o SQL
 use Illuminate\Pagination\LengthAwarePaginator;
+use Alert;
 
 class DiagnoticController extends Controller
 {
@@ -37,8 +38,10 @@ class DiagnoticController extends Controller
     {
         
         Diagnotic::create($request->all());
-        alert()->success('', 'Laudo Cadastrado com sucesso')->persistent('OK');
-        return redirect()->route('Exam.ViewExam');
+        //alert()->success('', 'Laudo Cadastrado com sucesso')->persistent('OK');
+        return redirect()
+                ->route('Exam.ViewExam')
+                ->with('Laudo Cadastrado com sucesso');
     }
 
     /**

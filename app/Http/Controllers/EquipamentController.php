@@ -58,7 +58,7 @@ class EquipamentController extends Controller
         }finally{
             if ($insert){
             return redirect()
-                ->route('equipament.add')
+                ->route('equipament.index')
                 ->with('success', 'Cadastrado com Sucesso!');
             }
         }
@@ -79,7 +79,7 @@ class EquipamentController extends Controller
         
     }
     // Função Responsavel por salvar a edição de um equipamento
-    public function update(\App\Requests\EquipamentRequest $request, $id)
+    public function update(Request $request, $id)
     {
         
         Equipament::find($id)->update($request->all());
@@ -102,9 +102,10 @@ class EquipamentController extends Controller
             ]);
             return redirect()->route('equipament.index');
         }*/
+        
         $equipament->delete();
 
-        Alert::info('Muito bem', 'Deletado com sucesso');
+        alert()->success('', 'Deletado com Sucesso')->persistent('OK');
 
         return redirect()->route('equipament.index');        
         
