@@ -13,7 +13,16 @@
           <img width="300" height="300" src="{{asset("imagens/Exames/".$img->imagem)}}"   alt="">
           @endforeach
       @else
+      <style>
+        div.a {
+        text-align: center;
+        }
+      </style>
+        <div class="a">
           <h1>Não existe imagem!</h1>
+        </div>
+          
+          
       @endif
   </div>
 @stop

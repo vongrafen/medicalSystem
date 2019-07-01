@@ -6,6 +6,7 @@
 @section('content')
 <div class="box box-primary">
     <div class="box-header with-border">
+    @include('sweet::alert')
        <h3 class="box-title">Agende seu horário</h3>
     </div>
     <div role="form">
@@ -22,9 +23,14 @@
         </div>
       
 
-          <div class="form-group ">
+          <div class="form-group {{$errors->has('title') ? 'has-error' : '' }}">
             <label for="Title">Titulo da Agenda:</label>
-            <input  required type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title">
+              @if($errors->has('title'))
+                <span class="help-block">
+                  <strong>{{$errors->first('title')}}</strong>
+                </span>
+              @endif
           </div>
         
 
@@ -53,7 +59,7 @@
               <strong> Observação : </strong>  
               <input class="date form-control"  type="text" id="note" name="note">   
            </div>
-          
+           
         
           <div class="form-group ">
             <button type="submit" class="btn btn-primary">Agendar</button>

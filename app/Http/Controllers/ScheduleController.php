@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Schedule;
 use App\Exam;
 use App\Http\Controllers\Auth;
+use App\Requests\ScheduleRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use Illuminate\Support\Facades\DB; // para usar o SQL
+use Alert;
 
 class ScheduleController extends Controller
 {
@@ -32,7 +34,6 @@ class ScheduleController extends Controller
 
     public function createEventCliente()
     {
-        
         $funcionario = DB::select('SELECT * FROM peoples WHERE peoples.profile = 2');
         $medico = DB::select('SELECT * FROM peoples WHERE peoples.profile = 3');
         $equipamento = DB::select('SELECT * FROM equipaments');
@@ -46,9 +47,9 @@ class ScheduleController extends Controller
 
 
 
-    public function storeClient(Request $request)
+    public function storeClient(ScheduleRequest $request)
     {
-
+        if(($request)->all()){
         $event= new Schedule();
         $event->title=$request->get('title');
         $event->start_date=$request->get('startdate');
@@ -60,18 +61,22 @@ class ScheduleController extends Controller
         $event->convenant=$request->get('convenant');
         
         // verificar a data e hora
-        
         $event->save();
-        try{
-         DB::INSERT("INSERT INTO exams(scheduled_date, patients_id,id_schedules_exam, status) 
+        Alert::success('Adicionado com Sucesso!');
+        DB::INSERT("INSERT INTO exams(scheduled_date, patients_id,id_schedules_exam, status) 
                     VALUES ('$event->start_date',
                             $event->patients_id,
                             $event->id,
                             'Solicitado');");
-        }catch(Exception $e){
-            Echo('Erro ao inserir');
+        
+        Alert::success('Adicionado com Sucesso!');
+        return redirect('/ExamesPaciente');
+
+        }else{
+            Alert::error('Falha ao Agendar');
+            return redirect() 
+                    ->back();
         }
-        return redirect('/ExamesPaciente')->with('Agendado', 'Agendado Com Sucesso!');
     }
 
  //------------------- Termina parte Agendamento do Cliente--------------------------------

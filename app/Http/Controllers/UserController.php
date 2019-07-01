@@ -38,7 +38,7 @@ class UserController extends Controller
 
     public function perfilAtualiza(Request $request){
 
-
+        
         if($request->hasFile('avatar')){
             $avatar=$request->file('avatar');
             
@@ -70,8 +70,9 @@ class UserController extends Controller
             unset($data['password']);
 
         $update = $user->update($data);
-
+        
         if ($update)
+        
             return redirect()
                         ->route('profile')
                         ->with('success', 'Sucesso ao atualizar!');
@@ -151,7 +152,7 @@ class UserController extends Controller
     {
         People::find($id)->update($request->all());
         
-        return redirect()->route('profile');        
+        return redirect()->route('profile')->with('success','Perfil Atualizado com Sucesso');        
         
     }
 
