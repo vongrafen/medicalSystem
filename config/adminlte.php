@@ -108,7 +108,7 @@ return [
     */
     
     'menu' => [
-        'MAIN NAVIGATION',
+        '',
     //     <div class="painel-do-usuario">
     //     <div class="pull-left image" >
     //       <img src="/imagens/avatar/{{Auth::user()->avatar}}" class="img-circle" alt="Imagem do usuário" >
@@ -172,6 +172,11 @@ return [
             'can'  => 'adm',
             'submenu' => [
                 [
+                    'text' => 'Especialidade médicos',
+                    'icon' => 'user-plus',
+                    'url'  => '/specialty',
+                ],
+                [
                     'text' => 'Médicos',
                     'icon' => 'user-md',
                     'url'  => '/Medicos',
@@ -233,12 +238,6 @@ return [
             'icon' => 'file-image-o',
             'can'  => 'adm',
             'url'  => '/ViewExam',       
-        ],
-        [
-            'text' => 'Diagnóstico (Visualização)',
-            'icon' => 'file-text-o',
-            'can'  => 'adm',
-            'url'  => '/diagnostico',       
         ],
     ],
 
