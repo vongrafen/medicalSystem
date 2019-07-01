@@ -47,7 +47,7 @@
 
                     <hr>  
                         <button type="submit" class="btn btn-primary">Salvar</button>
-                        <button type="submit" class="btn btn-warning">Imprimir</button> 
+                        <a class="btn btn-warning" href="{{route('print',$diagnostic->exam_id)}}">Imprimir</a> 
                     </form>      
 
         </div>

@@ -1,9 +1,10 @@
 <page size="A4">
 
     <div class="header">
-      ClinisomRad - Clínica de Ultrassom e Radiodiagnóstico
-      <br>Av. Davi José Martins, 79, Centro - Ijuí - 98.700-000
-      <br>08.996.798/0001-85 - (55)3332-2555
+        ID do Exame: <b>{{$diagnostic->exam_id}}</b>
+      <br>Paciente: <b>{{$exam->name}}</b>
+      <br>Médico: <b>{{$medic->name}}</b>
+      <br>
       <br>
       
     </div>
@@ -19,14 +20,14 @@
     </table>
 
     <div class="footer">
-            ClinisomRad - Clínica de Ultrassom e Radiodiagnóstico
-            <br>Av. Davi José Martins, 79, Centro - Ijuí - 98.700-000
-            <br>08.996.798/0001-85 - (55)3332-2555
-            <br>
+        ClinisomRad - Clínica de Ultrassom e Radiodiagnóstico
+        <br>Av. Davi José Martins, 79, Centro - Ijuí - 98.700-000
+        <br>08.996.798/0001-85 - (55)3332-2555
+        <br>
             
     </div>
 
-  </page>
+ </page>
 
 <style>
 
@@ -43,7 +44,7 @@ page {
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5cm;
-  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+
 }
 page[size="A4"] {
   width: 21cm;
@@ -61,8 +62,9 @@ page[size="A4"][layout="portrait"] {
   }
 }
 .header {
-  padding-top: 30px;
-  text-align: center;
+    padding-left: 30px;
+  padding-top: 45px;
+  text-align: left;
     padding-bottom: 30px;
 }
 .footer{
