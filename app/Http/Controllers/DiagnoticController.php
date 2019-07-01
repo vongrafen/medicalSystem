@@ -119,4 +119,49 @@ class DiagnoticController extends Controller
     {
         //
     }
+
+    public function view($id)
+    {
+
+        $medic = Exam::leftJoin('peoples', 'exams.doctor_performer_id', '=', 'peoples.id')
+            ->where('exams.id', $id)
+            ->first();
+    
+        $exam = Exam::leftJoin('peoples', 'exams.patients_id', '=', 'peoples.id')
+            ->where('exams.id', $id)
+            ->first();
+        $diagnostic = Diagnotic::where('exam_id', $id)->first();
+
+        return view('diagnostic.view', [
+            'diagnostic'=>$diagnostic,
+            'exam' => $exam,
+            'medic' => $medic
+        ]);
+
+        
+        
+    }
+
+    public function print($id)
+    {
+
+        $medic = Exam::leftJoin('peoples', 'exams.doctor_performer_id', '=', 'peoples.id')
+            ->where('exams.id', $id)
+            ->first();
+    
+        $exam = Exam::leftJoin('peoples', 'exams.patients_id', '=', 'peoples.id')
+            ->where('exams.id', $id)
+            ->first();
+        $diagnostic = Diagnotic::where('exam_id', $id)->first();
+
+        return view('diagnostic.print', [
+            'diagnostic'=>$diagnostic,
+            'exam' => $exam,
+            'medic' => $medic
+        ]);
+
+        
+        
+    }
+
 }

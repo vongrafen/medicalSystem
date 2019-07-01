@@ -46,8 +46,8 @@
                                         @endif
                                 </td>
                                 <td>    
-                                    <a class="btn btn-primary" href="{{route('Exam.visualizar',$x->id)}}">ver Imagens</a>
-                                    <a class="btn btn-default" href="{{route('diagnostic.index',$x->id)}}">ver Laudo</a>
+                                    <a class="btn btn-primary" href="{{route('Exam.visualizar',$x->id)}}">Ver Imagens</a>
+                                    <a class="btn btn-warning" href="{{route('print',$x->id)}}">Ver Laudo</a>
                                     <a class="btn btn-danger" href="{{route('diagnostic.add',$x->id)}}">Criar laudo</a>
                                 </td>
                             <tr>

@@ -8,49 +8,38 @@
 
 <div class="box box-primary">
         <div class="box-header with-border">
-           <h3 class="box-title">Digitação de Laudo</h3>
+           <h3 class="box-title">Visualização de Laudo</h3>
         </div>
                <div class="box-body">
-                <form action="{{ route('diagnostic.save') }}" method="post">
-                    {{ csrf_field() }}
+                <form>                  
 
                        <div class="form-group row">
 
                             <div class="form-group col-md-8">
                                     <label for="diagnostic">Laudo</label>
-                            <textarea class="form-control" name="diagnostic" id="diagnostic"></textarea>
+                            <textarea disabled class="form-control" name="diagnostic" id="diagnostic">{{$diagnostic->diagnostic}}</textarea>
                             </div> 
 
                         <div class="form-group col-md-4">
                             <label for="exam_id">ID do Exame</label>
-                            <input readonly type="text" value="{{$Exam->id}}" class="form-control" id="exam_id" name="exam_id"> 
+                            <input readonly type="text" value="{{$diagnostic->exam_id}}" class="form-control" id="exam_id" name="exam_id"> 
                         </div>
 
                         <div class="form-group col-md-4">
                                 <label for="status">Status do Laudo</label>
-                                <select type="text" class="form-control" name="status">
-                                    <option Selected>Aguardando</option>
-                                    <option>Liberado</option>
-                                    <option>Bloqueado</option>
-                                </select>
+                                <input readonly type="text" value="{{$diagnostic->status}}" class="form-control" id="status" name="status">
                         </div>
                             
                         <div class="form-group col-md-4">
                             <label>Paciente</label>
-                            <select class="form-control"  name="patients_id" id="patients_id">
-                                @foreach($paciente as $pacientes)
-                                <option selected required value="{{ $pacientes->id }}">{{ $pacientes->name }}</option>
-                                    @endforeach
-                            </select>
+                            <input readonly type="text" value="{{$exam->name}}" class="form-control" id="patients_id" name="patients_id">
                         </div>
 
                         <div class="form-group col-md-4">
                             <label>Medico radiologista</label>
-                            <select class="form-control"  name="doctor_performer_id" id="doctor_performer_id">
+                            <input readonly type="text" value="{{$medic->name}}" class="form-control" id="doctor_performer_id" name="doctor_performer_id">
                               
-                                @foreach($medico as $medicos)
-                                <option selected required value="{{ $medicos->id }}">{{ $medicos->name }}</option>
-                                    @endforeach
+                                
                             </select>
                         </div>             
 
@@ -58,8 +47,7 @@
 
                     <hr>  
                         <button type="submit" class="btn btn-primary">Salvar</button>
-                        <button type="submit" class="btn btn-warning">Imprimir</button>
-                        <button type="submit" class="btn btn-default">Editar</button> 
+                        <button type="submit" class="btn btn-warning">Imprimir</button> 
                     </form>      
 
         </div>

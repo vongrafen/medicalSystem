@@ -135,9 +135,11 @@ Route::get('/agendamento', 'EventController@index')->name('events.agenda');
 
 Route::post('/agenda', 'EventController@addEvent')->name('events.agenda');
 
+//Routes do Laudo, Diagnóstico
 Route::view('/diagnostico', 'diagnostic.add')->name('diagnostico');
-Route::get('/diagnosticoAdd{id}', ['uses'=>'DiagnoticController@add', 'as' => 'diagnostic.add']);
-Route::get('/diagnosticoLaudo{id}', ['uses'=>'DiagnoticController@index', 'as' => 'diagnostic.index']);
+Route::get('/diagnosticoAdd/{id}', ['uses'=>'DiagnoticController@add', 'as' => 'diagnostic.add']);
+Route::get('/diagnosticoLaudo/{id}', ['uses'=>'DiagnoticController@view', 'as' => 'diagnostic.view']);
 Route::post('/diagnosticoSave', ['uses'=>'DiagnoticController@save', 'as' => 'diagnostic.save']);
+Route::get('/diagnostico/print/{id}', 'DiagnoticController@print')->name('print');
 
 });
