@@ -47,6 +47,8 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Requests\\EquipamentRequest' => $baseDir . '/app/Requests/EquipamentRequest.php',
     'App\\Requests\\LaudoRequest' => $baseDir . '/app/Requests/LaudoRequest.php',
+    'App\\Requests\\ScheduleRequest' => $baseDir . '/app/Requests/ScheduleRequest.php',
+    'App\\Requests\\UserRequest' => $baseDir . '/app/Requests/UserRequest.php',
     'App\\Requests\\examtypeRequests' => $baseDir . '/app/Requests/examtypeRequests.php',
     'App\\Schedule' => $baseDir . '/app/Schedule.php',
     'App\\User' => $baseDir . '/app/User.php',

@@ -450,6 +450,8 @@ class ComposerStaticInitecef14db37be890b6c55f973d5267f94
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Requests\\EquipamentRequest' => __DIR__ . '/../..' . '/app/Requests/EquipamentRequest.php',
         'App\\Requests\\LaudoRequest' => __DIR__ . '/../..' . '/app/Requests/LaudoRequest.php',
+        'App\\Requests\\ScheduleRequest' => __DIR__ . '/../..' . '/app/Requests/ScheduleRequest.php',
+        'App\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Requests/UserRequest.php',
         'App\\Requests\\examtypeRequests' => __DIR__ . '/../..' . '/app/Requests/examtypeRequests.php',
         'App\\Schedule' => __DIR__ . '/../..' . '/app/Schedule.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
