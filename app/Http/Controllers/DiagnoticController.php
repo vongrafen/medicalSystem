@@ -92,9 +92,22 @@ class DiagnoticController extends Controller
      * @param  \App\Diagnotic  $diagnotic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Diagnotic $diagnotic)
+    public function edit($id)
     {
-        //
+        $medic = Exam::leftJoin('peoples', 'exams.doctor_performer_id', '=', 'peoples.id')
+            ->where('exams.id', $id)
+            ->first();
+    
+        $exam = Exam::leftJoin('peoples', 'exams.patients_id', '=', 'peoples.id')
+            ->where('exams.id', $id)
+            ->first();
+        $diagnostic = Diagnotic::where('exam_id', $id)->first();
+
+        return view('diagnostic.edit', [
+            'diagnostic'=>$diagnostic,
+            'exam' => $exam,
+            'medic' => $medic
+        ]);
     }
 
     /**

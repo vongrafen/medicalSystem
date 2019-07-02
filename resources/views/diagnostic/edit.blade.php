@@ -13,9 +13,7 @@
                <div class="box-body">
                 <form>                  
 
-                       <div class="form-group row">
-
-                            
+                       <div class="form-group row">  
 
                         <div class="form-group col-md-2">
                             <label for="exam_id">ID do Exame</label>
@@ -24,17 +22,17 @@
 
                         <div class="form-group col-md-2">
                                 <label for="status">Status do Laudo</label>
-                                <input readonly type="text" value="{{$diagnostic->status}}" class="form-control" id="status" name="status">
+                                <input  type="text" value="{{$diagnostic->status}}" class="form-control" id="status" name="status">
                         </div>
                             
                         <div class="form-group col-md-4">
                             <label>Paciente</label>
-                            <input readonly type="text" value="{{$exam->name}}" class="form-control" id="patients_id" name="patients_id">
+                            <input  type="text" value="{{$exam->name}}" class="form-control" id="patients_id" name="patients_id">
                         </div>
 
                         <div class="form-group col-md-4">
                             <label>Medico radiologista</label>
-                            <input readonly type="text" value="{{$medic->name}}" class="form-control" id="doctor_performer_id" name="doctor_performer_id">
+                            <input type="text" value="{{$medic->name}}" class="form-control" id="doctor_performer_id" name="doctor_performer_id">
                               
                                 
                             </select>
@@ -46,12 +44,12 @@
                     <div class="container" >
                     
                     <label for="diagnostic">Laudo</label>
-                    <textarea style="font: 12px Arial, Helvetica, sans-serif" cols="5" rows="28" disabled class="form-control" name="diagnostic" id="diagnostic">{{$diagnostic->diagnostic}}</textarea>
+                    <textarea style="font: 12px Arial, Helvetica, sans-serif" cols="5" rows="28" class="form-control" name="diagnostic" id="diagnostic">{{$diagnostic->diagnostic}}</textarea>
                      
                     </div>
 
                     <hr>  
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <a class="btn btn-primary" href="{{route('diagnostic.save', $diagnostic->exam_id)}}" method="post">Salvar</a>
                         <a class="btn btn-warning" href="{{route('print',$diagnostic->exam_id)}}">Imprimir</a>
                         <a class="btn btn-success" href="{{route('edit',$diagnostic->exam_id)}}">Editar</a>  
                     </form>      

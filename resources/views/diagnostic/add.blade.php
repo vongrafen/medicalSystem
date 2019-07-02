@@ -14,19 +14,14 @@
                 <form action="{{ route('diagnostic.save') }}" method="post">
                     {{ csrf_field() }}
 
-                       <div class="form-group row">
+                    <div class="form-row">
 
-                            <div class="form-group col-md-8">
-                                    <label for="diagnostic">Laudo</label>
-                            <textarea class="form-control" name="diagnostic" id="diagnostic"></textarea>
-                            </div> 
-
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-2">
                             <label for="exam_id">ID do Exame</label>
                             <input readonly type="text" value="{{$Exam->id}}" class="form-control" id="exam_id" name="exam_id"> 
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-2">
                                 <label for="status">Status do Laudo</label>
                                 <select type="text" class="form-control" name="status">
                                     <option Selected>Aguardando</option>
@@ -52,24 +47,40 @@
                                 <option selected required value="{{ $medicos->id }}">{{ $medicos->name }}</option>
                                     @endforeach
                             </select>
-                        </div>             
+                        </div>
 
                     </div>
 
-                    <hr>  
+
+                        
+                        <div class="container" >
+
+                        <label for="diagnostic">Laudo</label>
+                        <textarea style="font: 12px Arial, Helvetica, sans-serif" cols="5" rows="28" class="form-control" name="diagnostic" id="diagnostic"></textarea>
+
+                        </div>
+
+                    
+
+                    <hr> 
+ 
                         <button type="submit" class="btn btn-primary">Salvar</button>
                         <button type="submit" class="btn btn-warning">Imprimir</button>
-                        <button type="submit" class="btn btn-default">Editar</button> 
+                        <button type="submit" class="btn btn-success">Editar</button> 
+ 
                     </form>      
 
         </div>
 </div>
+
+<style>#container {width:100%; text-align:center;}</style>
 
 @endsection
 
 @section('js')
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace( 'diagnostic' );
+        CKEDITOR.replace( 'teste' );
     </script>
 @append
+
