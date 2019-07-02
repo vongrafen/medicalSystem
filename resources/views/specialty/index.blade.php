@@ -6,10 +6,13 @@
 
 <div class="box box-primary">
         <div class="box-header with-border">
+        @include('sweet::alert')
            <h3 class="box-title">Consulta</h3>
         </div>
 
                 <div class="panel-body">
+
+                @include('sweet::alert')
                 
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -34,8 +37,8 @@
                                 <td>{{ $specialty->name }}</td>
                                 <td>
 
-                                    <a class="btn btn-default" href="{{route('specialty.edit', $specialty->id)}}">Editar</a>
-                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('specialty.delete',$specialty->id)}}' : false)">Deletar</a>
+                                    <a class="btn btn-default" href="{{route('specialty.edit', $specialty->id)}}"><i class="glyphicon glyphicon-edit"></i>Editar</a>
+                                    <a class="btn btn-danger" href="{{route('specialty.delete',$specialty->id)}}' : false)"><i class="glyphicon glyphicon-trash"></i >Deletar</a>
                                         
                                 </td>
                               </tr>
@@ -45,7 +48,7 @@
                     <div align="center">
                         {!! $specialties->links() !!}
                     </div> 
-                    <a class="btn btn-primary" href="{{route('specialty.add')}}">Adicionar</a>
+                    <a class="btn btn-primary" href="{{route('specialty.add')}}"><i class="glyphicon glyphicon-plus"></i >Adicionar</a>
                 </div>
             </div>
 </div>
