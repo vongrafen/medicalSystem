@@ -37,10 +37,13 @@ class DiagnoticController extends Controller
     public function save(\App\Requests\LaudoRequest $request)
     {
         
-        Diagnotic::create($request->all());
-        //alert()->success('', 'Laudo Cadastrado com sucesso')->persistent('OK');
+        $diagnostic = Diagnotic::where('exam_id',$request->exam_id)->first();
+        $diagnostic->status = $request->status;
+        $diagnostic->diagnostic = $request->diagnostic;
+        $diagnostic->save();
+
         return redirect()
-                ->route('Exam.ViewExam')
+                ->route('diagnostic.view', $request->exam_id)
                 ->with('Laudo Cadastrado com sucesso');
     }
 
@@ -101,6 +104,7 @@ class DiagnoticController extends Controller
         $exam = Exam::leftJoin('peoples', 'exams.patients_id', '=', 'peoples.id')
             ->where('exams.id', $id)
             ->first();
+
         $diagnostic = Diagnotic::where('exam_id', $id)->first();
 
         return view('diagnostic.edit', [
@@ -172,9 +176,18 @@ class DiagnoticController extends Controller
             'exam' => $exam,
             'medic' => $medic
         ]);
+    }
 
-        
-        
+    public function viewButton(Request $request, $id)
+    {
+
+        $diagnostic = Diagnotic::where('exam_id',$request->diagnostic)->first();
+
+        dd($diagnostic);
+
+        return view('Exam.ViewExam', [
+            'diagnostic' => $diagnostic
+        ]);        
     }
 
 }

@@ -29,6 +29,10 @@
 
  </page>
 
+ <script>
+  window.print();
+</script>
+
 <style>
 
 h3 {

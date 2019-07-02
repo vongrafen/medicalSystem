@@ -43,7 +43,7 @@
                                     <span type="label" class="btn btn-block btn-warning disabled">{{$x->status}}</span>
                                     @else
                                     <span type="label" class="btn btn-block btn-default disabled">{{$x->status}}</span>
-                                        @endif
+                                    @endif
                                 </td>
                                 <td>    
                                     <a class="btn btn-primary" href="{{route('Exam.visualizar',$x->id)}}">Ver Imagens</a>

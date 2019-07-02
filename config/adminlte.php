@@ -234,7 +234,7 @@ return [
             'url'  => '/Exam',       
         ],
         [
-            'text' => 'Visualizar Exames',
+            'text' => 'Laudos',
             'icon' => 'file-image-o',
             'can'  => 'adm',
             'url'  => '/ViewExam',       

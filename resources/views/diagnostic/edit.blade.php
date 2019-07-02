@@ -11,7 +11,8 @@
            <h3 class="box-title">Visualização de Laudo</h3>
         </div>
                <div class="box-body">
-                <form>                  
+                <form action="{{ route('diagnostic.save') }}" method="post">
+                    {{ csrf_field() }}                  
 
                        <div class="form-group row">  
 
@@ -22,17 +23,23 @@
 
                         <div class="form-group col-md-2">
                                 <label for="status">Status do Laudo</label>
-                                <input  type="text" value="{{$diagnostic->status}}" class="form-control" id="status" name="status">
+                                <select type="text" class="form-control" name="status">
+                                    <option Selected>Aguardando</option>
+                                    <option>Liberado</option>
+                                    <option>Bloqueado</option>
+                                </select>
                         </div>
                             
                         <div class="form-group col-md-4">
                             <label>Paciente</label>
-                            <input  type="text" value="{{$exam->name}}" class="form-control" id="patients_id" name="patients_id">
+                            <input readonly type="text" value="{{$exam->name}}" class="form-control" id="patients_id" name="patients_id">
                         </div>
+
+                        <input  type="hidden" value="{{$diagnostic->doctor_performer_id}}" class="form-control" id="medic_id" name="medic_id">
 
                         <div class="form-group col-md-4">
                             <label>Medico radiologista</label>
-                            <input type="text" value="{{$medic->name}}" class="form-control" id="doctor_performer_id" name="doctor_performer_id">
+                            <input readonly type="text" value="{{$medic->name}}" class="form-control" id="doctor_performer_id" name="doctor_performer_id">
                               
                                 
                             </select>
@@ -49,7 +56,7 @@
                     </div>
 
                     <hr>  
-                        <a class="btn btn-primary" href="{{route('diagnostic.save', $diagnostic->exam_id)}}" method="post">Salvar</a>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
                         <a class="btn btn-warning" href="{{route('print',$diagnostic->exam_id)}}">Imprimir</a>
                         <a class="btn btn-success" href="{{route('edit',$diagnostic->exam_id)}}">Editar</a>  
                     </form>      
