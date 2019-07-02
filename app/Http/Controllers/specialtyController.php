@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\specialty;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Alert;
 
 class specialtyController extends Controller
 {
@@ -63,7 +64,9 @@ class specialtyController extends Controller
     {
         specialty::find($id)->update($request->all());
         
-        return redirect()->route('specialty.index');        
+        return redirect()
+                ->route('specialty.index')
+                ->with('success', 'Especialidade atualizada com sucesso!');      
         
     }
 
@@ -72,12 +75,10 @@ class specialtyController extends Controller
         $specialty = specialty::find($id);
         
         $specialty->delete();
-         \Session::flash('flash_message',[
-            'msg'=>"Especialidade atualizada com sucesso!",
-            'class'=>"alert-success"
-        ]);
 
-        return redirect()->route('specialty.index')->with('success', 'Cadastrada com sucesso!');      
+        return redirect()
+                ->route('specialty.index')
+                ->with('info', 'Deletado com sucesso!');      
         
     }
 

@@ -7,6 +7,7 @@
  <!-- Inicio Modal -->
  <div class="box box-primary">
  <div class="box-header with-border">
+ @include('sweet::alert')
     <h3 class="box-title">Editar especialidades</h3>
  </div>
     <div role="form">
