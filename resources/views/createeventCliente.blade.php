@@ -22,6 +22,15 @@
           </select>
         </div>
       
+        <div class="form-group">
+          <label>Equipamento</label>
+          <select class="form-control"  name="equipament_id" id="equipament_id">
+              <option   value="">Selecione um Equipamento</option>       
+              @foreach($equipamento as $equipamentos)
+                  <option required value="{{ $equipamentos->id }}">{{ $equipamentos->name }}</option>
+              @endforeach
+          </select>
+        </div>
 
           <div class="form-group {{$errors->has('title') ? 'has-error' : '' }}">
             <label for="Title">Titulo da Agenda:</label>
