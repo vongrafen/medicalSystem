@@ -42,8 +42,9 @@
                                       @endif
                               </td>
                               <td>    
-                                  <a class="btn btn-info" href="{{route('paciente',$x->id)}}">Visualizar</a>
-                              </td>
+                                <a class="btn btn-primary" href="{{route('Exam.visualizar',$x->id)}}">Ver Imagens</a>
+                                <a class="btn btn-warning" href="{{route('print',$x->id)}}">Ver Laudo</a>
+                               </td>
                           <tr>
                       @endforeach                           
                       </tbody>

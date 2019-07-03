@@ -36,12 +36,8 @@ class DiagnoticController extends Controller
      */
     public function save(\App\Requests\LaudoRequest $request)
     {
-        
-        $diagnostic = Diagnotic::where('exam_id',$request->exam_id)->first();
-        
-        $diagnostic->diagnostic = $request->diagnostic;
-        $diagnostic->status = $request->status;
-        $diagnostic->save();
+
+        $insert = Diagnotic::create($request->all());
 
         return redirect()
                 ->route('diagnostic.view', $request->exam_id)

@@ -24,9 +24,9 @@
                         <div class="form-group col-md-2">
                                 <label for="status">Status do Laudo</label>
                                 <select type="text" class="form-control" name="status">
-                                    <option Selected>Aguardando</option>
-                                    <option>Liberado</option>
-                                    <option>Bloqueado</option>
+                                    <option Selected value="Aguardando">Aguardando</option>
+                                    <option value="Liberado" >Liberado</option>
+                                    <option value="Bloqueado" >Bloqueado</option>
                                 </select>
                         </div>
                             

@@ -30,7 +30,7 @@ class CreateDiagnoticsTable extends Migration
 
             $table->text('diagnostic');
              
-            $table->String('status',50);
+            $table->String('status',50)->nullable();
 
             $table->timestamps();
             $table->softDeletes();
