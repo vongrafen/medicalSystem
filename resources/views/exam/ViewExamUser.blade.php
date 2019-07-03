@@ -46,8 +46,8 @@
                                     @endif
                                 </td>
                                 <td>    
-                                    <a class="btn btn-primary" href="{{route('Exam.visualizar',$x->id)}}">Ver Imagens</a>
-                                    <a class="btn btn-warning" href="{{route('diagnostic.view',$x->id)}}">Ver Laudo</a>
+                                    <a class="btn btn-primary" href="{{route('Exam.visualizar',$x->id)}}"><i class="glyphicon glyphicon-picture"></i > Ver Imagens</a>
+                                    <a class="btn btn-warning" href="{{route('diagnostic.view',$x->id)}}"><i class="glyphicon glyphicon-list-alt"></i > Ver Laudo</a>
                                 </td>
                             <tr>
                         @endforeach                           

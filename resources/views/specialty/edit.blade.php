@@ -25,7 +25,7 @@
                                             <textarea name="description" class="form-control"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-primary">Cadastrar</button>
+                                            <button class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i > Cadastrar</button>
                                         </div>
                                     </form> 
                                     @if (Session::has('message'))

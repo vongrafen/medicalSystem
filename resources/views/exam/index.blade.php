@@ -53,9 +53,9 @@
                                     @endif
                                 </td>
                                 <td>    
-                                    <a class="btn btn-default" href="{{route('Exam.edit',$x->id)}}">Editar</a>
-                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('Exam.delete',$x->id)}}' : false)">Deletar</a>
-                                    <a class="btn btn-primary" href="{{route('Exam.images',$x->id)}}">Adicionar Imagens</a>
+                                    <a class="btn btn-default" href="{{route('Exam.edit',$x->id)}}"><i class="glyphicon glyphicon-edit"></i >  Editar</a>
+                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('Exam.delete',$x->id)}}' : false)"><i class="glyphicon glyphicon-trash"></i > Deletar</a>
+                                    <a class="btn btn-primary" href="{{route('Exam.images',$x->id)}}"><i class="glyphicon glyphicon-upload"></i >  Adicionar Imagens</a>
                                 </td>
                             <tr>
                         @endforeach                           
@@ -66,7 +66,7 @@
                         {!! $results->links() !!}
                     </div> 
 
-                    <p><a class="btn btn-primary" href="{{route('Exam.add')}}">Novo Exame</a></p>
+                    <p><a class="btn btn-primary" href="{{route('Exam.add')}}"><i class="glyphicon glyphicon-plus"></i > Novo Exame</a></p>
                 </div>
             </div>
         </div>

@@ -89,7 +89,7 @@
                         </div>
                     </div>
 
-                        <button class=" form-group btn btn-info" >Salvar</button>
+                        <button class=" form-group btn btn-info" ><i class="glyphicon glyphicon-save"></i >Salvar</button>
                     </form>
                     @if (Session::has('message'))
                     <div class="alert alert-info">{{ Session::get('message') }}</div>

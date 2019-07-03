@@ -6,6 +6,7 @@
 
 <div class="box box-primary">
  <div class="box-header with-border">
+ @include('sweet::alert')
     <h3 class="box-title">Edição de Pessoas</h3>
  </div>
     <div class="row">
@@ -184,7 +185,7 @@
                         </span>
                         @endif
                         </div>
-                        <button id="mensagem-sucesso" class=" form-group btn btn-info" >Salvar</button>
+                        <button class=" form-group btn btn-info" > <i class="glyphicon glyphicon-save"></i >Salvar</button>
                     </form>
                     @if (Session::has('message'))
                     <div class="alert alert-info">{{ Session::get('message') }}</div>

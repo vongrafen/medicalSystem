@@ -171,7 +171,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary btn-block"> <b>Salvar</b> </button>
+                    <button class="btn btn-primary btn-block"> <b><i class="glyphicon glyphicon-save"></i > Salvar</b> </button>
                     <button href="{{ URL::previous() }}" class="btn btn-primary btn-block"><b>Sair</b></button>
             </div>
         </div>

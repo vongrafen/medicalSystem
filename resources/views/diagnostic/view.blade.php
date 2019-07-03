@@ -52,8 +52,8 @@
 
                     <hr>  
                         <button type="submit" class="btn btn-primary">Salvar</button>
-                        <a class="btn btn-warning" href="{{route('print',$diagnostic->exam_id)}}">Imprimir</a>
-                        <a class="btn btn-success" href="{{route('edit',$diagnostic->exam_id)}}">Editar</a>  
+                        <a class="btn btn-warning" href="{{route('print',$diagnostic->exam_id)}}"><i class="glyphicon glyphicon-print"></i >Imprimir</a>
+                        <a class="btn btn-success" href="{{route('edit',$diagnostic->exam_id)}}"><i class="glyphicon glyphicon-edit"></i >Editar</a>  
                     </form>      
 
         </div>

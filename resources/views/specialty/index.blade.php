@@ -37,8 +37,8 @@
                                 <td>{{ $specialty->name }}</td>
                                 <td>
 
-                                    <a class="btn btn-default" href="{{route('specialty.edit', $specialty->id)}}"><i class="glyphicon glyphicon-edit"></i>Editar</a>
-                                    <a class="btn btn-danger" href="{{route('specialty.delete',$specialty->id)}}' : false)"><i class="glyphicon glyphicon-trash"></i >Deletar</a>
+                                    <a class="btn btn-default" href="{{route('specialty.edit', $specialty->id)}}"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+                                    <a class="btn btn-danger" href="{{route('specialty.delete',$specialty->id)}}' : false)"><i class="glyphicon glyphicon-trash"></i > Deletar</a>
                                         
                                 </td>
                               </tr>
@@ -48,7 +48,7 @@
                     <div align="center">
                         {!! $specialties->links() !!}
                     </div> 
-                    <a class="btn btn-primary" href="{{route('specialty.add')}}"><i class="glyphicon glyphicon-plus"></i >Adicionar</a>
+                    <a class="btn btn-primary" href="{{route('specialty.add')}}"><i class="glyphicon glyphicon-plus"></i > Adicionar</a>
                 </div>
             </div>
 </div>

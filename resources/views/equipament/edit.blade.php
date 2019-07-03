@@ -78,7 +78,7 @@
                                                 </span>
                                             @endif
                                     </div>
-                        <button class="btn btn-primary">Salvar</button>
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-check"></i >Salvar</button>
                     </form>
 
                     @if (session('status'))

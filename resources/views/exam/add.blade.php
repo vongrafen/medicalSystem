@@ -89,7 +89,7 @@
                                 </div>
                         </div>  
 
-                        <button  class=" form-group btn btn-primary">Novo Exame</button>
+                        <button  class=" form-group btn btn-primary"><i class="glyphicon glyphicon-plus"></i >Novo Exame</button>
 
                     </div>
 
