@@ -178,16 +178,4 @@ class DiagnoticController extends Controller
         ]);
     }
 
-    public function viewButton(Request $request, $id)
-    {
-
-        $diagnostic = Diagnotic::where('exam_id',$request->diagnostic)->first();
-
-        dd($diagnostic);
-
-        return view('Exam.ViewExam', [
-            'diagnostic' => $diagnostic
-        ]);        
-    }
-
 }

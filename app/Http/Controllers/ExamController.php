@@ -236,5 +236,34 @@ class ExamController extends Controller
         return redirect()->route('Exam.index')->with('success', 'Excluido com sucesso!');      
         
     }
+
+    public function indexDiagnostic()
+    {
+
+        $userAtual= auth()->user()->people_id;
+
+        $sql = "SELECT 
+                exam_id,
+                status as status 
+                FROM diagnotics
+                LEFT JOIN peoples paciente  ON paciente.id = patients_id 
+                LEFT JOIN peoples medico    ON medico.id = doctor_performer_id 
+                WHERE paciente.id = $userAtual";
+
+        // Adicionar o PAGINATE Deve usar o use Illuminate\Pagination\LengthAwarePaginator;
+        $page = 1;
+        $size = 20;
+        $data = DB::select($sql);
+        $collect = collect($data);
+        $results = new LengthAwarePaginator(
+                                 $collect->forPage($page, $size),
+                                 $collect->count(), 
+                                 $size, 
+                                 $page
+                               );
+
+        // Fim do Adicionar o PAGINATE                
+        return view('Exam.ViewExamUser', ['results' => $results]);
+    }
         
 }

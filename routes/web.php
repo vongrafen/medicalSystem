@@ -48,6 +48,7 @@ Route::group( [ 'middleware' => 'auth'], function()
     Route::get('/ExamesPaciente', ['uses'=>'ExamController@indexPaciente', 'as' => 'paciente']);
     Route::post('/Profile/update/{id}', ['uses'=>'UserController@updateProfile', 'as' => 'User.updateProfile']);
     Route::post('/perfil', ['uses'=>'UserController@perfilAtualiza','as'=>'User.perfilAtualiza']);
+    Route::get('/diagnotico/user', ['uses'=>'ExamController@indexDiagnostic', 'as' => 'Exam.ViewExamUser']);
 
 });
 
@@ -141,5 +142,6 @@ Route::get('/diagnosticoLaudo/{id}', ['uses'=>'DiagnoticController@view', 'as' =
 Route::any('/diagnosticoSave', ['uses'=>'DiagnoticController@save', 'as' => 'diagnostic.save']);
 Route::get('/diagnostico/print/{id}', 'DiagnoticController@print')->name('print');
 Route::any('/diagnostico/edit/{id}', 'DiagnoticController@edit')->name('edit');
+
 
 });

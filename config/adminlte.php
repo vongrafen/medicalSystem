@@ -239,6 +239,12 @@ return [
             'can'  => 'adm',
             'url'  => '/ViewExam',       
         ],
+        [
+            'text' => 'Meus Laudos',
+            'icon' => 'file-image-o',
+            'can'  => 'user',
+            'url'  => '/diagnotico/user',       
+        ],
     ],
 
     /*
