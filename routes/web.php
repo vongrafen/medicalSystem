@@ -142,6 +142,7 @@ Route::get('/diagnosticoLaudo/{id}', ['uses'=>'DiagnoticController@view', 'as' =
 Route::any('/diagnosticoSave', ['uses'=>'DiagnoticController@save', 'as' => 'diagnostic.save']);
 Route::get('/diagnostico/print/{id}', 'DiagnoticController@print')->name('print');
 Route::any('/diagnostico/edit/{id}', 'DiagnoticController@edit')->name('edit');
+Route::any('/diagnostico/editSave', ['uses'=>'DiagnoticController@saveEdit', 'as' => 'saveEdit']);
 
 
 });
