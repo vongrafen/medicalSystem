@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+        @include('sweet::alert')
             <div class="panel panel-default">
                 <ol class="breadcrumb panel-heading">
                 
@@ -37,8 +38,8 @@
                                 <td>{{ $x->email }}</td>
                                 <td>{{ $x->ativo }}</td>
                                 <td>    
-                                    <a class="btn btn-default" href="{{route('User.edit',$x->id)}}">Editar</a>
-                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('User.delete',$x->id)}}' : false)">Deletar</a>
+                                    <a class="btn btn-default" href="{{route('User.edit',$x->id)}}"><i class="glyphicon glyphicon-edit"></i > Editar</a>
+                                    <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('User.delete',$x->id)}}' : false)"><i class="glyphicon glyphicon-trash"></i >   Deletar</a>
                                 </td>
                             <tr>
                         @endforeach                           

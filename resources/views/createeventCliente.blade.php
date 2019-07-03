@@ -71,7 +71,7 @@
            
         
           <div class="form-group ">
-            <button type="submit" class="btn btn-primary">Agendar</button>
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-calendar"></i > Agendar</button>
           </div>
         
       </form>

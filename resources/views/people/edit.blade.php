@@ -205,7 +205,7 @@
                                             <textarea name="description" class="form-control"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                                            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i >Cadastrar</button>
                                         </div>
                                     </form>
                                 </div>

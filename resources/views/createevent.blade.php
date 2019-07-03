@@ -88,7 +88,7 @@
 
 
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Adicionar</button>
+            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i > Adicionar</button>
           </div>
 
       </form>

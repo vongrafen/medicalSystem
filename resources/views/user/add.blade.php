@@ -80,7 +80,7 @@
                             </select>
                         </div>
 
-                        <button class=" form-group btn btn-info">Adicionar</button>
+                        <button class=" form-group btn btn-info"><i class="glyphicon glyphicon-plus"></i > Adicionar</button>
                     </form>
                 </div>
             </div>

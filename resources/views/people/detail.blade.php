@@ -39,8 +39,8 @@
                                 <td>{{ $telefone->titulo }}</td>
                                 <td>{{ $telefone->telefone }}</td>
                                 <td>
-                                    <a class="btn btn-default" href="{{ route('telefone.edit',$telefone->id)}}">Editar</a>
-                                    <a class="btn btn-danger" href="{{ route('telefone.delete',$telefone->id)}}">Deletar</a>
+                                    <a class="btn btn-default" href="{{ route('telefone.edit',$telefone->id)}}"><i class="glyphicon glyphicon-edit"></i > Editar</a>
+                                    <a class="btn btn-danger" href="{{ route('telefone.delete',$telefone->id)}}"><i class="glyphicon glyphicon-trash"></i > Deletar</a>
                                 </td>
                             <tr>
                             @endforeach

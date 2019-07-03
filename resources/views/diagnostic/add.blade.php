@@ -64,9 +64,9 @@
 
                     <hr> 
  
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                        <button type="submit" class="btn btn-warning">Imprimir</button>
-                        <button type="submit" class="btn btn-success">Editar</button> 
+                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i >Salvar</button>
+                        <button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-print"></i >Imprimir</button>
+                        <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i >Editar</button> 
  
                     </form>      
 
