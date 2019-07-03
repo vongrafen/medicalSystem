@@ -81,9 +81,15 @@ class DiagnoticController extends Controller
      * @param  \App\Diagnotic  $diagnotic
      * @return \Illuminate\Http\Response
      */
-    public function show(Diagnotic $diagnotic)
+    public function saveEdit(\App\Requests\LaudoRequest $request)
     {
-        //
+        $diagnostic = Diagnotic::where('exam_id',$request->exam_id)->first();
+        $diagnostic->status = $request->status;
+        $diagnostic->diagnostic = $request->diagnostic;
+        $diagnostic->save();
+        return redirect()
+                ->route('diagnostic.view', $request->exam_id)
+                ->with('Laudo Cadastrado com sucesso');
     }
 
     /**

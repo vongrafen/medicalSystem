@@ -11,7 +11,7 @@
            <h3 class="box-title">Visualização de Laudo</h3>
         </div>
                <div class="box-body">
-                <form action="{{ route('diagnostic.save') }}" method="post">
+                <form action="{{ route('saveEdit') }}" method="post">
                     {{ csrf_field() }}                  
 
                        <div class="form-group row">  
