@@ -9,11 +9,12 @@ use alert;
 
 class EventController extends Controller
 {
-    //
+    //Função responsável por retornar a view do Criar Evento
 public function createEvent()
     {
         return view('createevent');
     }
+    //Função responsável por registrar os dados no banco de dados
 public function store(Request $request)
     {
         $event= new Event();
@@ -23,6 +24,7 @@ public function store(Request $request)
         $event->save();
         return redirect('event')->with('success', 'Event has been added');
     }
+    //Função responsável por definir os eventos no Calendário no mometno da exibição na view junto com css e js
 public function calender()
             {
                 $events = [];

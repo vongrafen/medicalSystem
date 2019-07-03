@@ -12,14 +12,14 @@ class examtypeController extends Controller
 
 
     protected $examtype;
-    
+
     public function __construct(examtype $examtype)
     {   
         $this->examtype = $examtype;
         $this->middleware('auth');
         
     }
-
+    //Função responsável por gravar o tipo de exame
     public function save(examtypeRequests $request)
     {
         $insert = 0;

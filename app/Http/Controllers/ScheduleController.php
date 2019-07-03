@@ -47,6 +47,7 @@ class ScheduleController extends Controller
 
 
 
+    //Registro da criação do evento
     public function storeClient(ScheduleRequest $request)
     {
         if(($request)->all()){
@@ -81,7 +82,7 @@ class ScheduleController extends Controller
 
  //------------------- Termina parte Agendamento do Cliente--------------------------------
 
-
+//Função responsável por armazenar  os dados do Agendamento no banco
 public function store(Request $request)
     {
         $event= new Schedule();
@@ -108,6 +109,7 @@ public function store(Request $request)
         }
         return redirect('event')->with('Agendado', 'Agendado Com Sucesso!');
     }
+    //Função responsável por inicializar evento no calendário
 public function calender()
             {
                 $events = [];

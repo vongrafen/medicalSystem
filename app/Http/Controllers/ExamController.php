@@ -52,6 +52,7 @@ class ExamController extends Controller
     }
 
 
+    //
     public function indexPaciente()
     {
         $userAtual= auth()->user()->people_id;
@@ -100,6 +101,7 @@ class ExamController extends Controller
             ]);
     }
 
+    //Função de cadastro no banco
     public function save(Request $request)
     {
        try{
@@ -115,6 +117,7 @@ class ExamController extends Controller
         }
     }
 
+    //Função de edição do exame
     public function edit ($id)
     {
         $Exam = Exam::find($id);
@@ -165,6 +168,7 @@ class ExamController extends Controller
             ]);
     }
 
+    //Função responsável pela View do exame
     public function ViewExam()
     {
 
@@ -196,6 +200,7 @@ class ExamController extends Controller
         return view('Exam.ViewExam', ['results' => $results]);
     }
 
+    //Função de visualização da imagem
     public function visualizar($id)
     {
         
@@ -212,6 +217,7 @@ class ExamController extends Controller
         return view('Exam.visualizar', ['ImagemExame' => $ImagemExame]);
     }
 
+    //Função de update da imagem
     public function update(Request $request, $id)
     {
         try{
@@ -226,7 +232,8 @@ class ExamController extends Controller
                         ->with('error', 'Erro!');
         }
     }
-         
+
+    //Função de remoção dos dados
     public function delete($id)
     {
         $Exam = Exam::find($id);

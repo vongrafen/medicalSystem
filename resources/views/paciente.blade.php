@@ -3,6 +3,9 @@
 @section('title', 'Cadastro de Exames')
 
 @section('content')
+
+<!-- View Cadastro de Exames -->
+
 <div class="box box-primary">
         <div class="box-header with-border">
            <h3 class="box-title">Meus Exames</h3>

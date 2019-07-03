@@ -11,7 +11,7 @@ use Alert;
 class EquipamentController extends Controller
 {
     protected $equipamentModel;
-
+    //Construtores responsaveis pela inicialização da Classe
     public function __construct(Equipament $equipamentModel)
     {   
         $this->equipamentModel = $equipamentModel;
@@ -23,14 +23,14 @@ class EquipamentController extends Controller
         $this->middleware('auth');
     }
 
-    // Função Responsavel por trazer todos os equipamentos cadastrados
+    // Função responsavel por trazer todos os equipamentos cadastrados
     public function index()
     {
         $TipoExame = examtype::all();
         $equipaments = $this->equipamentModel->paginate(20); // whereNotNull('rg')->
         return view('equipament.index', ['equipaments' => $equipaments, 'TipoExame' => $TipoExame]);
     }
-
+    //Função responsável por exbibir o menu
     public function menu()
     {
         return view('equipament.menu');
@@ -41,7 +41,7 @@ class EquipamentController extends Controller
         $equipament = Equipament::find($id);
         return view('equipament.detail', compact('equipament'));
     }
-    // Função Responsavel por trazer a tela de cadastro de equipamentos
+    // Função responsavel por trazer a tela de cadastro de equipamentos
     public function add()
     {
         $results = examtype::all();
