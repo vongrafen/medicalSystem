@@ -38,8 +38,9 @@ class DiagnoticController extends Controller
     {
         
         $diagnostic = Diagnotic::where('exam_id',$request->exam_id)->first();
-        $diagnostic->status = $request->status;
+        
         $diagnostic->diagnostic = $request->diagnostic;
+        $diagnostic->status = $request->status;
         $diagnostic->save();
 
         return redirect()
@@ -139,6 +140,14 @@ class DiagnoticController extends Controller
 
     public function view($id)
     {
+        $test = Diagnotic::where('exam_id', $id)->first();
+        
+        if(($test===null)==true){
+            Alert::error('Ainda não possui laudo!');
+            return redirect() 
+                    ->back();
+        }
+        else{
 
         $medic = Exam::leftJoin('peoples', 'exams.doctor_performer_id', '=', 'peoples.id')
             ->where('exams.id', $id)
@@ -155,7 +164,7 @@ class DiagnoticController extends Controller
             'medic' => $medic
         ]);
 
-        
+        }
         
     }
 
