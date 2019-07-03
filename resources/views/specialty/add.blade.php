@@ -7,6 +7,7 @@
  <!-- Inicio Modal -->
  <div class="box box-primary">
  <div class="box-header with-border">
+ @include('sweet::alert')
     <h3 class="box-title">Editar especialidades</h3>
  </div>
     <div role="form">
@@ -23,9 +24,12 @@
                                             <textarea name="description" class="form-control"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                                            <button class="btn btn-primary">Cadastrar</button>
                                         </div>
-                                    </form> 
+                                    </form>
+                                    @if (Session::has('message'))
+                                    <div class="alert alert-success">{{ Session::get('message') }}</div>
+                                    @endif 
             </div>
         </div>
     </div>

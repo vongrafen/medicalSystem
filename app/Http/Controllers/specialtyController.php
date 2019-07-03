@@ -37,7 +37,8 @@ class specialtyController extends Controller
 
         // Verifica se inseriu com sucesso
         if ($insert)
-        return redirect()->back()
+        return redirect()
+                ->route('specialty.index')
                 ->with('success', 'Especialidade cadastrada com sucesso!');
                     
 
